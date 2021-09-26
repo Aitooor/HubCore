@@ -1,0 +1,17 @@
+name: sHub
+version: ${project.version}
+main: com.github.sakiio.Hub
+softdepend: [ Vault ]
+authors: [ Sakiio ]
+commands:
+  tokens:
+    description: see you tokens balance
+    aliases:
+      - bal
+      - eco
+  hreload:
+    description: reload all config
+  setspawn:
+    description: setspawen config
+  fly:
+    description: open fly menu

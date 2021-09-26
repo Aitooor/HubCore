@@ -1,0 +1,13 @@
+MESSAGE:
+  NO-PERMS-COMMANDS: "&cYou don't have permission to execute this command."
+  ARGUMENTS-EXCEEDED-COMMAND: "&CYou have exceeded the argument limit for this command."
+  SEARCHING-ARGUMENTS: "&cYou are missing arguments, please fill in."
+  CHAT-FORMAT: "<tag> <core_prefix> <player_name>&7: <core_color> <player_message>"
+
+SPAWN:
+  WORLD: "world"
+  Y: 0
+  Z: 100
+  X: 0
+
+SCOREBOARD: "KOHI"
