@@ -9,9 +9,17 @@ authors: [ NasgarNetwork, Aitooor ]
 description: The Nasgar Network HubCore
 
 commands:
+<<<<<<< Updated upstream
    setspawn:
    fly:
    flytimer:
    hubcore:
      aliases:
        - hc
+=======
+  setspawn:
+  fly:
+    aliases:
+      - volar
+  flytimer:
+>>>>>>> Stashed changes

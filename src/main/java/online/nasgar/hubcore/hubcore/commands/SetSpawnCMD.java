@@ -9,24 +9,26 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import static online.nasgar.hubcore.hubcore.utils.Message.PREFIX;
+
 public class SetSpawnCMD implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!(sender instanceof Player))
+        if(!(sender instanceof Player)) 
             return true;
-
+        
         Player player = (Player) sender;
-
-        if (!player.hasPermission("hubcore.setspawn"))
+	
+	if(!player.isOp()) 
             return true;
-
+        
         HubCore.getInstance().getConfig().set("LOCATION.SPAWN", LocationUtil.parseToString(player.getLocation()));
         HubCore.getInstance().saveConfig();
         HubCore.getInstance().reloadConfig();
-
-        player.sendMessage(Message.translate(Message.PREFIX + "&aThe spawn has been set."));
-        player.playSound(player.getLocation(), Sound.LEVEL_UP, 1.0f, 1.0f);
+        
+        player.sendMessage(Message.translate(PREFIX + "&aThe spawn has been set."));
         return true;
     }
+
 }

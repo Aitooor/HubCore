@@ -1,9 +1,11 @@
 package online.nasgar.hubcore.hubcore.commands;
 
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.Message;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -22,7 +24,7 @@ public class FlyCMD implements CommandExecutor {
     }
 
     @Override
-    public boolean onCommand(CommandSender sender, org.bukkit.command.Command cmd, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("fly")) {
             if (args.length == 0) {
                 if (!sender.hasPermission("hubcore.fly")) {
@@ -91,13 +93,14 @@ public class FlyCMD implements CommandExecutor {
                 return true;
             }
             if (args.length != 2) {
-                sender.sendMessage(Message.translate("&f"));
-                sender.sendMessage(Message.translate("&f"));
-                sender.sendMessage(Message.translate("&b&lNASGAR"));
-                sender.sendMessage(Message.translate("&f"));
-                sender.sendMessage(Message.translate("&a/flytimer &f<name> <time + s|m|h> &7(ie. /flytimer notch 10m"));
-                sender.sendMessage(Message.translate("&f"));
-                sender.sendMessage(Message.translate("&f"));
+                Player player = (Player) sender;
+                CenteredMessage.Chat.sendCenteredMessageV2(player, "&f");
+                CenteredMessage.Chat.sendCenteredMessageV2(player, "&f");
+                CenteredMessage.Chat.sendCenteredMessageV2(player, "&b&lNASGAR");
+                CenteredMessage.Chat.sendCenteredMessageV2(player, "&f");
+                CenteredMessage.Chat.sendCenteredMessageV2(player, "&a/flytimer &f<name> <time + s|m|h> &7(ie. /flytimer notch 10m");
+                CenteredMessage.Chat.sendCenteredMessageV2(player, "&f");
+                CenteredMessage.Chat.sendCenteredMessageV2(player, "&f");
             }
 
             final Player p;
@@ -116,13 +119,13 @@ public class FlyCMD implements CommandExecutor {
             } else if (args[1].endsWith("h")) {
                 time = Integer.parseInt(args[1].substring(0, args[1].length() - 1)) * 20 * 60 * 60;
             } else {
-                p.sendMessage(Message.translate(PREFIX + "&aTo specify a time, do a number followed by &fs|m|h &7(ie. 10m or 1h or 53s)"));
+                p.sendMessage(Message.translate(PREFIX + "&fTo specify a time, do a number followed by &a(Number)s|m|h &7(ie. 10m or 1h or 53s)"));
                 return true;
             }
 
             p.setAllowFlight(true);
-            sender.sendMessage(Message.translate(PREFIX + ChatColor.WHITE + p.getDisplayName() + " &ais allowed to fly for &f" + args[1]));
-            p.sendMessage(Message.translate(PREFIX + "&aYou are allowed to fly for &f" + args[1]));
+            sender.sendMessage(Message.translate(PREFIX + ChatColor.GREEN + p.getDisplayName() + " &fis allowed to fly for &a" + args[1]));
+            p.sendMessage(Message.translate(PREFIX + "&fYou are allowed to fly for &a" + args[1]));
             flying.add(p);
 
             Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
@@ -160,15 +163,15 @@ public class FlyCMD implements CommandExecutor {
             return;
         }
         if (flying.contains(p)) {
-            p.sendMessage(ChatColor.YELLOW + "Your fly mode was toggled " + ChatColor.DARK_RED + "off" + ChatColor.YELLOW + ".");
+            p.sendMessage(Message.translate(PREFIX + "&fYour fly mode was toggled &coff"));
             flying.remove(p);
             p.setAllowFlight(false);
-            sender.sendMessage(ChatColor.YELLOW + "Fly mode " + ChatColor.DARK_RED + "disabled" + ChatColor.YELLOW + " for " + p.getDisplayName() + ChatColor.YELLOW + ".");
+            sender.sendMessage(Message.translate(PREFIX + "&fFly mode &cdisabled &ffor &a" + p.getDisplayName()));
         } else {
-            p.sendMessage(ChatColor.YELLOW + "Your fly mode was toggled " + ChatColor.DARK_GREEN + "on" + ChatColor.YELLOW + ".");
+            p.sendMessage(Message.translate(PREFIX + "&fYour fly mode was toggled &aon"));
             flying.add(p);
             p.setAllowFlight(true);
-            sender.sendMessage(ChatColor.YELLOW + "Fly mode " + ChatColor.DARK_GREEN + "enabled" + ChatColor.YELLOW + " for " + p.getDisplayName() + ChatColor.YELLOW + ".");
+            sender.sendMessage(Message.translate(PREFIX + "&fFly mode &aenabled &ffor &a" + p.getDisplayName()));
         }
     }
 
@@ -182,8 +185,8 @@ public class FlyCMD implements CommandExecutor {
         float f = (float) (integer * .01);
         p.setFlySpeed(f);
 
-        sender.sendMessage(Message.translate("&aSet &f" + p.getDisplayName() + "&a's fly speed to &a" + speed + "%"));
-        p.sendMessage(Message.translate("&aYour fly speed was set to &a" + speed + "%"));
+        sender.sendMessage(Message.translate(PREFIX + "&fSet &f" + p.getDisplayName() + "&f's fly speed to &a" + speed + "%"));
+        p.sendMessage(Message.translate(PREFIX + "&fYour fly speed was set to &a" + speed + "%"));
     }
 
 }

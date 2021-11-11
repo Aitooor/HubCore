@@ -4,7 +4,13 @@ import lombok.Getter;
 import online.nasgar.hubcore.hubcore.commands.FlyCMD;
 import online.nasgar.hubcore.hubcore.commands.ReloadCMD;
 import online.nasgar.hubcore.hubcore.commands.SetSpawnCMD;
+<<<<<<< Updated upstream
 import online.nasgar.authcore.listeners.PlayerListeners;
+=======
+import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
+import online.nasgar.hubcore.hubcore.utils.Message;
+import org.bukkit.plugin.PluginManager;
+>>>>>>> Stashed changes
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -23,13 +29,20 @@ public final class HubCore extends JavaPlugin {
         this.saveDefaultConfig();
         this.getServer().getPluginManager().registerEvents(new PlayerListeners(), this);
 
+<<<<<<< Updated upstream
         loadCMD();
+=======
+        getLogger().info(Message.translate("HUBCORE ENABLED CORRECTLY"));
+>>>>>>> Stashed changes
     }
 
+    public void setConfig(String path, Object value) {
+        this.getConfig().set(path, value);
+    }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        getLogger().info(Message.translate("DISABLED CORRECTLY"));
     }
 
     public void loadCMD() {
@@ -49,6 +62,7 @@ public final class HubCore extends JavaPlugin {
     }
 
     private void loadBanner() {
+<<<<<<< Updated upstream
         getLogger().info(PREFIX_CONSOLE + "-------------------------------------");
         getLogger().info(PREFIX_CONSOLE + "Simple HubCore plugin coded by " + getDescription().getAuthors());
         getLogger().info(PREFIX_CONSOLE + "for Nasgar Network");
@@ -61,5 +75,16 @@ public final class HubCore extends JavaPlugin {
         getLogger().info(PREFIX_CONSOLE + "ChatFormat Enabled.");
         getLogger().info("");
         getLogger().info(PREFIX_CONSOLE + "CMDs Enabled.");
+=======
+        getLogger().info(Message.translate("-------------------------------------"));
+        getLogger().info(Message.translate("Simple HubCore plugin coded by " + getDescription().getAuthors()));
+        getLogger().info(Message.translate("for Nasgar Network"));
+        getLogger().info(Message.translate(""));
+        getLogger().info(Message.translate("Plugin Version: " + getDescription().getVersion()));
+        getLogger().info(Message.translate("-------------------------------------"));
+        getLogger().info(Message.translate(""));
+        getLogger().info(Message.translate("CARGANDO TODO..."));
+        getLogger().info(Message.translate(""));
+>>>>>>> Stashed changes
     }
 }

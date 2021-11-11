@@ -1,6 +1,7 @@
-package online.nasgar.authcore.listeners;
+package online.nasgar.hubcore.hubcore.listeners;
 
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import org.bukkit.World;
 import org.bukkit.Bukkit;
@@ -17,6 +18,8 @@ import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class PlayerListeners implements Listener {
 
@@ -33,6 +36,20 @@ public class PlayerListeners implements Listener {
         player.setFoodLevel(20);
         player.getActivePotionEffects().clear();
         tpSpawn(player);
+
+
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "&b&lNASGAR &7| &fLobby");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "&aWEB &f&ohttps://nasgar.online");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "&aTIENDA &f&ohttps://nasgar.online/shop");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "&aDISCORD &f&ohttps://ds.nasgar.online");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "&aIP &f&onasgar.online");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "&7&oDesde Nasgar esperamos que disfrutéis");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "&7&ode la network. ¡Juguemos!");
+
+        player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
 
     }
 
