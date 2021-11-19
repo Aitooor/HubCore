@@ -37,7 +37,7 @@ public class PlayerListeners implements Listener {
         rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
 
 
-        event.setFormat(Message.translate(rank + player.getDisplayName() + "&7: " + event.getMessage()));
+        event.setFormat(Message.translate(rank + player.getDisplayName() + "&7: &r" + event.getMessage()));
     }
 
     @EventHandler

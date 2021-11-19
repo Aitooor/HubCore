@@ -15,8 +15,6 @@ commands:
   hubcore:
     aliases:
       - hc
-    subcommands:
-      - speed
   fly:
     aliases:
       - volar

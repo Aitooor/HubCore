@@ -9,11 +9,11 @@ public class Message {
 
     public static String PREFIX = "&b&lNASGAR ";
 
-    public static String PREFIX_CONSOLE = "&b&lHUBCORE ";
+    public static String PREFIX_CONSOLE = "HUBCORE ";
 
     public static String NO_PERMISSION = PREFIX + "&cYou don't have permissions.";
 
-    public static String NO_CONSOLE = PREFIX_CONSOLE + "&cConsole can't execute this command.";
+    public static String NO_CONSOLE = PREFIX_CONSOLE + "Console can't execute this command.";
 
     public static String NO_PLAYER_FOUND = PREFIX + "&cNot player found.";
 

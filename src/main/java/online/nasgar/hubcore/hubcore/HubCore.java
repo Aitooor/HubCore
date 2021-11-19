@@ -9,9 +9,6 @@ import online.nasgar.hubcore.hubcore.utils.Message;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-
-import static online.nasgar.hubcore.hubcore.utils.Message.PREFIX_CONSOLE;
-
 public final class HubCore extends JavaPlugin {
 
     @Getter private static HubCore instance;
@@ -62,18 +59,18 @@ public final class HubCore extends JavaPlugin {
     }
 
     private void loadBanner() {
-        getLogger().info(PREFIX_CONSOLE + "-------------------------------------");
-        getLogger().info(PREFIX_CONSOLE + "Simple HubCore plugin coded by " + getDescription().getAuthors());
-        getLogger().info(PREFIX_CONSOLE + "for Nasgar Network");
-        getLogger().info(PREFIX_CONSOLE + "");
-        getLogger().info(PREFIX_CONSOLE + "Plugin Version: " + getDescription().getVersion());
-        getLogger().info(PREFIX_CONSOLE + "-------------------------------------");
+        getLogger().info("-------------------------------------");
+        getLogger().info("Simple HubCore plugin coded by " + getDescription().getAuthors());
+        getLogger().info("for Nasgar Network");
         getLogger().info("");
-        getLogger().info(PREFIX_CONSOLE + "HUBCORE ENABLING EVERYTHING...");
+        getLogger().info("Plugin Version: " + getDescription().getVersion());
+        getLogger().info("-------------------------------------");
         getLogger().info("");
-        getLogger().info(PREFIX_CONSOLE + "ChatFormat Enabled.");
+        getLogger().info("HUBCORE ENABLING EVERYTHING...");
         getLogger().info("");
-        getLogger().info(PREFIX_CONSOLE + "CMDs Enabled.");
+        getLogger().info("ChatFormat Enabled.");
+        getLogger().info("");
+        getLogger().info("CMDs Enabled.");
         getLogger().info(Message.translate("-------------------------------------"));
         getLogger().info(Message.translate("Simple HubCore plugin coded by " + getDescription().getAuthors()));
         getLogger().info(Message.translate("for Nasgar Network"));
