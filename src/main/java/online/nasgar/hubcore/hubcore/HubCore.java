@@ -4,13 +4,9 @@ import lombok.Getter;
 import online.nasgar.hubcore.hubcore.commands.FlyCMD;
 import online.nasgar.hubcore.hubcore.commands.ReloadCMD;
 import online.nasgar.hubcore.hubcore.commands.SetSpawnCMD;
-<<<<<<< Updated upstream
-import online.nasgar.authcore.listeners.PlayerListeners;
-=======
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.utils.Message;
-import org.bukkit.plugin.PluginManager;
->>>>>>> Stashed changes
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 
@@ -27,13 +23,17 @@ public final class HubCore extends JavaPlugin {
         loadBanner();
 
         this.saveDefaultConfig();
-        this.getServer().getPluginManager().registerEvents(new PlayerListeners(), this);
 
-<<<<<<< Updated upstream
         loadCMD();
-=======
-        getLogger().info(Message.translate("HUBCORE ENABLED CORRECTLY"));
->>>>>>> Stashed changes
+
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            this.getServer().getPluginManager().registerEvents(new PlayerListeners(), this);
+        } else {
+            getLogger().warning("Could not find PlaceholderAPI! This plugin is required.");
+            Bukkit.getPluginManager().disablePlugin(this);
+        }
+
+        getLogger().info(Message.translate("ENABLED CORRECTLY"));
     }
 
     public void setConfig(String path, Object value) {
@@ -62,7 +62,6 @@ public final class HubCore extends JavaPlugin {
     }
 
     private void loadBanner() {
-<<<<<<< Updated upstream
         getLogger().info(PREFIX_CONSOLE + "-------------------------------------");
         getLogger().info(PREFIX_CONSOLE + "Simple HubCore plugin coded by " + getDescription().getAuthors());
         getLogger().info(PREFIX_CONSOLE + "for Nasgar Network");
@@ -75,7 +74,6 @@ public final class HubCore extends JavaPlugin {
         getLogger().info(PREFIX_CONSOLE + "ChatFormat Enabled.");
         getLogger().info("");
         getLogger().info(PREFIX_CONSOLE + "CMDs Enabled.");
-=======
         getLogger().info(Message.translate("-------------------------------------"));
         getLogger().info(Message.translate("Simple HubCore plugin coded by " + getDescription().getAuthors()));
         getLogger().info(Message.translate("for Nasgar Network"));
@@ -85,6 +83,5 @@ public final class HubCore extends JavaPlugin {
         getLogger().info(Message.translate(""));
         getLogger().info(Message.translate("CARGANDO TODO..."));
         getLogger().info(Message.translate(""));
->>>>>>> Stashed changes
     }
 }
