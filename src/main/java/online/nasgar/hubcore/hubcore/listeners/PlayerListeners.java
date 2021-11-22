@@ -2,6 +2,8 @@ package online.nasgar.hubcore.hubcore.listeners;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.message.provider.MessageHandlerProvider;
+import online.nasgar.hubcore.hubcore.message.user.sender.UserMessageSender;
 import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import online.nasgar.hubcore.hubcore.utils.Message;
@@ -66,6 +68,7 @@ public class PlayerListeners implements Listener {
         CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lDISCORD &7&ohttps://ds.nasgar.online");
         CenteredMessage.Chat.sendCenteredMessageV2(player, "");
         CenteredMessage.Chat.sendCenteredMessageV2(player, "&e&oDesde Nasgar esperamos que disfrutes");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, "");
         CenteredMessage.Chat.sendCenteredMessageV2(player, rank + name + "&e&o¡Juguemos!");
 
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
