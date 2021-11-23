@@ -1,11 +1,9 @@
 package online.nasgar.hubcore.hubcore.utils;
 
 import online.nasgar.hubcore.hubcore.HubCore;
-import online.nasgar.hubcore.hubcore.api.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public interface Utils {
 
@@ -22,14 +20,6 @@ public interface Utils {
 
     static String ct(String source){
         return ChatColor.translateAlternateColorCodes('&', source);
-    }
-
-    static void send(User user, String prefix, String... args){
-        Player player = user.getPlayer();
-        if(player == null){
-            return;
-        }
-        send(player, prefix, args);
     }
 
     static void send(CommandSender sender, String prefix, String... args) {

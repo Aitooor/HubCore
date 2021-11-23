@@ -24,24 +24,29 @@ public final class HubCore extends JavaPlugin {
     @Getter private static HubCore instance;
     @Getter private MessageHandler messageHandler;
 
-    private FlyCMD cmd;
-
     @Override
     public void onEnable() {
         loadBanner();
 
         this.saveDefaultConfig();
 
+        getLogger().info("CMDs Enabled.");
+        getLogger().info("");
         loadCMD();
 
+        getLogger().info("Enable languages.");
+        getLogger().info("");
         loadLanguages();
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            this.getServer().getPluginManager().registerEvents(new PlayerListeners(), this);
+            this.getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
+            getLogger().info("Hooked PlaceholderAPI.");
+            getLogger().info("");
         } else {
             getLogger().warning("Could not find PlaceholderAPI! This plugin is required.");
             Bukkit.getPluginManager().disablePlugin(this);
         }
+
 
         getLogger().info(Message.translate("ENABLED CORRECTLY"));
     }
@@ -59,11 +64,9 @@ public final class HubCore extends JavaPlugin {
 
         instance = this;
 
-        this.cmd = new FlyCMD(this);
-        this.getCommand("fly").setExecutor(cmd);
-        this.getCommand("flytimer").setExecutor(cmd);
+        this.getCommand("fly").setExecutor(new FlyCMD(this));
 
-        this.getCommand("setspawn").setExecutor(new SetSpawnCMD());
+        this.getCommand("setspawn").setExecutor(new SetSpawnCMD(this));
 
         this.getCommand("hubcore").setExecutor(new ReloadCMD(this));
 
@@ -107,19 +110,9 @@ public final class HubCore extends JavaPlugin {
         getLogger().info("Plugin Version: " + getDescription().getVersion());
         getLogger().info("-------------------------------------");
         getLogger().info("");
-        getLogger().info("HUBCORE ENABLING EVERYTHING...");
+        getLogger().info("ENABLING EVERYTHING...");
         getLogger().info("");
         getLogger().info("ChatFormat Enabled.");
         getLogger().info("");
-        getLogger().info("CMDs Enabled.");
-        getLogger().info(Message.translate("-------------------------------------"));
-        getLogger().info(Message.translate("Simple HubCore plugin coded by " + getDescription().getAuthors()));
-        getLogger().info(Message.translate("for Nasgar Network"));
-        getLogger().info(Message.translate(""));
-        getLogger().info(Message.translate("Plugin Version: " + getDescription().getVersion()));
-        getLogger().info(Message.translate("-------------------------------------"));
-        getLogger().info(Message.translate(""));
-        getLogger().info(Message.translate("CARGANDO TODO..."));
-        getLogger().info(Message.translate(""));
     }
 }

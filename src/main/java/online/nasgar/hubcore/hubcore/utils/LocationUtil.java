@@ -25,12 +25,11 @@ public class LocationUtil {
             double x = Double.parseDouble(data[0]);
             double y = Double.parseDouble(data[1]);
             double z = Double.parseDouble(data[2]);
-            float pitch = Float.valueOf(data[4]);
-            float yaw = Float.valueOf(data[3]);
+            float pitch = Float.parseFloat(data[4]);
+            float yaw = Float.parseFloat(data[3]);
             World world = Bukkit.getWorld(data[5]);
-            Location location = new Location(world, x, y, z, yaw, pitch);
-            
-            return location;
+
+            return new Location(world, x, y, z, yaw, pitch);
             
         } catch (NumberFormatException ex) {
             ex.printStackTrace();

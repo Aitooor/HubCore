@@ -1,1 +1,22 @@
-path: "Test in lang_en"
+NOPERMISSIONS:
+  PREFIX: "&b&lNASGAR &cYou don't have permissions"
+NOCONSOLE:
+  PREFIX: "HUBCORE Console can't execute this command"
+NOPLAYERFOUND:
+  PREFIX: "&b&lNASGAR &cNot player found"
+SYNTAXERROR:
+  PREFIX: "&b&lNASGAR &cSyntax error, type correctly"
+NO_PLAYER_ONLINE:
+  PREFIX: "&b&lNASGAR &cPlayer isn't online"
+CONFIGRELOAD:
+  MESSAGE: "&b&lNASGAR &aConfig reloaded"
+SETSPAWN:
+  MESSAGE: "&b&lNASGAR &aThe spawn has been set"
+ONJOIN:
+  ONE: "&e&oFrom Nasgar we hope you enjoy"
+  TWO: "&e&oLet's play!"
+FLY:
+  TOGGLE_OFF: "&b&lNASGAR &fYour fly mode was toggled &coff"
+  TOGGLE_ON: "&b&lNASGAR &fYour fly mode was toggled &aon"
+  DISABLED_TO: "&b&lNASGAR &fFly mode &cdisabled &ffor &a%player%"
+  ENABLED_TO: "&b&lNASGAR &fFly mode &aenabled &ffor &a%player%"

@@ -105,9 +105,6 @@ public class CenteredMessage {
         private final char character;
         private final int length;
 
-        private final static int CENTER_PX = 127;
-        private final static int MAX_PX = 240;
-
         private final static int CENTER_CHAT_PX = 154;
         private final static int MAX_CHAT_PX = 250;
 
@@ -153,7 +150,7 @@ public class CenteredMessage {
                 if(c == '§'){
                     previousCode = true;
                     continue;
-                }else if(previousCode == true){
+                }else if(previousCode){
                     previousCode = false;
                     recentColorCode = "§" + c;
                     if(c == 'l' || c == 'L'){
@@ -170,7 +167,7 @@ public class CenteredMessage {
                     messagePxSize++;
                 }
                 if(messagePxSize >= MAX_CHAT_PX){
-                    toSendAfter = recentColorCode + message.substring(lastSpaceIndex + 1, message.length());
+                    toSendAfter = recentColorCode + message.substring(lastSpaceIndex + 1);
                     message = message.substring(0, lastSpaceIndex + 1);
                     break;
                 }
@@ -185,7 +182,7 @@ public class CenteredMessage {
                 sb.append(" ");
                 compensated += spaceLength;
             }
-            player.sendMessage(sb.toString() + message);
+            player.sendMessage(sb + message);
             if(toSendAfter != null) {
                 sendCenteredMessageV2(player, toSendAfter);
             }

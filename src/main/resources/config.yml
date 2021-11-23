@@ -1,6 +1,6 @@
-# On join message title
-ONJOIN:
-  TITLE: "&b&lNASGAR &7| &fLobby &7#1"
 # /setspawn location info
 LOCATION:
-  WORLD: "Lobby"
+  WORLD: ""
+# On join message title
+ONJOIN:
+  TITLE: "&b&lNASGAR &7| &fHUB &7#1"

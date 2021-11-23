@@ -1,1 +1,22 @@
-path: "Prueba en lang_es"
+NOPERMISSIONS:
+  PREFIX: "&b&lNASGAR &cNo tienes permisos para hacer eso"
+NOCONSOLE:
+  PREFIX: "HUBCORE La consola no puede ejecutar este comando"
+NOPLAYERFOUND:
+  PREFIX: "&b&lNASGAR &cNo se ha encontrado al jugador/a"
+SYNTAXERROR:
+  PREFIX: "&b&lNASGAR &cError de sintaxis, escriba correctamente"
+NO_PLAYER_ONLINE:
+  PREFIX: "&b&lNASGAR &cEl jugador/a no está en línea"
+CONFIGRELOAD:
+  MESSAGE: "&b&lNASGAR &aConfiguracion recargada"
+SETSPAWN:
+  MESSAGE: "&b&lNASGAR &aEl spawn ha sido establecido"
+ONJOIN:
+  ONE: "&e&oDesde Nasgar esperamos que disfrutes"
+  TWO: "&e&o¡Juguemos!"
+FLY:
+  TOGGLE_OFF: "&b&lNASGAR &fTu modo de vuelo fue &cdesactivado"
+  TOGGLE_ON: "&b&lNASGAR &fTu modo de vuelo fue &aactivado"
+  DISABLED_TO: "&b&lNASGAR &fModo de vuelo &cdesactivado &fpara &a%player%"
+  ENABLED_TO: "&b&lNASGAR &fModo de vuelo &activado &fpara &a%player%"

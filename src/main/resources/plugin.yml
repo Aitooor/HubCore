@@ -18,4 +18,3 @@ commands:
   fly:
     aliases:
       - volar
-  flytimer:

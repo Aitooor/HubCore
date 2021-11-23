@@ -2,7 +2,6 @@ package online.nasgar.hubcore.hubcore.listeners;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import online.nasgar.hubcore.hubcore.HubCore;
-import online.nasgar.hubcore.hubcore.message.provider.MessageHandlerProvider;
 import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import online.nasgar.hubcore.hubcore.utils.Message;
@@ -25,6 +24,12 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class PlayerListeners implements Listener {
+
+    private final HubCore plugin;
+
+    public PlayerListeners(HubCore instance) {
+        plugin = instance;
+    }
 
     FileConfiguration config = HubCore.getInstance().getConfig();
 
@@ -66,9 +71,9 @@ public class PlayerListeners implements Listener {
         CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lTIENDA &7&ohttps://nasgar.online/shop");
         CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lDISCORD &7&ohttps://ds.nasgar.online");
         CenteredMessage.Chat.sendCenteredMessageV2(player, "");
-        CenteredMessage.Chat.sendCenteredMessageV2(player, "&e&oDesde Nasgar esperamos que disfrutes");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, plugin.getMessageHandler().get(player, "ONJOIN.ONE"));
         CenteredMessage.Chat.sendCenteredMessageV2(player, "");
-        CenteredMessage.Chat.sendCenteredMessageV2(player, rank + name + "&e&o¡Juguemos!");
+        CenteredMessage.Chat.sendCenteredMessageV2(player, rank + name + plugin.getMessageHandler().get(player, "ONJOIN.TWO"));
 
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
 
@@ -151,6 +156,10 @@ public class PlayerListeners implements Listener {
     @EventHandler
     public void onPluginLoad(PluginEnableEvent event) {
         World lobbyWorld = Bukkit.getServer().getWorld(config.getString("LOCATION.WORLD"));
+
+        if(lobbyWorld == null) {
+            return;
+        }
 
         lobbyWorld.setGameRuleValue("doDaylightCycle", "false");
         lobbyWorld.setTime(3600);
