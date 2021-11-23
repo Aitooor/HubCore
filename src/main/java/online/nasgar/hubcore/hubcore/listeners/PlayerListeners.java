@@ -3,7 +3,6 @@ package online.nasgar.hubcore.hubcore.listeners;
 import me.clip.placeholderapi.PlaceholderAPI;
 import online.nasgar.hubcore.hubcore.HubCore;
 import online.nasgar.hubcore.hubcore.message.provider.MessageHandlerProvider;
-import online.nasgar.hubcore.hubcore.message.user.sender.UserMessageSender;
 import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import online.nasgar.hubcore.hubcore.utils.Message;

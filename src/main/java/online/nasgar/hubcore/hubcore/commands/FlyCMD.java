@@ -36,6 +36,8 @@ public class FlyCMD implements CommandExecutor {
                     return true;
                 }
                 Player p = (Player) sender;
+                // Example
+                plugin.getMessageHandler().sendReplacing(p, "path", "%player%", p.getName());
                 toggleFly(sender, p.getName());
             } else if (args.length == 1) {
                 if (!sender.hasPermission("hubcore.fly.others")) {
