@@ -30,25 +30,25 @@ public final class HubCore extends JavaPlugin {
 
         this.saveDefaultConfig();
 
-        getLogger().info("CMDs Enabled.");
-        getLogger().info("");
+        Utils.log("&aCMDs Enabled.");
+        Utils.log("");
         loadCMD();
 
-        getLogger().info("Enable languages.");
-        getLogger().info("");
+        Utils.log("&aLanguages Enabled.");
+        Utils.log("");
         loadLanguages();
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             this.getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
-            getLogger().info("Hooked PlaceholderAPI.");
-            getLogger().info("");
+            Utils.log("&aHooked to PlaceholderAPI.");
+            Utils.log("");
         } else {
-            getLogger().warning("Could not find PlaceholderAPI! This plugin is required.");
+            Utils.logError("Could not find PlaceholderAPI! This plugin is required.");
             Bukkit.getPluginManager().disablePlugin(this);
         }
 
 
-        getLogger().info(Message.translate("ENABLED CORRECTLY"));
+        Utils.log(Message.translate("&aENABLED CORRECTLY"));
     }
 
     public void setConfig(String path, Object value) {
@@ -57,7 +57,7 @@ public final class HubCore extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        getLogger().info(Message.translate("DISABLED CORRECTLY"));
+        Utils.log(Message.translate("&cDISABLED CORRECTLY"));
     }
 
     public void loadCMD() {
@@ -103,16 +103,16 @@ public final class HubCore extends JavaPlugin {
     }
 
     private void loadBanner() {
-        getLogger().info("-------------------------------------");
-        getLogger().info("Simple HubCore plugin coded by " + getDescription().getAuthors());
-        getLogger().info("for Nasgar Network");
-        getLogger().info("");
-        getLogger().info("Plugin Version: " + getDescription().getVersion());
-        getLogger().info("-------------------------------------");
-        getLogger().info("");
-        getLogger().info("ENABLING EVERYTHING...");
-        getLogger().info("");
-        getLogger().info("ChatFormat Enabled.");
-        getLogger().info("");
+        Utils.log("&8---------------------------------------------------");
+        Utils.log("&fSimple HubCore plugin coded by &a" + getDescription().getAuthors());
+        Utils.log("&ffor Nasgar Network");
+        Utils.log("");
+        Utils.log("&fPlugin Version &a" + getDescription().getVersion());
+        Utils.log("&8---------------------------------------------------");
+        Utils.log("");
+        Utils.log("&aENABLING EVERYTHING...");
+        Utils.log("");
+        Utils.log("&aChatFormat Enabled.");
+        Utils.log("");
     }
 }
