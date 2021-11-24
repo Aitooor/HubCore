@@ -2,6 +2,7 @@ package online.nasgar.hubcore.hubcore.listeners;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.managers.TabManager;
 import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import online.nasgar.hubcore.hubcore.utils.Message;
@@ -47,36 +48,55 @@ public class PlayerListeners implements Listener {
     }
 
     @EventHandler
+    public void onLogin(PlayerLoginEvent event) {
+        Bukkit.getScheduler().runTaskLater(
+                plugin,
+                () -> {
+                    Player player = event.getPlayer();
+                    if (player == null) {
+                        return;
+                    }
+
+                    player.sendMessage(plugin.getMessageHandler().getLanguage(player));
+
+                    player.setGameMode(GameMode.SURVIVAL);
+                    player.getInventory().clear();
+                    player.setHealth(20);
+                    player.setFoodLevel(20);
+                    player.getActivePotionEffects().clear();
+                    tpSpawn(player);
+
+
+                    String name = "&f%player_name% ";
+                    name = PlaceholderAPI.setPlaceholders(event.getPlayer(), name);
+                    String rank = "%vault_prefix% ";
+                    rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
+
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, "");
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, HubCore.getInstance().getConfig().getString("ONJOIN.TITLE"));
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, "");
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lIP &7&onasgar.online");
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lWEB &7&ohttps://nasgar.online");
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lTIENDA &7&ohttps://nasgar.online/shop");
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lDISCORD &7&ohttps://ds.nasgar.online");
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, "");
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, plugin.getMessageHandler().replacing(player, "ONJOIN.ONE"));
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, "");
+                    CenteredMessage.Chat.sendCenteredMessageV2(player, rank + name + plugin.getMessageHandler().replacing(player, "ONJOIN.TWO"));
+
+                    TabManager manager = new TabManager(plugin, player);
+                    manager.setHeaders(plugin.getMessageHandler().replacingMany(player, "TAB.HEADER", "%online%", "%bungee_total%", "max_online", "%replace%"));
+                    manager.setFooters(plugin.getMessageHandler().replacingMany(player, "TAB.FOOTER"));
+                    manager.showTab();
+
+
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
+                }, 2);
+    }
+
+    @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
-
         event.setJoinMessage(null);
-        player.setGameMode(GameMode.SURVIVAL);
-        player.getInventory().clear();
-        player.setHealth(20);
-        player.setFoodLevel(20);
-        player.getActivePotionEffects().clear();
-        tpSpawn(player);
-
-        String name = "&f%player_name% ";
-        name = PlaceholderAPI.setPlaceholders(event.getPlayer(), name);
-        String rank = "%vault_prefix% ";
-        rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
-
-        CenteredMessage.Chat.sendCenteredMessageV2(player, "");
-        CenteredMessage.Chat.sendCenteredMessageV2(player, HubCore.getInstance().getConfig().getString("ONJOIN.TITLE"));
-        CenteredMessage.Chat.sendCenteredMessageV2(player, "");
-        CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lIP &7&onasgar.online");
-        CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lWEB &7&ohttps://nasgar.online");
-        CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lTIENDA &7&ohttps://nasgar.online/shop");
-        CenteredMessage.Chat.sendCenteredMessageV2(player, "&a&lDISCORD &7&ohttps://ds.nasgar.online");
-        CenteredMessage.Chat.sendCenteredMessageV2(player, "");
-        CenteredMessage.Chat.sendCenteredMessageV2(player, plugin.getMessageHandler().get(player, "ONJOIN.ONE"));
-        CenteredMessage.Chat.sendCenteredMessageV2(player, "");
-        CenteredMessage.Chat.sendCenteredMessageV2(player, rank + name + plugin.getMessageHandler().get(player, "ONJOIN.TWO"));
-
-        player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
-
     }
 
     @EventHandler

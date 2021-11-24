@@ -18,3 +18,10 @@ FLY:
   TOGGLE_ON: "&b&lNASGAR &fYour fly mode was toggled &aon"
   DISABLED_TO: "&b&lNASGAR &fFly mode &cdisabled &ffor &a%player%"
   ENABLED_TO: "&b&lNASGAR &fFly mode &aenabled &ffor &a%player%"
+TAB:
+  HEADER:
+    - "&b&lNasgar &fNetwork &8| &f#1"
+    - "&fPlaying &a%online%"
+  FOOTER:
+    - "Pepito is testing"
+    - "&a&onasgar.online"

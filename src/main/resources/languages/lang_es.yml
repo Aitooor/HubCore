@@ -18,3 +18,10 @@ FLY:
   TOGGLE_ON: "&b&lNASGAR &fTu modo de vuelo fue &aactivado"
   DISABLED_TO: "&b&lNASGAR &fModo de vuelo &cdesactivado &fpara &a%player%"
   ENABLED_TO: "&b&lNASGAR &fModo de vuelo &activado &fpara &a%player%"
+TAB:
+  HEADER:
+    - "&b&lNasgar &fNetwork &8| &f#1"
+    - "&fJugando &a%online%"
+  FOOTER:
+    - "Pepito esta probando"
+    - "&a&onasgar.online"
