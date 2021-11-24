@@ -9,6 +9,7 @@ import online.nasgar.hubcore.hubcore.commands.FlyCMD;
 import online.nasgar.hubcore.hubcore.commands.ReloadCMD;
 import online.nasgar.hubcore.hubcore.commands.SetSpawnCMD;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
+import online.nasgar.hubcore.hubcore.managers.TabManager;
 import online.nasgar.hubcore.hubcore.message.player.liguist.UserLinguist;
 import online.nasgar.hubcore.hubcore.message.player.sender.UserMessageSender;
 import online.nasgar.hubcore.hubcore.utils.Message;
@@ -34,9 +35,14 @@ public final class HubCore extends JavaPlugin {
         Utils.log("");
         loadCMD();
 
+
         Utils.log("&aLanguages Enabled.");
         Utils.log("");
         loadLanguages();
+
+
+        Utils.log("&aTAB Enabled.");
+        Utils.log("");
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             this.getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
