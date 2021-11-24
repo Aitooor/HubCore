@@ -2,6 +2,7 @@ package online.nasgar.hubcore.hubcore.commands;
 
 import online.nasgar.hubcore.hubcore.HubCore;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
+import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.entity.Player;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -16,8 +17,10 @@ public class SetSpawnCMD implements CommandExecutor {
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(!(sender instanceof Player)) 
+        if (!(sender instanceof Player)) {
+            Utils.log("&cYou can't do this by console.");
             return true;
+        }
         
         Player player = (Player) sender;
 	

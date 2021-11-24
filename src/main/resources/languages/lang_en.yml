@@ -1,7 +1,5 @@
 NOPERMISSIONS:
   PREFIX: "&b&lNASGAR &cYou don't have permissions"
-NOCONSOLE:
-  PREFIX: "HUBCORE Console can't execute this command"
 NOPLAYERFOUND:
   PREFIX: "&b&lNASGAR &cNot player found"
 SYNTAXERROR:

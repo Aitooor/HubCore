@@ -1,7 +1,5 @@
 NOPERMISSIONS:
   PREFIX: "&b&lNASGAR &cNo tienes permisos para hacer eso"
-NOCONSOLE:
-  PREFIX: "HUBCORE La consola no puede ejecutar este comando"
 NOPLAYERFOUND:
   PREFIX: "&b&lNASGAR &cNo se ha encontrado al jugador/a"
 SYNTAXERROR:

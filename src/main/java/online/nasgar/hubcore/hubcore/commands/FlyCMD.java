@@ -1,6 +1,7 @@
 package online.nasgar.hubcore.hubcore.commands;
 
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,16 +21,17 @@ public class FlyCMD implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        if (!(sender instanceof Player)) {
+            Utils.log("&cYou can't do this by console.");
+            return true;
+        }
+
         Player player = (Player) sender;
 
         if (cmd.getName().equalsIgnoreCase("fly")) {
             if (args.length == 0) {
                 if (!sender.hasPermission("hubcore.fly")) {
                     plugin.getMessageHandler().sendReplacing(player, "NOPERMISSIONS.PREFIX", "%player%", player.getName());
-                    return true;
-                }
-                if (!(sender instanceof Player)) {
-                    plugin.getMessageHandler().sendReplacing(player, "NOCONSOLE.PREFIX", "%player%", player.getName());
                     return true;
                 }
                 toggleFly(sender, player.getName());
@@ -47,10 +49,6 @@ public class FlyCMD implements CommandExecutor {
             } else if (args.length == 2) {
                 if (!sender.hasPermission("hubcore.fly.")) {
                     plugin.getMessageHandler().sendReplacing(player, "NOPERMISSIONS.PREFIX", "%player%", player.getName());
-                    return true;
-                }
-                if (!(sender instanceof Player)) {
-                    plugin.getMessageHandler().sendReplacing(player, "NOCONSOLE.PREFIX", "%player%", player.getName());
                     return true;
                 }
             }
