@@ -85,8 +85,8 @@ public class PlayerListeners implements Listener {
                     CenteredMessage.Chat.sendCenteredMessageV2(player, rank + name + plugin.getMessageHandler().replacing(player, "ONJOIN.TWO"));
 
                     TabManager manager = new TabManager(plugin, player);
-                    manager.setHeaders(plugin.getMessageHandler().replacingMany(player, "TAB.HEADER", "%online%", "%bungee_total%", "max_online", "%replace%"));
-                    manager.setFooters(plugin.getMessageHandler().replacingMany(player, "TAB.FOOTER"));
+                    manager.setHeaders(plugin.getMessageHandler().replacingMany(player, "TAB.HEADER", "%bonline%", "%bungee_total%"));
+                    manager.setFooters(plugin.getMessageHandler().replacingMany(player, "TAB.FOOTER", "%online%", "%server_online%"));
                     manager.showTab();
 
 
