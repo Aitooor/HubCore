@@ -64,6 +64,7 @@ public class PlayerListeners implements Listener {
                     player.getInventory().clear();
                     // Give server selector at first slot
                     player.getInventory().setItem(0, getSelector());
+                    player.getInventory().setItem(9, getLobbys());
                     player.setHealth(20);
                     player.setFoodLevel(20);
                     player.getActivePotionEffects().clear();
@@ -117,6 +118,16 @@ public class PlayerListeners implements Listener {
                 //Add menu command
                 return;
             }
+            if (currentItem.getItemMeta().getDisplayName().equals(getLobbys().getItemMeta().getDisplayName())) {
+                //Let's cancel the event, just because.
+                event.setCancelled(true);
+                //Let's also update the player's inventory. This isn't really necessary for a compass but it's a good practice to use for more complex things.
+                event.getPlayer().updateInventory();
+                //And finally, send the message.
+                event.getPlayer().sendMessage(Message.translate("&cSorry, this lobby is currently in development."));
+                //Add menu command
+                return;
+            }
         }
         //Can't interact with out permission
         if (!event.hasBlock()) return;
@@ -131,6 +142,18 @@ public class PlayerListeners implements Listener {
         serverSelectorMeta.setDisplayName(Message.translate("&aSelector de servidores"));
         ArrayList<String> loreList = new ArrayList<String>();
         loreList.add(ChatColor.GRAY + "» Select The Server You");
+        loreList.add(ChatColor.GRAY + "  Wish To Play On");
+        serverSelectorMeta.setLore(loreList);
+        serverSelector.setItemMeta(serverSelectorMeta);
+        return serverSelector;
+    }
+
+    private ItemStack getLobbys(){
+        ItemStack serverSelector = new ItemStack(Material.BED);
+        ItemMeta serverSelectorMeta = serverSelector.getItemMeta();
+        serverSelectorMeta.setDisplayName(Message.translate("&aSelector de Lobbys"));
+        ArrayList<String> loreList = new ArrayList<String>();
+        loreList.add(ChatColor.GRAY + "» Select The Lobby");
         loreList.add(ChatColor.GRAY + "  Wish To Play On");
         serverSelectorMeta.setLore(loreList);
         serverSelector.setItemMeta(serverSelectorMeta);
