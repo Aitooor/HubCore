@@ -5,10 +5,10 @@ version: '${project.version}'
 api-version: 1.8
 api: ${project.java.version}
 
-authors: [ NasgarNetwork, Aitooor ]
+authors: [ NasgarNetwork, Aitooor, SoyMicrah ]
 description: The Nasgar Network HubCore
 
-softdepend: [PlaceholderAPI]
+softdepend: [ PlaceholderAPI ]
 
 commands:
   setspawn:

@@ -137,7 +137,7 @@ public class CenteredMessage {
             return Chat.DEFAULT;
         }
 
-        public static void sendCenteredMessageV2(Player player, String message){
+        public static void sendCenteredMessage(Player player, String message){
             message = ChatColor.translateAlternateColorCodes('&', message);
             int messagePxSize = 0;
             boolean previousCode = false;
@@ -184,7 +184,7 @@ public class CenteredMessage {
             }
             player.sendMessage(sb + message);
             if(toSendAfter != null) {
-                sendCenteredMessageV2(player, toSendAfter);
+                sendCenteredMessage(player, toSendAfter);
             }
         }
     }

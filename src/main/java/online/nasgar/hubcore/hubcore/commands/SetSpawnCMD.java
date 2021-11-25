@@ -27,7 +27,7 @@ public class SetSpawnCMD implements CommandExecutor {
 	if(!player.hasPermission("hubcore.setspawn"))
             return true;
         
-        HubCore.getInstance().getConfig().set("LOCATION.SPAWN", LocationUtil.parseToString(player.getLocation()));
+        HubCore.getInstance().getConfig().set("WORLD.SPAWN", LocationUtil.parseToString(player.getLocation()));
         HubCore.getInstance().saveConfig();
         HubCore.getInstance().reloadConfig();
 
