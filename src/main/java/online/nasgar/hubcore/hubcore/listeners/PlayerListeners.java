@@ -142,7 +142,7 @@ public class PlayerListeners implements Listener {
         ItemStack serverSelector = new ItemStack(Material.COMPASS);
         ItemMeta serverSelectorMeta = serverSelector.getItemMeta();
         serverSelectorMeta.setDisplayName(Message.translate("&aSelector de servidores"));
-        ArrayList<String> loreList = new ArrayList<String>();
+        ArrayList<String> loreList = new ArrayList<>();
         loreList.add(ChatColor.GRAY + "» Select The Server You");
         loreList.add(ChatColor.GRAY + "   Wish To Play On");
         serverSelectorMeta.setLore(loreList);
@@ -154,7 +154,7 @@ public class PlayerListeners implements Listener {
         ItemStack serverSelector = new ItemStack(Material.BED);
         ItemMeta serverSelectorMeta = serverSelector.getItemMeta();
         serverSelectorMeta.setDisplayName(Message.translate("&aSelector de Lobbys"));
-        ArrayList<String> loreList = new ArrayList<String>();
+        ArrayList<String> loreList = new ArrayList<>();
         loreList.add(ChatColor.GRAY + "» Select The Lobby");
         loreList.add(ChatColor.GRAY + "   Wish To Play On");
         serverSelectorMeta.setLore(loreList);

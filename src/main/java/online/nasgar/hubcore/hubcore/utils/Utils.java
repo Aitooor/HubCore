@@ -4,6 +4,7 @@ import online.nasgar.hubcore.hubcore.HubCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.jetbrains.annotations.NotNull;
 
 public interface Utils {
 
@@ -18,7 +19,7 @@ public interface Utils {
         }
     }
 
-    static String ct(String source){
+    static @NotNull String ct(String source){
         return ChatColor.translateAlternateColorCodes('&', source);
     }
 

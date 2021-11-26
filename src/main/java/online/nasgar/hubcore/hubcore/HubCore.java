@@ -9,7 +9,6 @@ import online.nasgar.hubcore.hubcore.commands.FlyCMD;
 import online.nasgar.hubcore.hubcore.commands.ReloadCMD;
 import online.nasgar.hubcore.hubcore.commands.SetSpawnCMD;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
-import online.nasgar.hubcore.hubcore.managers.TabManager;
 import online.nasgar.hubcore.hubcore.message.player.liguist.UserLinguist;
 import online.nasgar.hubcore.hubcore.message.player.sender.UserMessageSender;
 import online.nasgar.hubcore.hubcore.utils.Message;
@@ -55,10 +54,6 @@ public final class HubCore extends JavaPlugin {
 
 
         Utils.log(Message.translate("&aENABLED CORRECTLY"));
-    }
-
-    public void setConfig(String path, Object value) {
-        this.getConfig().set(path, value);
     }
 
     @Override
