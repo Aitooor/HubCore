@@ -64,7 +64,7 @@ public class PlayerListeners implements Listener {
                     player.getInventory().clear();
                     // Give server selector at first slot
                     player.getInventory().setItem(0, getSelector());
-                    player.getInventory().setItem(9, getLobbys());
+                    player.getInventory().setItem(8, getLobbys());
                     player.setHealth(20);
                     player.setFoodLevel(20);
                     player.getActivePotionEffects().clear();
@@ -108,6 +108,7 @@ public class PlayerListeners implements Listener {
             if (!currentItem.hasItemMeta() || (currentItem.hasItemMeta() && !currentItem.getItemMeta().hasDisplayName()))
                 return;
             //Now we can actually check the display name. Just for simiplicity let's run it by the getSelector method.
+            //Selector item slot 1(code 0)
             if (currentItem.getItemMeta().getDisplayName().equals(getSelector().getItemMeta().getDisplayName())) {
                 //Let's cancel the event, just because.
                 event.setCancelled(true);
@@ -118,6 +119,7 @@ public class PlayerListeners implements Listener {
                 //Add menu command
                 return;
             }
+            //Lobbys item slot 9(code 8)
             if (currentItem.getItemMeta().getDisplayName().equals(getLobbys().getItemMeta().getDisplayName())) {
                 //Let's cancel the event, just because.
                 event.setCancelled(true);
@@ -142,7 +144,7 @@ public class PlayerListeners implements Listener {
         serverSelectorMeta.setDisplayName(Message.translate("&aSelector de servidores"));
         ArrayList<String> loreList = new ArrayList<String>();
         loreList.add(ChatColor.GRAY + "» Select The Server You");
-        loreList.add(ChatColor.GRAY + "  Wish To Play On");
+        loreList.add(ChatColor.GRAY + "   Wish To Play On");
         serverSelectorMeta.setLore(loreList);
         serverSelector.setItemMeta(serverSelectorMeta);
         return serverSelector;
@@ -154,7 +156,7 @@ public class PlayerListeners implements Listener {
         serverSelectorMeta.setDisplayName(Message.translate("&aSelector de Lobbys"));
         ArrayList<String> loreList = new ArrayList<String>();
         loreList.add(ChatColor.GRAY + "» Select The Lobby");
-        loreList.add(ChatColor.GRAY + "  Wish To Play On");
+        loreList.add(ChatColor.GRAY + "   Wish To Play On");
         serverSelectorMeta.setLore(loreList);
         serverSelector.setItemMeta(serverSelectorMeta);
         return serverSelector;

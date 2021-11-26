@@ -22,8 +22,8 @@ FLY:
   ENABLED_TO: "&b&lNASGAR &fModo de vuelo &activado &fpara &a%player%"
 TAB:
   HEADER:
-    - "&b&lNasgar &fNetwork &8| &fHub &7#1"
-    - "&7Jugando en Nasgar &a%bonline% &7usuarios"
+    - "&b&lNASGAR &8| &fHub &7#1"
+    - "&7Jugando en Nasgar &e%bonline% &7usuarios"
   FOOTER:
-    - "&7&oJugando en este Hub &a%online%"
+    - "&7&oJugando en este Hub &e%online%"
     - "&a&onasgar.online"

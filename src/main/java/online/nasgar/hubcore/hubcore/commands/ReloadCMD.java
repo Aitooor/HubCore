@@ -27,18 +27,6 @@ public class ReloadCMD implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        if(!sender.hasPermission("hubcore"))
-            return true;
-
-        CenteredMessage.Chat.sendCenteredMessage(player, "");
-        CenteredMessage.Chat.sendCenteredMessage(player, "");
-        CenteredMessage.Chat.sendCenteredMessage(player, "&b&lHUBCORE &fInfo");
-        CenteredMessage.Chat.sendCenteredMessage(player, "");
-        CenteredMessage.Chat.sendCenteredMessage(player, plugin.getMessageHandler().replacing(player, "RELOAD.COMMAND"));
-        CenteredMessage.Chat.sendCenteredMessage(player, "");
-        CenteredMessage.Chat.sendCenteredMessage(player, "");
-
-
         if (!sender.hasPermission("hubcore.reload")) {
             plugin.getMessageHandler().sendReplacing(sender, "NOPERMISSIONS.PREFIX", "%player%", sender.getName());
             return true;
