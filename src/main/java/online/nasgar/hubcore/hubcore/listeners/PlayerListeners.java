@@ -81,7 +81,7 @@ public class PlayerListeners implements Listener {
                     CenteredMessage.Chat.sendCenteredMessage(player, "");
                     CenteredMessage.Chat.sendCenteredMessage(player, "&a&lIP &7&onasgar.online");
                     CenteredMessage.Chat.sendCenteredMessage(player, "&a&lWEB &7&ohttps://nasgar.online");
-                    CenteredMessage.Chat.sendCenteredMessage(player, "&a&lTIENDA &7&ohttps://nasgar.online/shop");
+                    CenteredMessage.Chat.sendCenteredMessage(player, plugin.getMessageHandler().replacing(player, "ONJOIN.SHOP"));
                     CenteredMessage.Chat.sendCenteredMessage(player, "&a&lDISCORD &7&ohttps://ds.nasgar.online");
                     CenteredMessage.Chat.sendCenteredMessage(player, "");
                     CenteredMessage.Chat.sendCenteredMessage(player, plugin.getMessageHandler().replacing(player, "ONJOIN.ONE"));

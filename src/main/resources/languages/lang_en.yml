@@ -15,6 +15,7 @@ NO_PLAYER_ONLINE:
 ONJOIN:
   ONE: "&e&oFrom Nasgar we hope you enjoy"
   TWO: "&e&oLet's play!"
+  SHOP: "&a&lSHOP &7&ohttps://nasgar.online/shop"
 FLY:
   TOGGLE_OFF: "&b&lNASGAR &fYour fly mode was toggled &coff"
   TOGGLE_ON: "&b&lNASGAR &fYour fly mode was toggled &aon"
