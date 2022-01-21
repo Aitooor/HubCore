@@ -6,10 +6,10 @@
 
     <groupId>online.nasgar.hubcore</groupId>
     <artifactId>HubCore</artifactId>
-    <version>1.0.1</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>HubCore</name>
+    <name>HubCore-${version}</name>
 
     <description>The Nasgar Network HubCore</description>
     <properties>
@@ -24,8 +24,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -75,6 +75,7 @@
             <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>me.yushust.message</groupId>
             <artifactId>core</artifactId>
@@ -85,23 +86,27 @@
             <artifactId>sourcetype-bukkit-yml</artifactId>
             <version>6.0.17</version>
         </dependency>
+
         <dependency>
             <groupId>me.clip</groupId>
             <artifactId>placeholderapi</artifactId>
             <version>2.10.9</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>23.0.0</version>
         </dependency>
+
         <dependency>
             <groupId>online.nasgar</groupId>
             <artifactId>nachoSpigot</artifactId>
             <version>1.8.9</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/libs/NachoSpigot.jar</systemPath>
+            <systemPath>${project.basedir}/libs/cadiaspigot-server-1.8.8-R0.1-SNAPSHOT.jar</systemPath>
         </dependency>
+
     </dependencies>
 </project>

@@ -1,11 +1,11 @@
 main: online.nasgar.hubcore.hubcore.HubCore
 name: HubCore
-version: '${project.version}'
+version: ${project.version}
 
 api-version: 1.8
 api: ${project.java.version}
 
-authors: [ NasgarNetwork, Aitooor, SoyMicrah ]
+authors: [ NasgarNetwork Development Team]
 description: The Nasgar Network HubCore
 
 softdepend: [ PlaceholderAPI ]

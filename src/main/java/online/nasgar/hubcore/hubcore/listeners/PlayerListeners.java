@@ -7,10 +7,8 @@ import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import online.nasgar.hubcore.hubcore.utils.Message;
 import org.bukkit.*;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.*;
 import org.bukkit.event.player.*;
 import org.bukkit.event.EventHandler;
@@ -20,12 +18,8 @@ import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-
-import java.util.ArrayList;
 
 public class PlayerListeners implements Listener {
 
@@ -43,7 +37,7 @@ public class PlayerListeners implements Listener {
 
         Player player = event.getPlayer();
 
-        String rank = "%vault_prefix% &f";
+        String rank = "%vault_prefix% ";
         rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
 
 
@@ -62,9 +56,6 @@ public class PlayerListeners implements Listener {
 
                     player.setGameMode(GameMode.SURVIVAL);
                     player.getInventory().clear();
-                    // Give server selector at first slot
-                    player.getInventory().setItem(0, getSelector());
-                    player.getInventory().setItem(8, getLobbys());
                     player.setHealth(20);
                     player.setFoodLevel(20);
                     player.getActivePotionEffects().clear();
@@ -90,6 +81,11 @@ public class PlayerListeners implements Listener {
 
                     TabManager manager = new TabManager(plugin, player);
                     manager.setHeaders(plugin.getMessageHandler().replacingMany(player, "TAB.HEADER", "%bonline%", "%bungee_total%"));
+
+                    String playerListNames = "%vault_prefix% %player_name%";
+                    playerListNames = PlaceholderAPI.setPlaceholders(event.getPlayer(), playerListNames);
+                    player.setPlayerListName(playerListNames);
+
                     manager.setFooters(plugin.getMessageHandler().replacingMany(player, "TAB.FOOTER", "%online%", "%server_online%"));
                     manager.showTab();
 
@@ -99,73 +95,7 @@ public class PlayerListeners implements Listener {
     }
 
     @EventHandler
-    public void onPlayerInteract(PlayerInteractEvent event) {
-        if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK || event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK) {
-            ItemStack currentItem = event.getPlayer().getItemInHand();
-            //We can just return this if it is air or null
-            if (currentItem == null || currentItem.getType() == Material.AIR) return;
-            //We want to make sure that the item HAS item meta and a display name before we try to access it.
-            if (!currentItem.hasItemMeta() || (currentItem.hasItemMeta() && !currentItem.getItemMeta().hasDisplayName()))
-                return;
-            //Now we can actually check the display name. Just for simiplicity let's run it by the getSelector method.
-            //Selector item slot 1(code 0)
-            if (currentItem.getItemMeta().getDisplayName().equals(getSelector().getItemMeta().getDisplayName())) {
-                //Let's cancel the event, just because.
-                event.setCancelled(true);
-                //Let's also update the player's inventory. This isn't really necessary for a compass but it's a good practice to use for more complex things.
-                event.getPlayer().updateInventory();
-                //And finally, send the message.
-                event.getPlayer().sendMessage(Message.translate("&cSorry, this selector is currently in development."));
-                //Add menu command
-                return;
-            }
-            //Lobbys item slot 9(code 8)
-            if (currentItem.getItemMeta().getDisplayName().equals(getLobbys().getItemMeta().getDisplayName())) {
-                //Let's cancel the event, just because.
-                event.setCancelled(true);
-                //Let's also update the player's inventory. This isn't really necessary for a compass but it's a good practice to use for more complex things.
-                event.getPlayer().updateInventory();
-                //And finally, send the message.
-                event.getPlayer().sendMessage(Message.translate("&cSorry, this lobby is currently in development."));
-                //Add menu command
-                return;
-            }
-        }
-        //Can't interact with out permission
-        if (!event.hasBlock()) return;
-        Block block = event.getClickedBlock();
-        if (block != null && !event.getPlayer().getGameMode().equals(GameMode.CREATIVE))
-            event.setCancelled(true);
-    }
-
-    private ItemStack getSelector(){
-        ItemStack serverSelector = new ItemStack(Material.COMPASS);
-        ItemMeta serverSelectorMeta = serverSelector.getItemMeta();
-        serverSelectorMeta.setDisplayName(Message.translate("&aSelector de servidores"));
-        ArrayList<String> loreList = new ArrayList<>();
-        loreList.add(ChatColor.GRAY + "» Select The Server You");
-        loreList.add(ChatColor.GRAY + "   Wish To Play On");
-        serverSelectorMeta.setLore(loreList);
-        serverSelector.setItemMeta(serverSelectorMeta);
-        return serverSelector;
-    }
-
-    private ItemStack getLobbys(){
-        ItemStack serverSelector = new ItemStack(Material.BED);
-        ItemMeta serverSelectorMeta = serverSelector.getItemMeta();
-        serverSelectorMeta.setDisplayName(Message.translate("&aSelector de Lobbys"));
-        ArrayList<String> loreList = new ArrayList<>();
-        loreList.add(ChatColor.GRAY + "» Select The Lobby");
-        loreList.add(ChatColor.GRAY + "   Wish To Play On");
-        serverSelectorMeta.setLore(loreList);
-        serverSelector.setItemMeta(serverSelectorMeta);
-        return serverSelector;
-    }
-
-    @EventHandler
-    public void onJoin(PlayerJoinEvent event) {
-        event.setJoinMessage(null);
-    }
+    public void onJoin(PlayerJoinEvent event) { event.setJoinMessage(null);}
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
