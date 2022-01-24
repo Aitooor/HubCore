@@ -1,6 +1,7 @@
-# /setspawn location info
-WORLD:
-  SPAWN: ""
+# SCOREBOARD Settings and title
+SCOREBOARD:
+  TICKS: 20
+  TITLE: "&b&lHUB &8| &f#1"
 # On join message title
 ONJOIN:
   TITLE: "&b&lNASGAR &7| &fHUB &7#1"

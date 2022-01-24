@@ -5,14 +5,15 @@ import me.yushust.message.MessageHandler;
 import me.yushust.message.bukkit.BukkitMessageAdapt;
 import me.yushust.message.source.MessageSource;
 import me.yushust.message.source.MessageSourceDecorator;
+import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.FlyCMD;
 import online.nasgar.hubcore.hubcore.commands.ReloadCMD;
-import online.nasgar.hubcore.hubcore.commands.SetSpawnCMD;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.message.player.liguist.UserLinguist;
 import online.nasgar.hubcore.hubcore.message.player.sender.UserMessageSender;
 import online.nasgar.hubcore.hubcore.utils.Message;
 import online.nasgar.hubcore.hubcore.utils.Utils;
+import online.nasgar.hubcore.hubcore.utils.scoreboard.Assemble;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -39,6 +40,9 @@ public final class HubCore extends JavaPlugin {
         Utils.log("");
         loadLanguages();
 
+        Utils.log("&aSCOREBOARD Enabled.");
+        Utils.log("");
+        this.registerScoreboard();
 
         Utils.log("&aTAB Enabled.");
         Utils.log("");
@@ -61,13 +65,16 @@ public final class HubCore extends JavaPlugin {
         Utils.log(Message.translate("&cDISABLED CORRECTLY"));
     }
 
+    private void registerScoreboard() {
+        Assemble scoreboard = new Assemble(this, new ScoreboardAdapter());
+        scoreboard.setTicks(getConfig().getLong("SCOREBOARD.TICKS"));
+    }
+
     public void loadCMD() {
 
         instance = this;
 
         this.getCommand("fly").setExecutor(new FlyCMD(this));
-
-        this.getCommand("setspawn").setExecutor(new SetSpawnCMD(this));
 
         this.getCommand("hubcore").setExecutor(new ReloadCMD(this));
 

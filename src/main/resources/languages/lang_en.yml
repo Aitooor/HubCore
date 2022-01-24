@@ -1,3 +1,28 @@
+TAB:
+  HEADER:
+    - "&b&lNASGAR &8| &fHub &7#1"
+    - "&7Playing in Nasgar &e%bonline% &7users"
+  FOOTER:
+    - "&7&oPlayin in this Hub &e%online%"
+    - "&a&onasgar.online"
+SCOREBOARD:
+  LINES:
+    - ""
+    - "&fName"
+    - "&a%player%"
+    - ""
+    - "&fRank"
+    - "&a%rank%"
+    - ""
+    - "&fHere &a%online%"
+    - "&fGlobal &a%bungee_online%"
+    - ""
+    - "&bnasgar.online"
+ONJOIN:
+  ONE: "&e&oFrom Nasgar we hope you enjoy"
+  TWO: "&e&oLet's play!"
+  SHOP: "&a&lSHOP &7&ohttps://nasgar.online/shop"
+#####################################################
 NOPERMISSIONS:
   PREFIX: "&b&lNASGAR &cYou don't have permissions"
 SETSPAWN:
@@ -12,19 +37,8 @@ SYNTAXERROR:
   PREFIX: "&b&lNASGAR &cSyntax error, type correctly"
 NO_PLAYER_ONLINE:
   PREFIX: "&b&lNASGAR &cPlayer isn't online"
-ONJOIN:
-  ONE: "&e&oFrom Nasgar we hope you enjoy"
-  TWO: "&e&oLet's play!"
-  SHOP: "&a&lSHOP &7&ohttps://nasgar.online/shop"
 FLY:
   TOGGLE_OFF: "&b&lNASGAR &fYour fly mode was toggled &coff"
   TOGGLE_ON: "&b&lNASGAR &fYour fly mode was toggled &aon"
   DISABLED_TO: "&b&lNASGAR &fFly mode &cdisabled &ffor &a%player%"
   ENABLED_TO: "&b&lNASGAR &fFly mode &aenabled &ffor &a%player%"
-TAB:
-  HEADER:
-    - "&b&lNASGAR &8| &fHub &7#1"
-    - "&7Playing in Nasgar &e%bonline% &7users"
-  FOOTER:
-    - "&7&oPlayin in this Hub &e%online%"
-    - "&a&onasgar.online"

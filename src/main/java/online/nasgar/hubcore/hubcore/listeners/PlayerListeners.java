@@ -4,7 +4,6 @@ import me.clip.placeholderapi.PlaceholderAPI;
 import online.nasgar.hubcore.hubcore.HubCore;
 import online.nasgar.hubcore.hubcore.managers.TabManager;
 import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
-import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import online.nasgar.hubcore.hubcore.utils.Message;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -14,7 +13,6 @@ import org.bukkit.event.player.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -59,8 +57,6 @@ public class PlayerListeners implements Listener {
                     player.setHealth(20);
                     player.setFoodLevel(20);
                     player.getActivePotionEffects().clear();
-                    tpSpawn(player);
-
 
                     String name = "&f%player_name% ";
                     name = PlaceholderAPI.setPlaceholders(event.getPlayer(), name);
@@ -68,7 +64,7 @@ public class PlayerListeners implements Listener {
                     rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
 
                     CenteredMessage.Chat.sendCenteredMessage(player, "");
-                    CenteredMessage.Chat.sendCenteredMessage(player, HubCore.getInstance().getConfig().getString("ONJOIN.TITLE"));
+                    CenteredMessage.Chat.sendCenteredMessage(player, config.getString("ONJOIN.TITLE"));
                     CenteredMessage.Chat.sendCenteredMessage(player, "");
                     CenteredMessage.Chat.sendCenteredMessage(player, "&a&lIP &7&onasgar.online");
                     CenteredMessage.Chat.sendCenteredMessage(player, "&a&lWEB &7&ohttps://nasgar.online");
@@ -155,37 +151,6 @@ public class PlayerListeners implements Listener {
         event.setDeathMessage(null);
         event.setDroppedExp(0);
         event.getDrops().clear();
-    }
-
-    @EventHandler
-    public void onRespawn(PlayerRespawnEvent event) {
-        if(event.getPlayer() != null)
-            tpSpawn(event.getPlayer());
-    }
-
-    @EventHandler
-    public void onPluginLoad(PluginEnableEvent event) {
-        World lobbyWorld = Bukkit.getServer().getWorld(config.getString("WORLD.SPAWN"));
-
-        if(lobbyWorld == null) {
-            return;
-        }
-
-        lobbyWorld.setGameRuleValue("doDaylightCycle", "false");
-        lobbyWorld.setTime(3600);
-        lobbyWorld.setStorm(false);
-        lobbyWorld.setWeatherDuration(0);
-        lobbyWorld.setAnimalSpawnLimit(0);
-        lobbyWorld.setAmbientSpawnLimit(0);
-        lobbyWorld.setMonsterSpawnLimit(0);
-        lobbyWorld.setWaterAnimalSpawnLimit(0);
-    }
-
-    private void tpSpawn(Player player) {
-        if(LocationUtil.parseToLocation(config.getString("LOCATION.SPAWN")) == null)
-            return;
-
-        player.teleport(LocationUtil.parseToLocation(config.getString("LOCATION.SPAWN")));
     }
 
 }
