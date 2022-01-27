@@ -7,6 +7,7 @@ import me.yushust.message.source.MessageSource;
 import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.FlyCMD;
+import online.nasgar.hubcore.hubcore.commands.MenuCMD;
 import online.nasgar.hubcore.hubcore.commands.ReloadCMD;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.message.player.liguist.UserLinguist;
@@ -17,30 +18,42 @@ import online.nasgar.hubcore.hubcore.utils.scoreboard.Assemble;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
+import us.figt.loafmenus.LoafMenuRegistrar;
 
 import java.io.File;
 
+@Getter
 public final class HubCore extends JavaPlugin {
 
     @Getter private static HubCore instance;
     @Getter private MessageHandler messageHandler;
+    private LoafMenuRegistrar loafMenuRegistrar;
 
     @Override
     public void onEnable() {
+        instance = this;
+
         loadBanner();
 
         this.saveDefaultConfig();
 
+        Utils.log("&aChatFormat Enabled.");
+        Utils.log("");
+
         Utils.log("&aCMDs Enabled.");
         Utils.log("");
         loadCMD();
+
+        Utils.log("&aMenus Enabled.");
+        Utils.log("");
+        loadMenus();
 
 
         Utils.log("&aLanguages Enabled.");
         Utils.log("");
         loadLanguages();
 
-        Utils.log("&aSCOREBOARD Enabled.");
+        Utils.log("&aScoreboard Enabled.");
         Utils.log("");
         this.registerScoreboard();
 
@@ -62,6 +75,8 @@ public final class HubCore extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        unloadMenus();
+
         Utils.log(Message.translate("&cDISABLED CORRECTLY"));
     }
 
@@ -72,14 +87,33 @@ public final class HubCore extends JavaPlugin {
 
     public void loadCMD() {
 
-        instance = this;
-
         this.getCommand("fly").setExecutor(new FlyCMD(this));
 
         this.getCommand("hubcore").setExecutor(new ReloadCMD(this));
 
         saveDefaultConfig();
 
+    }
+
+    public void loadMenus() {
+        try {
+            this.loafMenuRegistrar = new LoafMenuRegistrar(this);
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
+        this.getCommand("menu").setExecutor(new MenuCMD());
+    }
+
+    public void unloadMenus() {
+        if (this.loafMenuRegistrar != null) {
+            this.loafMenuRegistrar.unregister();
+            this.loafMenuRegistrar = null;
+        }
+
+        instance = null;
     }
 
     private void loadLanguages(){
@@ -119,8 +153,6 @@ public final class HubCore extends JavaPlugin {
         Utils.log("&8---------------------------------------------------");
         Utils.log("");
         Utils.log("&aENABLING EVERYTHING...");
-        Utils.log("");
-        Utils.log("&aChatFormat Enabled.");
         Utils.log("");
     }
 }

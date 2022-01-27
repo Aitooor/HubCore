@@ -11,10 +11,11 @@ description: The Nasgar Network HubCore
 softdepend: [ PlaceholderAPI ]
 
 commands:
-  setspawn:
   hubcore:
     aliases:
       - hc
   fly:
     aliases:
       - volar
+  # MENUS
+  menu:

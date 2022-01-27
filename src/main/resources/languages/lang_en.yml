@@ -23,6 +23,12 @@ ONJOIN:
   TWO: "&e&oLet's play!"
   SHOP: "&a&lSHOP &7&ohttps://nasgar.online/shop"
 #####################################################
+MENU:
+  MAIN:
+    TITLE: "&7&o&m-->&r &f&lMain Menu"
+  HUBS:
+    TITLE: "&7&o&m-->&r &f&lHubs Selector"
+#####################################################
 NOPERMISSIONS:
   PREFIX: "&b&lNASGAR &cYou don't have permissions"
 SETSPAWN:
