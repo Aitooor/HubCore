@@ -26,25 +26,25 @@ public class MainMenu extends LoafMenu {
         // newLoafMenuItemArray() is a small shortcut method
         LoafMenuItem[] array = newLoafMenuItemArray();
 
-        LoafMenuItem survival = new LoafMenuItem(new MicroItemBuilder(Material.GRASS).name("&aSURVIVAL &7(&f1.18&7)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
+        LoafMenuItem survival = new LoafMenuItem(new MicroItemBuilder(Material.GRASS).name("&aSURVIVAL &7&o(&f&o1.18&7&o)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
             Bukkit.dispatchCommand(clicker, "hubcore:survival");
             // returning true will cancel the click event
             return true;
         });
 
-        LoafMenuItem microbattles = new LoafMenuItem(new MicroItemBuilder(Material.WOOD_SWORD).name("&aMICRO BATTLES &7(&f1.7&7-&f1.8&7)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
+        LoafMenuItem microbattles = new LoafMenuItem(new MicroItemBuilder(Material.WOOD_SWORD).name("&aMICRO BATTLES &7&o(&f&o1.7&7&o-&f&o1.8&7&o)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
             Bukkit.dispatchCommand(clicker, "hubcore:microbattles");
             // returning true will cancel the click event
             return true;
         });
 
-        LoafMenuItem bedwars = new LoafMenuItem(new MicroItemBuilder(Material.BED).name("&aBEDWARS &7(&f1.7&7-&f1.8&7)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
+        LoafMenuItem bedwars = new LoafMenuItem(new MicroItemBuilder(Material.BED).name("&aBEDWARS &7&o(&f&o1.7&7&o-&f&o1.8&7&o)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
             Bukkit.dispatchCommand(clicker, "hubcore:bedwars");
             // returning true will cancel the click event
             return true;
         });
 
-        LoafMenuItem practice = new LoafMenuItem(new MicroItemBuilder(Material.DIAMOND_SWORD).name("&aPRACTICE &7(&f1.7&7-&f1.8&7)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
+        LoafMenuItem practice = new LoafMenuItem(new MicroItemBuilder(Material.DIAMOND_SWORD).name("&aPRACTICE &7&o(&f&o1.7&7&o-&f&o1.8&7&o)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
             Bukkit.dispatchCommand(clicker, "hubcore:practice");
             // returning true will cancel the click event
             return true;
