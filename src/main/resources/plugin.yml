@@ -17,5 +17,10 @@ commands:
   fly:
     aliases:
       - volar
+  # BUNGEE
+  survival:
+  practice:
+  bedwars:
+  microbattles:
   # MENUS
   menu:

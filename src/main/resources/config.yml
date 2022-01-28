@@ -2,6 +2,15 @@
 SCOREBOARD:
   TICKS: 20
   TITLE: "&b&lHUB &8| &f#1"
+
 # On join message title
 ONJOIN:
   TITLE: "&b&lNASGAR &7| &fHUB &7#1"
+
+## MENUS
+# Discord MENU URL
+DISCORD:
+  URL: "&a&lDISCORD &fhttps://ds.nasgar.online"
+# Discord MENU URL
+SHOP:
+  URL: "&fhttps://ds.nasgar.online"

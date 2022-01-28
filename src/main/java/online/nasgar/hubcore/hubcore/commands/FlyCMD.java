@@ -13,10 +13,10 @@ import java.util.Set;
 
 public class FlyCMD implements CommandExecutor {
 
-    private final HubCore plugin;
+    private final HubCore instance;
 
-    public FlyCMD(HubCore plugin) {
-        this.plugin = plugin;
+    public FlyCMD(HubCore instance) {
+        this.instance = instance;
     }
 
     @Override
@@ -31,24 +31,24 @@ public class FlyCMD implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("fly")) {
             if (args.length == 0) {
                 if (!sender.hasPermission("hubcore.fly")) {
-                    plugin.getMessageHandler().sendReplacing(player, "NOPERMISSIONS.PREFIX", "%player%", player.getName());
+                    instance.getMessageHandler().sendReplacing(player, "NOPERMISSIONS.PREFIX", "%player%", player.getName());
                     return true;
                 }
                 toggleFly(sender, player.getName());
             } else if (args.length == 1) {
                 if (!sender.hasPermission("hubcore.fly.others")) {
-                    plugin.getMessageHandler().sendReplacing(player, "NOPERMISSIONS.PREFIX", "%player%", player.getName());
+                    instance.getMessageHandler().sendReplacing(player, "NOPERMISSIONS.PREFIX", "%player%", player.getName());
                     return true;
                 }
                 if (checkOnline(args[0])) {
                     toggleFly(sender, args[0]);
                 } else {
-                    plugin.getMessageHandler().sendReplacing(player, "NOPLAYERFOUND.PREFIX", "%player%", player.getName());
+                    instance.getMessageHandler().sendReplacing(player, "NOPLAYERFOUND.PREFIX", "%player%", player.getName());
                     return true;
                 }
             } else if (args.length == 2) {
                 if (!sender.hasPermission("hubcore.fly.")) {
-                    plugin.getMessageHandler().sendReplacing(player, "NOPERMISSIONS.PREFIX", "%player%", player.getName());
+                    instance.getMessageHandler().sendReplacing(player, "NOPERMISSIONS.PREFIX", "%player%", player.getName());
                     return true;
                 }
             }
@@ -75,19 +75,19 @@ public class FlyCMD implements CommandExecutor {
     public void toggleFly(CommandSender sender, String name) {
         Player p = Bukkit.getPlayer(findPlayer(name));
         if (!p.isOnline()) {
-            plugin.getMessageHandler().sendReplacing(sender, "NO_PLAYER_ONLINE.PREFIX", "%player%", sender.getName());
+            instance.getMessageHandler().sendReplacing(sender, "NO_PLAYER_ONLINE.PREFIX", "%player%", sender.getName());
             return;
         }
         if (flying.contains(p)) {
-            plugin.getMessageHandler().sendReplacing(sender, "FLY.TOGGLE_OFF", "%player%", sender.getName());
+            instance.getMessageHandler().sendReplacing(sender, "FLY.TOGGLE_OFF", "%player%", sender.getName());
             flying.remove(p);
             p.setAllowFlight(false);
-            plugin.getMessageHandler().sendReplacing(sender, "FLY.DISABLED_TO", "%player%", sender.getName());
+            instance.getMessageHandler().sendReplacing(sender, "FLY.DISABLED_TO", "%player%", sender.getName());
         } else {
-            plugin.getMessageHandler().sendReplacing(sender, "FLY.TOGGLE_ON", "%player%", sender.getName());
+            instance.getMessageHandler().sendReplacing(sender, "FLY.TOGGLE_ON", "%player%", sender.getName());
             flying.add(p);
             p.setAllowFlight(true);
-            plugin.getMessageHandler().sendReplacing(sender, "FLY.ENABLED_TO", "%player%", sender.getName());
+            instance.getMessageHandler().sendReplacing(sender, "FLY.ENABLED_TO", "%player%", sender.getName());
         }
     }
 }
