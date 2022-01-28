@@ -83,6 +83,30 @@ public class ServersCMDs implements CommandExecutor {
             Bukkit.getPlayer(sender.getName()).sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
             return true;
         }
+        else if(args[0].equalsIgnoreCase("hub1")) {
+            ByteArrayOutputStream b = new ByteArrayOutputStream();
+            DataOutputStream out = new DataOutputStream(b);
+            try {
+                out.writeUTF("Connect");
+                out.writeUTF("Hub-1");
+            } catch (IOException eee) {
+                Bukkit.getLogger().info("You'll never see me!");
+            }
+            Bukkit.getPlayer(sender.getName()).sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
+            return true;
+        }
+        else if(args[0].equalsIgnoreCase("hub2")) {
+            ByteArrayOutputStream b = new ByteArrayOutputStream();
+            DataOutputStream out = new DataOutputStream(b);
+            try {
+                out.writeUTF("Connect");
+                out.writeUTF("Hub-2");
+            } catch (IOException eee) {
+                Bukkit.getLogger().info("You'll never see me!");
+            }
+            Bukkit.getPlayer(sender.getName()).sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
+            return true;
+        }
 
         return false;
     }

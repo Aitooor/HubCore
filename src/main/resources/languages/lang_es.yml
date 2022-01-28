@@ -29,9 +29,9 @@ ONJOIN:
 ##MENUS##
 MENU:
   MAIN:
-    TITLE: "&7&o&m-->&r &fMenu Principal"
+    TITLE: "&e✖ &fＭＥＮＵ ＰＲＩＮＣＩＰＡＬ"
   HUBS:
-    TITLE: "&7&o&m-->&r &fSelector de Hubs"
+    TITLE: "&e✖ &fＳＥＬＥＣＴＯＲ ＤＥ ＨＵＢ"
 PROFILE:
   TITLE: "&aPERFIL"
 HELP:

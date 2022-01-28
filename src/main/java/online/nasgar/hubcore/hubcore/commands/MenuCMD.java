@@ -3,7 +3,6 @@ package online.nasgar.hubcore.hubcore.commands;
 import online.nasgar.hubcore.hubcore.menus.HubsMenu;
 import online.nasgar.hubcore.hubcore.menus.MainMenu;
 import online.nasgar.hubcore.hubcore.utils.Utils;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
