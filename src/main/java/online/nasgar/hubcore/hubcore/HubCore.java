@@ -9,10 +9,7 @@ import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.FlyCMD;
 import online.nasgar.hubcore.hubcore.commands.MenuCMD;
 import online.nasgar.hubcore.hubcore.commands.ReloadCMD;
-import online.nasgar.hubcore.hubcore.commands.bungee.BedwarsCMD;
-import online.nasgar.hubcore.hubcore.commands.bungee.MicroBattlesCMD;
-import online.nasgar.hubcore.hubcore.commands.bungee.PracticeCMD;
-import online.nasgar.hubcore.hubcore.commands.bungee.SurvivalCMD;
+import online.nasgar.hubcore.hubcore.commands.bungee.ServersCMDs;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.message.player.liguist.UserLinguist;
 import online.nasgar.hubcore.hubcore.message.player.sender.UserMessageSender;
@@ -105,10 +102,7 @@ public final class HubCore extends JavaPlugin {
 
     private void loadBungeeCMD() {
 
-        this.getCommand("survival").setExecutor(new SurvivalCMD(this));
-        this.getCommand("microbattles").setExecutor(new MicroBattlesCMD(this));
-        this.getCommand("practice").setExecutor(new PracticeCMD(this));
-        this.getCommand("bedwars").setExecutor(new BedwarsCMD(this));
+        this.getCommand("servers").setExecutor(new ServersCMDs(this));
 
     }
 

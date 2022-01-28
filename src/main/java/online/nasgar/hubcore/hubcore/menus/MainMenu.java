@@ -3,7 +3,6 @@ package online.nasgar.hubcore.hubcore.menus;
 import online.nasgar.hubcore.hubcore.HubCore;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -27,25 +26,25 @@ public class MainMenu extends LoafMenu {
         LoafMenuItem[] array = newLoafMenuItemArray();
 
         LoafMenuItem survival = new LoafMenuItem(new MicroItemBuilder(Material.GRASS).name("&aSURVIVAL &7&o(&f&o1.18&7&o)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
-            Bukkit.dispatchCommand(clicker, "hubcore:survival");
+            Bukkit.dispatchCommand(clicker, "hubcore:servers survival");
             // returning true will cancel the click event
             return true;
         });
 
         LoafMenuItem microbattles = new LoafMenuItem(new MicroItemBuilder(Material.WOOD_SWORD).name("&aMICRO BATTLES &7&o(&f&o1.7&7&o-&f&o1.8&7&o)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
-            Bukkit.dispatchCommand(clicker, "hubcore:microbattles");
+            Bukkit.dispatchCommand(clicker, "hubcore:servers microbattles");
             // returning true will cancel the click event
             return true;
         });
 
         LoafMenuItem bedwars = new LoafMenuItem(new MicroItemBuilder(Material.BED).name("&aBEDWARS &7&o(&f&o1.7&7&o-&f&o1.8&7&o)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
-            Bukkit.dispatchCommand(clicker, "hubcore:bedwars");
+            Bukkit.dispatchCommand(clicker, "hubcore:servers bedwars");
             // returning true will cancel the click event
             return true;
         });
 
         LoafMenuItem practice = new LoafMenuItem(new MicroItemBuilder(Material.DIAMOND_SWORD).name("&aPRACTICE &7&o(&f&o1.7&7&o-&f&o1.8&7&o)").lore(Collections.singletonList("&7Click me!")).build(), (clicker, clickInformation) -> {
-            Bukkit.dispatchCommand(clicker, "hubcore:practice");
+            Bukkit.dispatchCommand(clicker, "hubcore:servers practice");
             // returning true will cancel the click event
             return true;
         });
@@ -85,7 +84,6 @@ public class MainMenu extends LoafMenu {
         array[19] = wiki;
         array[9] = discord;
         array[27] = shop;
-
         // replace all air with white stained glass pane
         replaceAll(array, Material.AIR, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15));
 

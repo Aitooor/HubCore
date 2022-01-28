@@ -18,9 +18,10 @@ commands:
     aliases:
       - volar
   # BUNGEE
-  survival:
-  practice:
-  bedwars:
-  microbattles:
+  servers:
+    aliases:
+      - server
+      - go
+      - ir
   # MENUS
   menu:
