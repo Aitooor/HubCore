@@ -4,6 +4,7 @@ import me.clip.placeholderapi.PlaceholderAPI;
 import online.nasgar.hubcore.hubcore.HubCore;
 import online.nasgar.hubcore.hubcore.managers.TabManager;
 import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
+import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import online.nasgar.hubcore.hubcore.utils.Message;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -13,6 +14,7 @@ import org.bukkit.event.player.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.server.PluginEnableEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -51,13 +53,6 @@ public class PlayerListeners implements Listener {
                     if (player == null) {
                         return;
                     }
-
-                    player.setGameMode(GameMode.SURVIVAL);
-                    player.getInventory().clear();
-                    player.setHealth(20);
-                    player.setFoodLevel(20);
-                    player.getActivePotionEffects().clear();
-
                     String name = "&f%player_name% ";
                     name = PlaceholderAPI.setPlaceholders(event.getPlayer(), name);
                     String rank = "%vault_prefix% ";
@@ -91,11 +86,32 @@ public class PlayerListeners implements Listener {
     }
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent event) { event.setJoinMessage(null);}
+    public void onJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
+
+        player.setGameMode(GameMode.SURVIVAL);
+        player.getInventory().clear();
+        player.setHealth(20);
+        player.setFoodLevel(20);
+        player.getActivePotionEffects().clear();
+
+        tpSpawn(player);
+
+        event.setJoinMessage(null);
+    }
 
     @EventHandler
     public void onQuit(PlayerQuitEvent event) {
         event.setQuitMessage(null);
+    }
+
+    @EventHandler
+    public void onMove(PlayerMoveEvent event) {
+        Player player = event.getPlayer();
+
+        if (player.getLocation().getBlockY() < 0) {
+            tpSpawn(player);
+        }
     }
 
     @EventHandler
@@ -151,6 +167,40 @@ public class PlayerListeners implements Listener {
         event.setDeathMessage(null);
         event.setDroppedExp(0);
         event.getDrops().clear();
+    }
+
+    @EventHandler
+    public void onPlayerRespawn(PlayerRespawnEvent event) {
+        if (event.getPlayer() != null) {
+            tpSpawn(event.getPlayer());
+        }
+    }
+
+    @EventHandler
+    public void onPluginLoad(PluginEnableEvent event) {
+
+        if (LocationUtil.parseToLocation(config.getString("LOCATION.SPAWN")) == null || config.getString("LOCATION.SPAWN") == null) {
+            return;
+        }
+
+        World lobbyWorld = Bukkit.getServer().getWorld(config.getString("LOCATION.SPAWN").split(", ")[5]);
+
+        lobbyWorld.setGameRuleValue("doDaylightCycle", "false");
+        lobbyWorld.setTime(3600);
+        lobbyWorld.setStorm(false);
+        lobbyWorld.setWeatherDuration(0);
+        lobbyWorld.setAnimalSpawnLimit(0);
+        lobbyWorld.setAmbientSpawnLimit(0);
+        lobbyWorld.setMonsterSpawnLimit(0);
+        lobbyWorld.setWaterAnimalSpawnLimit(0);
+    }
+
+    private void tpSpawn(Player player) {
+        if (LocationUtil.parseToLocation(config.getString("LOCATION.SPAWN")) == null || config.getString("LOCATION.SPAWN") == null) {
+            return;
+        }
+
+        player.teleport(LocationUtil.parseToLocation(config.getString("LOCATION.SPAWN")));
     }
 
 }

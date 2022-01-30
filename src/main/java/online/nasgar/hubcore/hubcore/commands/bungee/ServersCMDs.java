@@ -42,7 +42,7 @@ public class ServersCMDs implements CommandExecutor {
                 out.writeUTF("Connect");
                 out.writeUTF("Survival-1");
             } catch (IOException eee) {
-                Bukkit.getLogger().info("You'll never see me!");
+                Bukkit.getLogger().info("Now can't you access");
             }
             Bukkit.getPlayer(sender.getName()).sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
             return true;
@@ -54,7 +54,7 @@ public class ServersCMDs implements CommandExecutor {
                 out.writeUTF("Connect");
                 out.writeUTF("BW-Hub-1");
             } catch (IOException eee) {
-                Bukkit.getLogger().info("You'll never see me!");
+                Bukkit.getLogger().info("Now can't you access");
             }
             Bukkit.getPlayer(sender.getName()).sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
             return true;
@@ -66,7 +66,7 @@ public class ServersCMDs implements CommandExecutor {
                 out.writeUTF("Connect");
                 out.writeUTF("MB-Hub-1");
             } catch (IOException eee) {
-                Bukkit.getLogger().info("You'll never see me!");
+                Bukkit.getLogger().info("Now can't you access");
             }
             Bukkit.getPlayer(sender.getName()).sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
             return true;
@@ -78,7 +78,7 @@ public class ServersCMDs implements CommandExecutor {
                 out.writeUTF("Connect");
                 out.writeUTF("PR-Hub-1");
             } catch (IOException eee) {
-                Bukkit.getLogger().info("You'll never see me!");
+                Bukkit.getLogger().info("Now can't you access");
             }
             Bukkit.getPlayer(sender.getName()).sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
             return true;
@@ -90,7 +90,7 @@ public class ServersCMDs implements CommandExecutor {
                 out.writeUTF("Connect");
                 out.writeUTF("Hub-1");
             } catch (IOException eee) {
-                Bukkit.getLogger().info("You'll never see me!");
+                Bukkit.getLogger().info("Now can't you access");
             }
             Bukkit.getPlayer(sender.getName()).sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
             return true;
@@ -102,7 +102,7 @@ public class ServersCMDs implements CommandExecutor {
                 out.writeUTF("Connect");
                 out.writeUTF("Hub-2");
             } catch (IOException eee) {
-                Bukkit.getLogger().info("You'll never see me!");
+                Bukkit.getLogger().info("Now can't you access");
             }
             Bukkit.getPlayer(sender.getName()).sendPluginMessage(plugin, "BungeeCord", b.toByteArray());
             return true;

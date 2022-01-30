@@ -5,7 +5,7 @@ TAB:
     - "&7Playing in Nasgar &e%bonline% &7users"
   FOOTER:
     - "&7&oPlayin in this Hub &e%online%"
-    - "&a&onasgar.online"
+    - "&b&onasgar.online"
 ##SCOREBOARD##
 SCOREBOARD:
   LINES:

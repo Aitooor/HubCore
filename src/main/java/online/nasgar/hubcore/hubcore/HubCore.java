@@ -92,9 +92,9 @@ public final class HubCore extends JavaPlugin {
 
         this.getCommand("fly").setExecutor(new FlyCMD(this));
 
-        loadBungeeCMD();
-
         this.getCommand("hubcore").setExecutor(new ReloadCMD(this));
+
+        loadBungeeCMD();
 
         saveDefaultConfig();
 
