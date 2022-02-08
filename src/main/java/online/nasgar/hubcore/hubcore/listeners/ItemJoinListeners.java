@@ -1,7 +1,6 @@
 package online.nasgar.hubcore.hubcore.listeners;
 
 import online.nasgar.hubcore.hubcore.HubCore;
-import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -30,12 +29,20 @@ public class ItemJoinListeners implements Listener {
                     }
 
                     // SERVER LIST
-                    ItemStack servers = new ItemStack(345);
+                    ItemStack servers = new ItemStack(Material.COMPASS);
                     ItemMeta serversMeta = servers.getItemMeta();
                     serversMeta.setDisplayName(plugin.getMessageHandler().replacing(player, "SERVER_LIST.NAME"));
                     serversMeta.setLore(plugin.getMessageHandler().replacingMany(player, "SERVER_LIST.LORE"));
                     servers.setItemMeta(serversMeta);
                     event.getPlayer().getInventory().setItem(0, servers);
+
+                    // FLY TOGGLE
+                    ItemStack fly = new ItemStack(Material.FEATHER);
+                    ItemMeta flyMeta = fly.getItemMeta();
+                    flyMeta.setDisplayName(plugin.getMessageHandler().replacing(player, "FLY_ITEM.NAME"));
+                    flyMeta.setLore(plugin.getMessageHandler().replacingMany(player, "FLY_ITEM.LORE"));
+                    fly.setItemMeta(flyMeta);
+                    event.getPlayer().getInventory().setItem(4, fly);
 
                     // HUB LIST
                     ItemStack hubs = new ItemStack(Material.BED);
@@ -55,11 +62,14 @@ public class ItemJoinListeners implements Listener {
         if(event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK || event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK){
             final ItemStack currentItem = event.getPlayer().getItemInHand();
             if(currentItem != null && currentItem.getType() != Material.AIR) {
-                if(currentItem.getItemMeta().getDisplayName() == plugin.getMessageHandler().replacing(player, "SERVER_LIST.NAME")){
-                    player.sendMessage(Utils.ct("Server List"));
+                if(currentItem.getType() == Material.COMPASS){
+                    player.performCommand("hubcore:menus servers");
                 }
-                else if (currentItem.getItemMeta().getDisplayName() == plugin.getMessageHandler().replacing(player, "HUBS_LIST.NAME")) {
-                    player.sendMessage(Utils.ct("Hubs List"));
+                else if (currentItem.getType() == Material.FEATHER) {
+                    player.performCommand("hubcore:fly");
+                }
+                else if (currentItem.getType() == Material.BED) {
+                    player.performCommand("hubcore:menus hubs");
                 }
             }
             event.setCancelled(true);

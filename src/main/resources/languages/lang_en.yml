@@ -35,6 +35,11 @@ SERVER_LIST:
   LORE:
       - "&7&oChoose a server"
       - "&7&oto play on"
+FLY_ITEM:
+  NAME: "&aFly Toggle"
+  LORE:
+      - "&7&oToggle fly mode"
+      - "&7&oto on or off"
 HUBS_LIST:
   NAME: "&aHubs List"
   LORE:

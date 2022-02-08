@@ -35,6 +35,11 @@ SERVER_LIST:
   LORE:
     - "&7&oElige un servidor"
     - "&7&odonde jugar"
+FLY_ITEM:
+  NAME: "&aAlternar Fly"
+  LORE:
+      - "&7&oActivar o desactivar"
+      - "&7&oel modo de vuelo"
 HUBS_LIST:
   NAME: "&aLista de hubs"
   LORE:

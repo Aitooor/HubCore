@@ -9,11 +9,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class ReloadCMD implements CommandExecutor {
+public class HubCoreCMD implements CommandExecutor {
 
     private final HubCore plugin;
 
-    public ReloadCMD(HubCore instance) {
+    public HubCoreCMD(HubCore instance) {
         plugin = instance;
     }
 
