@@ -43,7 +43,7 @@ public class ItemJoinListeners implements Listener {
                     hubsMeta.setDisplayName(plugin.getMessageHandler().replacing(player, "HUBS_LIST.NAME"));
                     hubsMeta.setLore(plugin.getMessageHandler().replacingMany(player, "HUBS_LIST.LORE"));
                     hubs.setItemMeta(hubsMeta);
-                    event.getPlayer().getInventory().setItem(0, hubs);
+                    event.getPlayer().getInventory().setItem(8, hubs);
 
                 }, 2);
     }
