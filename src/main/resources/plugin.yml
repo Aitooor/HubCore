@@ -6,7 +6,7 @@ api-version: 1.8
 api: ${project.java.version}
 
 authors: [ NasgarNetwork Development Team]
-description: The Nasgar Network HubCore
+description: Nasgar Network HubCore 1.8
 
 softdepend: [ PlaceholderAPI ]
 
@@ -17,10 +17,3 @@ commands:
   fly:
     aliases:
       - volar
-  # BUNGEE
-  servers:
-    aliases:
-      - go
-      - ir
-  # MENUS
-  menu:

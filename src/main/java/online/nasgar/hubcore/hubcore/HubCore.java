@@ -7,9 +7,8 @@ import me.yushust.message.source.MessageSource;
 import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.FlyCMD;
-import online.nasgar.hubcore.hubcore.commands.MenuCMD;
 import online.nasgar.hubcore.hubcore.commands.ReloadCMD;
-import online.nasgar.hubcore.hubcore.commands.bungee.ServersCMDs;
+import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.message.player.liguist.UserLinguist;
 import online.nasgar.hubcore.hubcore.message.player.sender.UserMessageSender;
@@ -19,7 +18,6 @@ import online.nasgar.hubcore.hubcore.utils.scoreboard.Assemble;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import us.figt.loafmenus.LoafMenuRegistrar;
 
 import java.io.File;
 
@@ -28,7 +26,6 @@ public final class HubCore extends JavaPlugin {
 
     @Getter private static HubCore instance;
     @Getter private MessageHandler messageHandler;
-    private LoafMenuRegistrar loafMenuRegistrar;
 
     @Override
     public void onEnable() {
@@ -45,11 +42,6 @@ public final class HubCore extends JavaPlugin {
         Utils.log("");
         loadCMD();
 
-        Utils.log("&aMenus Enabled.");
-        Utils.log("");
-        loadMenus();
-
-
         Utils.log("&aLanguages Enabled.");
         Utils.log("");
         loadLanguages();
@@ -65,6 +57,7 @@ public final class HubCore extends JavaPlugin {
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             this.getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
+            this.getServer().getPluginManager().registerEvents(new ItemJoinListeners(this), this);
             Utils.log("&aHooked to PlaceholderAPI.");
             Utils.log("");
         } else {
@@ -77,11 +70,7 @@ public final class HubCore extends JavaPlugin {
     }
 
     @Override
-    public void onDisable() {
-        unloadMenus();
-
-        Utils.log(Message.translate("&cDISABLED CORRECTLY"));
-    }
+    public void onDisable() { Utils.log(Message.translate("&cDISABLED CORRECTLY")); }
 
     private void registerScoreboard() {
         Assemble scoreboard = new Assemble(this, new ScoreboardAdapter());
@@ -94,37 +83,8 @@ public final class HubCore extends JavaPlugin {
 
         this.getCommand("hubcore").setExecutor(new ReloadCMD(this));
 
-        loadBungeeCMD();
-
         saveDefaultConfig();
 
-    }
-
-    private void loadBungeeCMD() {
-
-        this.getCommand("servers").setExecutor(new ServersCMDs(this));
-
-    }
-
-    public void loadMenus() {
-        try {
-            this.loafMenuRegistrar = new LoafMenuRegistrar(this);
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-            getServer().getPluginManager().disablePlugin(this);
-            return;
-        }
-
-        this.getCommand("menu").setExecutor(new MenuCMD());
-    }
-
-    public void unloadMenus() {
-        if (this.loafMenuRegistrar != null) {
-            this.loafMenuRegistrar.unregister();
-            this.loafMenuRegistrar = null;
-        }
-
-        instance = null;
     }
 
     private void loadLanguages(){

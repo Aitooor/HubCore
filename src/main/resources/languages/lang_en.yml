@@ -1,3 +1,4 @@
+#####################################################
 ##TAB##
 TAB:
   HEADER:
@@ -6,6 +7,7 @@ TAB:
   FOOTER:
     - "&7&oPlayin in this Hub &e%online%"
     - "&b&onasgar.online"
+#####################################################
 ##SCOREBOARD##
 SCOREBOARD:
   LINES:
@@ -20,25 +22,31 @@ SCOREBOARD:
     - "&fGlobal &a%bungee_online%"
     - ""
     - "&bnasgar.online"
+#####################################################
 ##ON JOIN MESSAGE##
 ONJOIN:
   ONE: "&e&oFrom Nasgar we hope you enjoy"
   TWO: "&e&oLet's play!"
   SHOP: "&a&lSHOP &7&ohttps://nasgar.online/shop"
 #####################################################
-##MENUS##
-PROFILE:
-  TITLE: "&aPROFILE"
-MENU:
-  MAIN:
-    TITLE: "&e✖ &cＭＡＩＮ ＭＥＮＵ"
-  HUBS:
-    TITLE: "&e✖ &fＨＵＢ ＳＥＬＥＣＴＯＲ"
-HELP:
-  TITLE: "&aHELP"
-SHOP:
-  TITLE: "&aSHOP"
-  PREFIX: "&a&lSHOP "
+##ITEM JOIN##
+SERVER_LIST:
+  NAME: "&aServer List"
+  LORE:
+      - "&7&oChoose a server"
+      - "&7&oto play on"
+HUBS_LIST:
+  NAME: "&aHubs List"
+  LORE:
+      - "&7&oChoose a hub"
+      - "&7&oto go on"
+#####################################################
+##FLY##
+FLY:
+  TOGGLE_OFF: "&b&lNASGAR &fYour fly mode was toggled &coff"
+  TOGGLE_ON: "&b&lNASGAR &fYour fly mode was toggled &aon"
+  DISABLED_TO: "&b&lNASGAR &fFly mode &cdisabled &ffor &a%player%"
+  ENABLED_TO: "&b&lNASGAR &fFly mode &aenabled &ffor &a%player%"
 #####################################################
 ##ERROR/WARN/INFO MESSAGES##
 NOPERMISSIONS:
@@ -53,9 +61,3 @@ SYNTAXERROR:
   PREFIX: "&b&lNASGAR &cSyntax error, type correctly"
 NO_PLAYER_ONLINE:
   PREFIX: "&b&lNASGAR &cPlayer isn't online"
-##FLY##
-FLY:
-  TOGGLE_OFF: "&b&lNASGAR &fYour fly mode was toggled &coff"
-  TOGGLE_ON: "&b&lNASGAR &fYour fly mode was toggled &aon"
-  DISABLED_TO: "&b&lNASGAR &fFly mode &cdisabled &ffor &a%player%"
-  ENABLED_TO: "&b&lNASGAR &fFly mode &aenabled &ffor &a%player%"
