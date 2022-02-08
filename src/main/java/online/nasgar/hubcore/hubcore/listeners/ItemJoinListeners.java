@@ -38,7 +38,7 @@ public class ItemJoinListeners implements Listener {
                     event.getPlayer().getInventory().setItem(0, servers);
 
                     // HUB LIST
-                    ItemStack hubs = new ItemStack(345);
+                    ItemStack hubs = new ItemStack(Material.BED);
                     ItemMeta hubsMeta = hubs.getItemMeta();
                     hubsMeta.setDisplayName(plugin.getMessageHandler().replacing(player, "HUBS_LIST.NAME"));
                     hubsMeta.setLore(plugin.getMessageHandler().replacingMany(player, "HUBS_LIST.LORE"));
