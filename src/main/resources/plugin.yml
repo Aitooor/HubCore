@@ -17,3 +17,4 @@ commands:
   fly:
     aliases:
       - volar
+  servers:
