@@ -14,9 +14,6 @@ commands:
   hubcore:
     aliases:
       - hc
-  menus:
-    aliases:
-      - menu
   fly:
     aliases:
       - volar

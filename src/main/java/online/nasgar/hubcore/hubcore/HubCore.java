@@ -1,6 +1,5 @@
 package online.nasgar.hubcore.hubcore;
 
-import com.samjakob.spigui.SpiGUI;
 import lombok.Getter;
 import me.yushust.message.MessageHandler;
 import me.yushust.message.bukkit.BukkitMessageAdapt;
@@ -9,7 +8,6 @@ import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.FlyCMD;
 import online.nasgar.hubcore.hubcore.commands.HubCoreCMD;
-import online.nasgar.hubcore.hubcore.commands.menus.MenusCMD;
 import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.message.player.liguist.UserLinguist;
@@ -27,8 +25,6 @@ import java.io.File;
 public final class HubCore extends JavaPlugin {
 
     @Getter private static HubCore instance;
-
-    public static SpiGUI spiGUI;
 
     @Getter private MessageHandler messageHandler;
 
@@ -49,7 +45,6 @@ public final class HubCore extends JavaPlugin {
 
         Utils.log("&aGUIs Enabled.");
         Utils.log("");
-        loadGUIs();
 
         Utils.log("&aLanguages Enabled.");
         Utils.log("");
@@ -81,10 +76,6 @@ public final class HubCore extends JavaPlugin {
     @Override
     public void onDisable() { Utils.log(Message.translate("&cDISABLED CORRECTLY")); }
 
-    private void loadGUIs() {
-        // (IMPORTANT!) Registers SpiGUI event handlers (and stores plugin-wide settings for SpiGUI.)
-        spiGUI = new SpiGUI(this);
-    }
 
     private void registerScoreboard() {
         Assemble scoreboard = new Assemble(this, new ScoreboardAdapter());
@@ -96,8 +87,6 @@ public final class HubCore extends JavaPlugin {
         this.getCommand("fly").setExecutor(new FlyCMD(this));
 
         this.getCommand("hubcore").setExecutor(new HubCoreCMD(this));
-
-        this.getCommand("menus").setExecutor(new MenusCMD(this));
 
         saveDefaultConfig();
 
