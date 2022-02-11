@@ -112,11 +112,5 @@
             <systemPath>${project.basedir}/libs/cadiaspigot-server-1.8.8-R0.1-SNAPSHOT.jar</systemPath>
         </dependency>
 
-        <dependency>
-            <groupId>fr.minuskube.inv</groupId>
-            <artifactId>smart-invs</artifactId>
-            <version>1.2.7</version>
-        </dependency>
-
     </dependencies>
 </project>
