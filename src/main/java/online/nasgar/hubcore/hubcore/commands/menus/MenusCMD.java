@@ -48,7 +48,7 @@ public class MenusCMD implements CommandExecutor {
                 event.getWhoClicked().sendMessage("Connecting to Survival...");
                 event.getWhoClicked().closeInventory();
                 Player playerLocation = (Player) player.getLocation();
-                player.playSound((Location) playerLocation, Sound.VILLAGER_HIT, 1.0f, 1.0f);
+                player.playSound((Location) playerLocation, Sound.LEVEL_UP, 1.0f, 1.0f);
             });
 
             // Add the button to your GUI
