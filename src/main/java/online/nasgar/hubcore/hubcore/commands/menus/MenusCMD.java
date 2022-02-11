@@ -4,7 +4,10 @@ import com.samjakob.spigui.SGMenu;
 import com.samjakob.spigui.buttons.SGButton;
 import com.samjakob.spigui.item.ItemBuilder;
 import online.nasgar.hubcore.hubcore.HubCore;
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,7 +34,6 @@ public class MenusCMD implements CommandExecutor {
 
         if (args[0].equalsIgnoreCase("servers")) {
 
-            // Create a GUI with 3 rows (27 slots)
             SGMenu myAwesomeMenu = HubCore.spiGUI.create(plugin.getMessageHandler().replacing(player, "SERVER_LIST.NAME"), 3);
             myAwesomeMenu.setAutomaticPaginationEnabled(false);
 
@@ -43,7 +45,10 @@ public class MenusCMD implements CommandExecutor {
             ).withListener((InventoryClickEvent event) -> {
                 // Events are cancelled automatically, unless you turn it off
                 // for your plugin or for this inventory.
-                event.getWhoClicked().sendMessage("Hello, world!");
+                event.getWhoClicked().sendMessage("Connecting to Survival...");
+                event.getWhoClicked().closeInventory();
+                Player playerLocation = (Player) player.getLocation();
+                player.playSound((Location) playerLocation, Sound.VILLAGER_HIT, 1.0f, 1.0f);
             });
 
             // Add the button to your GUI
