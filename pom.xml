@@ -70,10 +70,6 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
-        <repository>
-            <id>minebench-repo</id>
-            <url>https://repo.minebench.de/</url>
-        </repository>
     </repositories>
 
     <dependencies>
@@ -114,19 +110,6 @@
             <version>1.8.8</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/libs/cadiaspigot-server-1.8.8-R0.1-SNAPSHOT.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>de.themoep</groupId>
-            <artifactId>inventorygui</artifactId>
-            <version>1.5-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.samjakob</groupId>
-            <artifactId>SpiGUI</artifactId>
-            <version>1.2.3</version>
         </dependency>
 
     </dependencies>

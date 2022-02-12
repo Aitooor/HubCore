@@ -1,6 +1,5 @@
 package online.nasgar.hubcore.hubcore;
 
-import com.samjakob.spigui.SpiGUI;
 import lombok.Getter;
 import me.yushust.message.MessageHandler;
 import me.yushust.message.bukkit.BukkitMessageAdapt;
@@ -28,8 +27,6 @@ public final class HubCore extends JavaPlugin {
 
     @Getter private static HubCore instance;
 
-    public static SpiGUI spiGUI;
-
     @Getter private MessageHandler messageHandler;
 
     @Override
@@ -40,6 +37,8 @@ public final class HubCore extends JavaPlugin {
 
         this.saveDefaultConfig();
 
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+
         Utils.log("&aChatFormat Enabled.");
         Utils.log("");
 
@@ -49,7 +48,6 @@ public final class HubCore extends JavaPlugin {
 
         Utils.log("&aGUIs Enabled.");
         Utils.log("");
-        loadGUIs();
 
         Utils.log("&aLanguages Enabled.");
         Utils.log("");
@@ -81,11 +79,6 @@ public final class HubCore extends JavaPlugin {
     @Override
     public void onDisable() { Utils.log(Message.translate("&cDISABLED CORRECTLY")); }
 
-    private void loadGUIs() {
-        // (IMPORTANT!) Registers SpiGUI event handlers (and stores plugin-wide settings for SpiGUI.)
-        spiGUI = new SpiGUI(this);
-    }
-
     private void registerScoreboard() {
         Assemble scoreboard = new Assemble(this, new ScoreboardAdapter());
         scoreboard.setTicks(getConfig().getLong("SCOREBOARD.TICKS"));
@@ -97,7 +90,7 @@ public final class HubCore extends JavaPlugin {
 
         this.getCommand("hubcore").setExecutor(new HubCoreCMD(this));
 
-        this.getCommand("menus").setExecutor(new MenusCMD(this));
+        this.getCommand("menu").setExecutor(new MenusCMD(this));
 
         saveDefaultConfig();
 
