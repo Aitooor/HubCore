@@ -46,6 +46,11 @@ HUBS_LIST:
       - "&7&oChoose a hub"
       - "&7&oto go on"
 #####################################################
+##MENUS##
+MENUS:
+  SERVERS:
+    TITLE: "&a&lServers List"
+#####################################################
 ##FLY##
 FLY:
   TOGGLE_OFF: "&b&lNASGAR &fYour fly mode was toggled &coff"

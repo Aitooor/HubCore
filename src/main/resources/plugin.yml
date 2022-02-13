@@ -17,6 +17,3 @@ commands:
   menus:
     aliases:
       - menu
-  fly:
-    aliases:
-      - volar

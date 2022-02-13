@@ -40,6 +40,12 @@
                         </goals>
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>dev.triumphteam.gui</pattern>
+                                    <shadedPattern>online.nasgar.gui</shadedPattern> <!-- Replace package here here -->
+                                </relocation>
+                            </relocations>
                         </configuration>
                     </execution>
                 </executions>
@@ -69,6 +75,10 @@
         <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
+        </repository>
+        <repository>
+            <id>repo</id>
+            <url>https://repo.mattstudios.me/artifactory/public/</url>
         </repository>
     </repositories>
 
@@ -110,6 +120,12 @@
             <version>1.8.8</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/libs/cadiaspigot-server-1.8.8-R0.1-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>dev.triumphteam</groupId>
+            <artifactId>triumph-gui</artifactId>
+            <version>3.1.1</version>
         </dependency>
 
     </dependencies>

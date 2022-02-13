@@ -46,6 +46,11 @@ HUBS_LIST:
     - "&7&oElige un hub"
     - "&7&odonde ir"
 #####################################################
+##MENUS##
+MENUS:
+  SERVERS:
+    TITLE: "&a&lLista de Servidores"
+#####################################################
 ##FLY##
 FLY:
   TOGGLE_OFF: "&b&lNASGAR &fTu modo de vuelo fue &cdesactivado"
