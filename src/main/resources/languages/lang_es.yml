@@ -50,6 +50,25 @@ HUBS_LIST:
 MENUS:
   SERVERS:
     TITLE: "&a&lLista de Servidores"
+    SURVIVAL:
+      NAME: "&a&lSURVIVAL"
+      LORE:
+        - ""
+        - "&fONLINE &a%online%"
+        - "&fMAXIMO ONLINE &a300"
+        - "&fESTADO &aDisponible"
+        - ""
+        - "&7&oJuega con tus amigos o solo en"
+        - "&7&onuestro mundo Survival."
+        - "&7Explora el mundo, haz amigos, se el mejor..."
+        - ""
+        - "&eCARACTERISTICAS"
+        - ""
+        - "&f1 sdadsadsadadassasa"
+        - "&f2 sdadsadsadadassasa"
+        - "&f3 sdadsadsadadassasa"
+  HUBS:
+    TITLE: "&a&lLista de Hubs"
 #####################################################
 ##FLY##
 FLY:
