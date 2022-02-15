@@ -138,7 +138,7 @@ public class CenteredMessage {
         }
 
         public static void sendCenteredMessage(Player player, String message){
-            message = ChatColor.translateAlternateColorCodes('&', message);
+            message = Message.translate(message);
             int messagePxSize = 0;
             boolean previousCode = false;
             boolean isBold = false;

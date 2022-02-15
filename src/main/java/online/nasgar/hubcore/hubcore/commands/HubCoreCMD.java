@@ -24,8 +24,8 @@ public class HubCoreCMD implements CommandExecutor {
             Utils.log("&aReloaded completed");
             return false;
         }
-
-        if (!sender.hasPermission("hubcore.reload")) {
+        Player player = (Player) sender;
+        if (!player.hasPermission("hubcore.reload")) {
             plugin.getMessageHandler().sendReplacing(sender, "NOPERMISSIONS.PREFIX", "%player%", sender.getName());
             return true;
         }
@@ -37,8 +37,6 @@ public class HubCoreCMD implements CommandExecutor {
             return true;
         }
         if(args[0].equalsIgnoreCase("setspawn")) {
-            Player player = ((Player) sender).getPlayer();
-
             HubCore.getInstance().getConfig().set("LOCATION.SPAWN", LocationUtil.parseToString(player.getLocation()));
             HubCore.getInstance().saveConfig();
             HubCore.getInstance().reloadConfig();

@@ -26,12 +26,12 @@ public class  MenusCMD implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            return false;
+            return true;
         }
 
         if (args.length == 0) return false;
 
-        Player player = ((Player) sender).getPlayer();
+        Player player = (Player) sender;
 
         FileConfiguration config = HubCore.getInstance().getConfig();
 
@@ -39,7 +39,6 @@ public class  MenusCMD implements CommandExecutor {
 
         if (args[0].equalsIgnoreCase("servers")) {
             Inventory inv = Bukkit.createInventory(player, 45, messageHandler.replacing(player, "MENUS.SERVERS.TITLE"));
-
             // SURVIVAL
             ItemStack survival = new ItemStack(Material.GRASS);
             ItemMeta survivalMeta = survival.getItemMeta();

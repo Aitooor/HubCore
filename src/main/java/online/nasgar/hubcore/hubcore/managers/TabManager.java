@@ -13,72 +13,68 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.lang.reflect.Field;
 import java.util.List;
 
+
 public class TabManager {
+    
     private String headers;
     private String footers;
-
+    
     private final HubCore plugin;
-
+    
     private final Player player;
+    
     public TabManager(HubCore plugin, Player player) {
         this.plugin = plugin;
         this.player = player;
     }
-
+    
     public void showTab() {
         if(headers.isEmpty() && footers.isEmpty()) {
             return;
         }
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin,
-                new BukkitRunnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            if(player == null){
-                                cancel();
-                                return;
-                            }
-                            String header = Utils.ct(
-                                    PlaceholderAPI.setPlaceholders(player, headers)
-                            );
-                            String footer = Utils.ct(
-                                    PlaceholderAPI.setPlaceholders(player, footers)
-                            );
-                            PacketPlayOutPlayerListHeaderFooter headerFooter = new PacketPlayOutPlayerListHeaderFooter(
-                                    IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + header + "\"}")
-                            );
-                            Field b = headerFooter.getClass().getDeclaredField("b");
-                            b.setAccessible(true);
-                            b.set(headerFooter, IChatBaseComponent.ChatSerializer.a(
-                                    "{\"text\":\"" + footer + "\"}"
-                            ));
-                            ((CraftPlayer)player).getHandle().playerConnection.sendPacket(headerFooter);
-                        } catch (IllegalAccessException | NoSuchFieldException e) {
-                            e.printStackTrace();
-                        }
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new BukkitRunnable() {
+            @Override
+            public void run() {
+                try {
+                    if(player == null) {
+                        cancel();
+                        return;
                     }
-                }, 10, 40);
+                    String header = Utils.ct(PlaceholderAPI.setPlaceholders(player, headers));
+                    String footer = Utils.ct(PlaceholderAPI.setPlaceholders(player, footers));
+                    PacketPlayOutPlayerListHeaderFooter headerFooter = new PacketPlayOutPlayerListHeaderFooter(
+                            IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + header + "\"}"));
+                    Field b = headerFooter.getClass().getDeclaredField("b");
+                    b.setAccessible(true);
+                    b.set(headerFooter, IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + footer + "\"}"));
+                    ((CraftPlayer) player).getHandle().playerConnection.sendPacket(headerFooter);
+                } catch(IllegalAccessException | NoSuchFieldException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 10, 40);
     }
-
+    
     public void addHeaders(String header) {
         headers += "\n" + header;
     }
-
+    
     public void addFooters(String footer) {
         footers += "\n" + footer;
     }
-
-    public void setHeaders(List<String> headers){
+    
+    public void setHeaders(List<String> headers) {
         this.headers = "";
-        for(String header : headers){
+        for(String header : headers) {
             addHeaders(header);
         }
     }
-
+    
     public void setFooters(List<String> footers) {
         this.footers = "";
-        for(String footer : footers){
+        for(String footer : footers) {
             addFooters(footer);
         }
     }
+    
 }
