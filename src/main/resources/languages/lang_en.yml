@@ -63,7 +63,7 @@ MENUS:
         - "  &7&oPlay with your friends or alone our survival world."
         - ""
         - " &fOnline &a%online%"
-        - " &fMax online &a300"
+        - " &fMax online &a%max_online%"
         - " &fStatus &aOnline"
         - ""
         - " &cFeatures"

@@ -33,6 +33,8 @@ public class  MenusCMD implements CommandExecutor {
 
         Player player = ((Player) sender).getPlayer();
 
+        FileConfiguration config = HubCore.getInstance().getConfig();
+
         MessageHandler messageHandler = HubCore.getInstance().getMessageHandler();
 
         if (args[0].equalsIgnoreCase("servers")) {
@@ -52,7 +54,7 @@ public class  MenusCMD implements CommandExecutor {
 
             int survivalCountInt = survival1Int + survival2Int;
 
-            survivalMeta.setLore(messageHandler.replacingMany(player, "MENUS.SERVERS.SURVIVAL.LORE", "%online%", survivalCountInt));
+            survivalMeta.setLore(messageHandler.replacingMany(player, "MENUS.SERVERS.SURVIVAL.LORE", "%online%", survivalCountInt, "max_online", config.getInt("MENUS.SERVER.SURVIVAL.MAX_ONLINE")));
             survival.setItemMeta(survivalMeta);
 
             inv.setItem(21, survival);
