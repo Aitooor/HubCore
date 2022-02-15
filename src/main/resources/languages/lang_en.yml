@@ -48,10 +48,10 @@ HUBS_LIST:
 #####################################################
 ##MENUS##
 MENUS:
+  CLOSE: "&c&oClose"
+  GLASSES: "&7&oNasgar"
   SERVERS:
-    TITLE: "&0&lServers List"
-    CLOSE: "&c&oClose"
-    GLASSES: "&7&oNasgar"
+    TITLE: "&0Servers List"
     SURVIVAL:
       NAME: "&b&lSURVIVAL &71.18"
       LORE:
@@ -80,8 +80,8 @@ MENUS:
         - " &fRecommended version &a1.7-1.8"
         - " &fSupported versions &a1.7-1.18"
         - ""
-        - "  &7Explore the world, make friends, be the best..."
-        - "  &7&oPlay with your friends or alone our survival world."
+        - "  &7&oPrepare for battle, enter with the best in the top..."
+        - "  &7&oPlay with your friends or alone in the best islands of Bedwars."
         - ""
         - " &fOnline &a%online%"
         - " &fMax online &a300"
@@ -89,13 +89,27 @@ MENUS:
         - ""
         - " &cFeatures"
         - ""
-        - "   &7➥ &fProtections"
-        - "   &7➥ &fWarps"
-        - "   &7➥ &fEvents"
-        - "   &7➥ &fBackpacks"
+        - "   &7➥ &fCustom Maps"
+        - "   &7➥ &fSolo, Doubles, 3v3v3v3, 4v4v4v4"
+        - "   &7➥ &fRanked mode"
+        - "   &7➥ &fRank System"
         - "   &7➥ &fAnd much more"
   HUBS:
-    TITLE: "&a&lHubs List"
+    TITLE: "&0Hubs List"
+    ONE:
+      NAME: "&b&lHUB &8#&71"
+      LORE:
+        - ""
+        - " &fOnline &a%online%"
+        - " &fMax online &a500"
+        - " &fStatus &aOnline"
+    TWO:
+      NAME: "&b&lHUB &8#&72"
+      LORE:
+        - ""
+        - " &fOnline &a%online%"
+        - " &fMax online &a500"
+        - " &fStatus &aOnline"
 #####################################################
 ##FLY##
 FLY:
