@@ -8,10 +8,3 @@ SCOREBOARD:
 # On join message title
 ONJOIN:
   TITLE: "&b&lNASGAR &7| &fHUB &7#1"
-
-#####################################################
-# MENUS
-MENUS:
-  SERVERS:
-    SURVIVAL:
-      MAX_ONLINE: 300

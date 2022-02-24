@@ -109,8 +109,9 @@ public final class HubCore extends JavaPlugin {
         MessageSource messageSource = messageSourceDecorator
                 .addFallbackLanguage("en")
                 .addFallbackLanguage("es")
+                .addFallbackLanguage("eu")
                 .get();
-        Utils.loadFiles(this,"languages/lang_en.yml", "languages/lang_es.yml");
+        Utils.loadFiles(this,"languages/lang_en.yml", "languages/lang_es.yml", "languages/lang_eu.yml");
         this.messageHandler = MessageHandler.of(
                 messageSource,
                 config -> {
