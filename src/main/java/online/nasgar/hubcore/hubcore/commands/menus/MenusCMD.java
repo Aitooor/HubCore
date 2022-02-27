@@ -4,12 +4,12 @@ package online.nasgar.hubcore.hubcore.commands.menus;
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.yushust.message.MessageHandler;
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -26,6 +26,7 @@ public class  MenusCMD implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
+            Utils.log("You must be a player to perform this command.");
             return true;
         }
 
@@ -33,9 +34,7 @@ public class  MenusCMD implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        FileConfiguration config = HubCore.getInstance().getConfig();
-
-        MessageHandler messageHandler = HubCore.getInstance().getMessageHandler();
+        MessageHandler messageHandler = plugin.getMessageHandler();
 
         if (args[0].equalsIgnoreCase("servers")) {
             Inventory inv = Bukkit.createInventory(player, 45, messageHandler.replacing(player, "MENUS.SERVERS.TITLE"));
