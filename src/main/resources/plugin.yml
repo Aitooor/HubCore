@@ -17,3 +17,4 @@ commands:
   menus:
     aliases:
       - menu
+  fly:

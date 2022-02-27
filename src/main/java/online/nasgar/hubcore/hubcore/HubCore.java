@@ -6,6 +6,7 @@ import me.yushust.message.bukkit.BukkitMessageAdapt;
 import me.yushust.message.source.MessageSource;
 import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
+import online.nasgar.hubcore.hubcore.commands.FlyCMD;
 import online.nasgar.hubcore.hubcore.commands.HubCoreCMD;
 import online.nasgar.hubcore.hubcore.commands.menus.MenusCMD;
 import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
@@ -88,6 +89,8 @@ public final class HubCore extends JavaPlugin {
     public void loadCMD() {
 
         this.getCommand("hubcore").setExecutor(new HubCoreCMD(this));
+
+        this.getCommand("fly").setExecutor(new FlyCMD(this));
 
         this.getCommand("menus").setExecutor(new MenusCMD(this));
 
