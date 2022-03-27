@@ -1,4 +1,4 @@
-package online.nasgar.hubcore.hubcore.message.player.liguist;
+package online.nasgar.hubcore.hubcore.message;
 
 import me.yushust.message.bukkit.SpigotLinguist;
 import me.yushust.message.language.Linguist;

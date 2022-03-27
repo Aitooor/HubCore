@@ -1,4 +1,4 @@
-package online.nasgar.hubcore.hubcore.message.player.sender;
+package online.nasgar.hubcore.hubcore.message;
 
 import me.yushust.message.send.MessageSender;
 import online.nasgar.hubcore.hubcore.utils.Utils;

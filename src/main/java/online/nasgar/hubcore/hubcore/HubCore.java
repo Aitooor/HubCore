@@ -6,14 +6,13 @@ import me.yushust.message.bukkit.BukkitMessageAdapt;
 import me.yushust.message.source.MessageSource;
 import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
-import online.nasgar.hubcore.hubcore.commands.FlyCMD;
 import online.nasgar.hubcore.hubcore.commands.HubCoreCMD;
-import online.nasgar.hubcore.hubcore.commands.menus.MenusCMD;
+import online.nasgar.hubcore.hubcore.commands.MenusCMD;
 import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
 import online.nasgar.hubcore.hubcore.listeners.MenuListener;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
-import online.nasgar.hubcore.hubcore.message.player.liguist.UserLinguist;
-import online.nasgar.hubcore.hubcore.message.player.sender.UserMessageSender;
+import online.nasgar.hubcore.hubcore.message.UserLinguist;
+import online.nasgar.hubcore.hubcore.message.UserMessageSender;
 import online.nasgar.hubcore.hubcore.utils.Message;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import online.nasgar.hubcore.hubcore.utils.scoreboard.Assemble;
@@ -40,15 +39,9 @@ public final class HubCore extends JavaPlugin {
 
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
-        Utils.log("&aChatFormat Enabled.");
-        Utils.log("");
-
         Utils.log("&aCMDs Enabled.");
         Utils.log("");
         loadCMD();
-
-        Utils.log("&aGUIs Enabled.");
-        Utils.log("");
 
         Utils.log("&aLanguages Enabled.");
         Utils.log("");
@@ -57,9 +50,6 @@ public final class HubCore extends JavaPlugin {
         Utils.log("&aScoreboard Enabled.");
         Utils.log("");
         this.registerScoreboard();
-
-        Utils.log("&aTAB Enabled.");
-        Utils.log("");
 
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
@@ -89,8 +79,6 @@ public final class HubCore extends JavaPlugin {
     public void loadCMD() {
 
         this.getCommand("hubcore").setExecutor(new HubCoreCMD(this));
-
-        this.getCommand("fly").setExecutor(new FlyCMD(this));
 
         this.getCommand("menus").setExecutor(new MenusCMD(this));
 
