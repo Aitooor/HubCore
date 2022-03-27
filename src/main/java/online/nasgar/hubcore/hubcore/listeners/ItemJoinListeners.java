@@ -37,14 +37,6 @@ public class ItemJoinListeners implements Listener {
             servers.setItemMeta(serversMeta);
             event.getPlayer().getInventory().setItem(0, servers);
             
-            // FLY TOGGLE
-            ItemStack fly = new ItemStack(Material.FEATHER);
-            ItemMeta flyMeta = fly.getItemMeta();
-            flyMeta.setDisplayName(plugin.getMessageHandler().replacing(player, "FLY_ITEM.NAME"));
-            flyMeta.setLore(plugin.getMessageHandler().replacingMany(player, "FLY_ITEM.LORE"));
-            fly.setItemMeta(flyMeta);
-            event.getPlayer().getInventory().setItem(4, fly);
-            
             // HUB LIST
             ItemStack hubs = new ItemStack(Material.BED);
             ItemMeta hubsMeta = hubs.getItemMeta();
@@ -67,8 +59,6 @@ public class ItemJoinListeners implements Listener {
             if(currentItem != null && currentItem.getType() != Material.AIR) {
                 if(currentItem.getType() == Material.COMPASS) {
                     player.performCommand("hubcore:menus servers");
-                } else if(currentItem.getType() == Material.FEATHER) {
-                    player.performCommand("hubcore:fly");
                 } else if(currentItem.getType() == Material.BED) {
                     player.performCommand("hubcore:menus hubs");
                 }
