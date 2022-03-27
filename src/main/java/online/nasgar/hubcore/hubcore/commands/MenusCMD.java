@@ -42,7 +42,7 @@ public class  MenusCMD implements CommandExecutor {
             ItemStack survival = new ItemStack(Material.GRASS);
             ItemMeta survivalMeta = survival.getItemMeta();
             survivalMeta.setDisplayName(messageHandler.replacing(player, "MENUS.SERVERS.SURVIVAL.NAME"));
-
+            //TODO Change player count system from Placeholder to Bungee or Redis
             String survival1 = "%bungee_Survival-1%";
             survival1 = PlaceholderAPI.setPlaceholders(player, survival1);
             int survival1Int = Integer.parseInt(survival1);
@@ -61,7 +61,7 @@ public class  MenusCMD implements CommandExecutor {
             ItemStack bedwars = new ItemStack(Material.BED);
             ItemMeta bedwarsMeta = bedwars.getItemMeta();
             bedwarsMeta.setDisplayName(messageHandler.replacing(player, "MENUS.SERVERS.BEDWARS.NAME"));
-
+            //TODO Change player count system from Placeholder to Bungee or Redis
             String bwHub = "%bungee_BW-Hub%";
             bwHub = PlaceholderAPI.setPlaceholders(player, bwHub);
             int bwHubCount = Integer.parseInt(bwHub);
@@ -154,6 +154,7 @@ public class  MenusCMD implements CommandExecutor {
             close.setItemMeta(closeMeta);
 
             inv.setItem(40, close);
+            //TODO Modify glass filled if possible
 
             // FRAME STAINED GLASS BLACK
             ItemStack frameBlack = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15);
@@ -187,7 +188,7 @@ public class  MenusCMD implements CommandExecutor {
             ItemStack hub1 = new ItemStack(Material.GRASS);
             ItemMeta hub1Meta = hub1.getItemMeta();
             hub1Meta.setDisplayName(messageHandler.replacing(player, "MENUS.HUBS.ONE.NAME"));
-
+            //TODO Change player count system from Placeholder to Bungee or Redis
             String hub1Count = "%bungee_Hub-1%";
             hub1Count = PlaceholderAPI.setPlaceholders(player, hub1Count);
             int hub1CountInt = Integer.parseInt(hub1Count);
@@ -196,6 +197,7 @@ public class  MenusCMD implements CommandExecutor {
             hub1.setItemMeta(hub1Meta);
 
             inv.setItem(21, hub1);
+            //TODO Change player count system from Placeholder to Bungee or Redis
 
             // HUB-2
             ItemStack hub2 = new ItemStack(Material.GRASS);
@@ -220,6 +222,7 @@ public class  MenusCMD implements CommandExecutor {
             close.setItemMeta(closeMeta);
 
             inv.setItem(40, close);
+            //TODO Modify glass filled if possible
 
             // FRAME STAINED GLASS BLACK
             ItemStack frameBlack = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15);
