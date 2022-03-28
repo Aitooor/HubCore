@@ -43,6 +43,7 @@ public class SelectorsListener implements Listener {
                     bedwars.writeUTF("BW-HUB");
                     
                     player.sendPluginMessage(plugin, "BungeeCord", bedwars.toByteArray());
+                    break;
                 default:
                     return;
             }
@@ -68,6 +69,7 @@ public class SelectorsListener implements Listener {
                     bedwars.writeUTF("Hub-2");
                     
                     player.sendPluginMessage(plugin, "BungeeCord", bedwars.toByteArray());
+                    break;
                 default:
                     return;
             }
