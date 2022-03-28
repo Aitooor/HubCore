@@ -103,14 +103,14 @@ MENUS:
         - ""
         - " &fOnline &a%online%"
         - " &fMaximo online &a500"
-        - " &fEstado &aOnline"
+        - " &fEstado &aDisponible"
     TWO:
       NAME: "&b&lHUB &8#&72"
       LORE:
         - ""
         - " &fOnline &a%online%"
         - " &fMaximo online &a500"
-        - " &fEstado &aOnline"
+        - " &fEstado &aDisponible"
 #####################################################
 ##FLY##
 FLY:

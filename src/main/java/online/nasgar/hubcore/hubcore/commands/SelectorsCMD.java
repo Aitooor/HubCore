@@ -55,7 +55,9 @@ public class SelectorsCMD implements CommandExecutor {
 
             int survivalCountInt = survival1Int + survival2Int;
 
-            survivalMeta.setLore(messageHandler.replacingMany(player, "MENUS.SERVERS.SURVIVAL.LORE", "%online%", survivalCountInt));
+            survivalMeta.setLore(messageHandler.replacingMany(player, "MENUS.SERVERS.SURVIVAL.LORE",
+                "%online%", survivalCountInt
+            ));
             survival.setItemMeta(survivalMeta);
 
             inv.setItem(21, survival);
