@@ -8,3 +8,12 @@ SCOREBOARD:
 # On join message title
 ONJOIN:
   TITLE: "&b&lNASGAR &7| &fHUB &7#1"
+
+#####################################################
+# Menus Hubs Selector
+MENU:
+  HUBS:
+    HUB-1:
+      MATERIAL: "EYE_OF_ENDER"
+    HUB-2:
+      MATERIAL: "ENDER_PEARL"

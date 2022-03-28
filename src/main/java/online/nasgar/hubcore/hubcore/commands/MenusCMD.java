@@ -10,6 +10,7 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -35,6 +36,8 @@ public class  MenusCMD implements CommandExecutor {
         Player player = (Player) sender;
 
         MessageHandler messageHandler = plugin.getMessageHandler();
+
+        FileConfiguration config = HubCore.getInstance().getConfig();
 
         if (args[0].equalsIgnoreCase("servers")) {
             Inventory inv = Bukkit.createInventory(player, 45, messageHandler.replacing(player, "MENUS.SERVERS.TITLE"));
@@ -185,7 +188,7 @@ public class  MenusCMD implements CommandExecutor {
             Inventory inv = Bukkit.createInventory(player, 45, messageHandler.replacing(player, "MENUS.HUBS.TITLE"));
 
             // HUB-1
-            ItemStack hub1 = new ItemStack(Material.GRASS);
+            ItemStack hub1 = new ItemStack(Material.valueOf(config.getString("MENU.HUBS.HUB-1.MATERIAL").toUpperCase()));
             ItemMeta hub1Meta = hub1.getItemMeta();
             hub1Meta.setDisplayName(messageHandler.replacing(player, "MENUS.HUBS.ONE.NAME"));
             //TODO Change player count system from Placeholder to Bungee or Redis
@@ -200,7 +203,7 @@ public class  MenusCMD implements CommandExecutor {
             //TODO Change player count system from Placeholder to Bungee or Redis
 
             // HUB-2
-            ItemStack hub2 = new ItemStack(Material.GRASS);
+            ItemStack hub2 = new ItemStack(Material.valueOf(config.getString("MENU.HUBS.HUB-2.MATERIAL").toUpperCase()));
             ItemMeta hub2meta = hub2.getItemMeta();
             hub2meta.setDisplayName(messageHandler.replacing(player, "MENUS.HUBS.TWO.NAME"));
 
