@@ -7,9 +7,9 @@ import me.yushust.message.source.MessageSource;
 import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.HubCoreCMD;
-import online.nasgar.hubcore.hubcore.commands.MenusCMD;
+import online.nasgar.hubcore.hubcore.commands.SelectorsCMD;
 import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
-import online.nasgar.hubcore.hubcore.listeners.MenuListener;
+import online.nasgar.hubcore.hubcore.listeners.SelectorsListener;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.message.UserLinguist;
 import online.nasgar.hubcore.hubcore.message.UserMessageSender;
@@ -56,7 +56,7 @@ public final class HubCore extends JavaPlugin {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             this.getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
             this.getServer().getPluginManager().registerEvents(new ItemJoinListeners(this), this);
-            this.getServer().getPluginManager().registerEvents(new MenuListener(this), this);
+            this.getServer().getPluginManager().registerEvents(new SelectorsListener(this), this);
             Utils.log("&aHooked to PlaceholderAPI.");
             Utils.log("");
         } else {
@@ -80,7 +80,7 @@ public final class HubCore extends JavaPlugin {
 
         this.getCommand("hubcore").setExecutor(new HubCoreCMD(this));
 
-        this.getCommand("menus").setExecutor(new MenusCMD(this));
+        this.getCommand("menus").setExecutor(new SelectorsCMD(this));
 
         saveDefaultConfig();
 

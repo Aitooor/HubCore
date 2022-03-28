@@ -1,15 +1,16 @@
-#####################################################
+# DON'T MODIFY Spawn Location
+LOCATION:
+  SPAWN:
+
 # SCOREBOARD Settings and title
 SCOREBOARD:
   TICKS: 20
   TITLE: "&b&lHUB &8| &7#1"
 
-#####################################################
 # On join message title
 ONJOIN:
   TITLE: "&b&lNASGAR &7| &fHUB &7#1"
 
-#####################################################
 # Menus Hubs Selector
 MENU:
   HUBS:
@@ -17,8 +18,3 @@ MENU:
       MATERIAL: "EYE_OF_ENDER"
     HUB-2:
       MATERIAL: "ENDER_PEARL"
-
-#####################################################
-# DON'T MODIFY Spawn Location
-LOCATION:
-  SPAWN:

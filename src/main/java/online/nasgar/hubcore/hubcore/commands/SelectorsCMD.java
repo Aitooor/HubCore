@@ -16,11 +16,11 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class  MenusCMD implements CommandExecutor {
+public class SelectorsCMD implements CommandExecutor {
 
     private final HubCore plugin;
 
-    public MenusCMD(HubCore instance) {
+    public SelectorsCMD(HubCore instance) {
         plugin = instance;
     }
 

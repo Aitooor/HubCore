@@ -10,11 +10,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 
-public class MenuListener implements Listener {
+public class SelectorsListener implements Listener {
     
     private final HubCore plugin;
     
-    public MenuListener(HubCore instance) {
+    public SelectorsListener(HubCore instance) {
         plugin = instance;
     }
     
@@ -34,7 +34,7 @@ public class MenuListener implements Listener {
                     ByteArrayDataOutput survival = ByteStreams.newDataOutput();
                     survival.writeUTF("Connect");
                     survival.writeUTF("Survival-1");
-                    
+
                     player.sendPluginMessage(plugin, "BungeeCord", survival.toByteArray());
                     break;
                 case 23: // BEDWARS
