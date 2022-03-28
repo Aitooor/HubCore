@@ -99,6 +99,7 @@ MENUS:
     ONE:
       NAME: "&b&lHUB &8#&71"
       LORE:
+        - "&7&o(Hub Actual)"
         - ""
         - " &fOnline &a%online%"
         - " &fMaximo online &a500"
@@ -115,8 +116,6 @@ MENUS:
 FLY:
   TOGGLE_OFF: "&b&lNASGAR &fTu modo de vuelo fue &cdesactivado"
   TOGGLE_ON: "&b&lNASGAR &fTu modo de vuelo fue &aactivado"
-  DISABLED_TO: "&b&lNASGAR &fModo de vuelo &cdesactivado &fpara &a%player%"
-  ENABLED_TO: "&b&lNASGAR &fModo de vuelo &aactivado &fpara &a%player%"
 #####################################################
 ##ERROR/WARN/INFO MESSAGES##
 NOPERMISSIONS:
