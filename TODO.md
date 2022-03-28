@@ -5,8 +5,7 @@ Thinks to add, fix and remove for HubCore. And added too
 
 - Command Framework. For cooldowns, etc..
 - Fly Command and Fly JoinItem
-- HubSelector modification
-- 
+- Visibily toggle JoinItem
 
 #To fix:
 
@@ -18,4 +17,4 @@ Thinks to add, fix and remove for HubCore. And added too
 
 #Added:
 
-- 
+- HubSelector modification
