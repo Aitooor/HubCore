@@ -23,6 +23,7 @@ public class MenuListener implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
+        // SERVER SELECTOR
         if(event.getView().getTitle().equals(messageHandler.replacing(player, "MENUS.SERVERS.TITLE")) &&
            event.getCurrentItem() != null)
         {
@@ -46,7 +47,8 @@ public class MenuListener implements Listener {
                     return;
             }
             player.closeInventory();
-            
+
+        // HUBS SELECTOR
         } else if(event.getView().getTitle().equals(messageHandler.replacing(player, "MENUS.HUBS.TITLE")) &&
                   event.getCurrentItem() != null)
         {
