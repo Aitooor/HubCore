@@ -17,3 +17,8 @@ MENU:
       MATERIAL: "EYE_OF_ENDER"
     HUB-2:
       MATERIAL: "ENDER_PEARL"
+
+#####################################################
+# DON'T MODIFY Spawn Location
+LOCATION:
+  SPAWN:

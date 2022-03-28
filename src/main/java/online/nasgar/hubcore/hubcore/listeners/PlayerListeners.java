@@ -192,7 +192,7 @@ public class PlayerListeners implements Listener {
     @EventHandler
     public void onPluginLoad(PluginEnableEvent event) {
         
-        if(LocationUtil.parseToLocation(config.getString("LOCATION.SPAWN")) == null || config.getString(
+        if(config.getString(
                 "LOCATION.SPAWN") == null)
         {
             return;
@@ -211,13 +211,11 @@ public class PlayerListeners implements Listener {
     }
     
     private void tpSpawn(Player player) {
-        if(LocationUtil.parseToLocation(config.getString("LOCATION.SPAWN")) == null || config.getString(
-                "LOCATION.SPAWN") == null)
-        {
+        if(config.getString("LOCATION.SPAWN") == null) {
             return;
         }
-        
+
         player.teleport(LocationUtil.parseToLocation(config.getString("LOCATION.SPAWN")));
     }
-    
+
 }
