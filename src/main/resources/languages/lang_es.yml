@@ -118,7 +118,7 @@ PREMIUM:
     NAME: "&a&lACTIVAR PREMIUM"
     LORE:
       - "&r"
-      - "&fEsto se usa para habilitar premium cancela"
+      - "&fEsto se usa para habilitar premium"
       - "&cUsalo solo si eres usuario premium"
       - "&r"
       - "&7Esto significa que has comprado el juego"
@@ -126,7 +126,7 @@ PREMIUM:
     NAME: "&c&lCANCELAR PREMIUM"
     LORE:
       - "&r"
-      - "&fSi no eres un usuario premium"
+      - "&fSi no eres un usuario premium cancela"
       - "&aEsto significa que has comprado el juego"
       - "&r"
       - "&7Haga clic aquí para cerrar este mensaje"
