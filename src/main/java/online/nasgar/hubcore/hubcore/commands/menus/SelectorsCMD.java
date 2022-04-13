@@ -1,4 +1,4 @@
-package online.nasgar.hubcore.hubcore.commands;
+package online.nasgar.hubcore.hubcore.commands.menus;
 
 
 import me.clip.placeholderapi.PlaceholderAPI;

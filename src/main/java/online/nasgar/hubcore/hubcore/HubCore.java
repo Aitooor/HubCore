@@ -7,9 +7,10 @@ import me.yushust.message.source.MessageSource;
 import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.HubCoreCMD;
-import online.nasgar.hubcore.hubcore.commands.SelectorsCMD;
+import online.nasgar.hubcore.hubcore.commands.menus.PremiumSelectorCMD;
+import online.nasgar.hubcore.hubcore.commands.menus.SelectorsCMD;
 import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
-import online.nasgar.hubcore.hubcore.listeners.SelectorsListener;
+import online.nasgar.hubcore.hubcore.listeners.menus.SelectorsListener;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.message.UserLinguist;
 import online.nasgar.hubcore.hubcore.message.UserMessageSender;
@@ -82,6 +83,8 @@ public final class HubCore extends JavaPlugin {
 
         this.getCommand("menus").setExecutor(new SelectorsCMD(this));
 
+        this.getCommand("premium").setExecutor(new PremiumSelectorCMD(this));
+
         saveDefaultConfig();
 
     }
@@ -100,9 +103,8 @@ public final class HubCore extends JavaPlugin {
         MessageSource messageSource = messageSourceDecorator
                 .addFallbackLanguage("en")
                 .addFallbackLanguage("es")
-                .addFallbackLanguage("eu")
                 .get();
-        Utils.loadFiles(this,"languages/lang_en.yml", "languages/lang_es.yml", "languages/lang_eu.yml");
+        Utils.loadFiles(this,"languages/lang_en.yml", "languages/lang_es.yml");
         this.messageHandler = MessageHandler.of(
                 messageSource,
                 config -> {

@@ -1,4 +1,4 @@
-package online.nasgar.hubcore.hubcore.listeners;
+package online.nasgar.hubcore.hubcore.listeners.menus;
 
 import com.google.common.io.ByteArrayDataOutput;
 import com.google.common.io.ByteStreams;

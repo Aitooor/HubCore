@@ -111,6 +111,26 @@ MENUS:
         - " &fOnline &a%online%"
         - " &fMax online &a500"
         - " &fStatus &aOnline"
+
+PREMIUM:
+  TITLE: "&0Premium Selection"
+  ENABLE:
+    NAME: "&a&lENABLE PREMIUM"
+    LORE:
+      - "&r"
+      - "&fThis is use to enable premium"
+      - "&cOnly use it if you are premium user"
+      - "&r"
+      - "&7This means that you have bought the game"
+  CANCEL:
+    NAME: "&c&lCANCEL PREMIUM"
+    LORE:
+      - "&r"
+      - "&fIf you don't are a premium user cancel"
+      - "&aThis means that you have bought the game"
+      - "&r"
+      - "&7Click this to close this message"
+
 #####################################################
 ##FLY##
 FLY:
