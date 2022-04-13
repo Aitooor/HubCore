@@ -126,8 +126,8 @@ PREMIUM:
     NAME: "&c&lCANCEL PREMIUM"
     LORE:
       - "&r"
-      - "&fIf you don't are a premium user cancel"
-      - "&aThis means that you have bought the game"
+      - "&fIf you are not a premium user cancel"
+      - "&aThis means you haven't bought the game"
       - "&r"
       - "&7Click this to close this message"
 
