@@ -2,8 +2,8 @@ package online.nasgar.hubcore.hubcore;
 
 import lombok.Getter;
 import me.yushust.message.MessageHandler;
+import me.yushust.message.MessageProvider;
 import me.yushust.message.bukkit.BukkitMessageAdapt;
-import me.yushust.message.source.MessageSource;
 import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.HubCoreCMD;
@@ -12,12 +12,13 @@ import online.nasgar.hubcore.hubcore.commands.menus.SelectorsCMD;
 import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
 import online.nasgar.hubcore.hubcore.listeners.menus.SelectorsListener;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
-import online.nasgar.hubcore.hubcore.message.UserLinguist;
-import online.nasgar.hubcore.hubcore.message.UserMessageSender;
 import online.nasgar.hubcore.hubcore.utils.Message;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import online.nasgar.hubcore.hubcore.utils.scoreboard.Assemble;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -46,7 +47,7 @@ public final class HubCore extends JavaPlugin {
 
         Utils.log("&aLanguages Enabled.");
         Utils.log("");
-        loadLanguages();
+        this.setupNMessages();
 
         Utils.log("&aScoreboard Enabled.");
         Utils.log("");
@@ -89,32 +90,34 @@ public final class HubCore extends JavaPlugin {
 
     }
 
-    private void loadLanguages(){
-        MessageSourceDecorator messageSourceDecorator =
-                MessageSourceDecorator.decorate(
-                        BukkitMessageAdapt.newYamlSource(
-                                this,
-                                new File(
-                                        getDataFolder(),
-                                        "languages"
-                                )
-                        )
-                );
-        MessageSource messageSource = messageSourceDecorator
-                .addFallbackLanguage("en")
-                .addFallbackLanguage("es")
-                .get();
-        Utils.loadFiles(this,"languages/lang_en.yml", "languages/lang_es.yml");
-        this.messageHandler = MessageHandler.of(
-                messageSource,
-                config -> {
-                    config.addInterceptor(Utils::ct);
+    public void setupNMessages() {
+        File langFile = new File(this.getDataFolder(), "lang");
+        if (!langFile.exists()) {
+            langFile.mkdir();
+        }
 
-                    config.specify(Player.class)
-                            .setMessageSender(new UserMessageSender())
-                            .setLinguist(new UserLinguist());
-                }
-        );
+        MessageProvider messageProvider = MessageProvider
+                .create(
+                        MessageSourceDecorator
+                                .decorate(BukkitMessageAdapt.newYamlSource(this, "lang/lang_%lang%.yml"))
+                                .addFallbackLanguage("en")
+                                .get(),
+                        config -> {
+                            config.specify(Player.class)
+                                    .setLinguist(player -> player.spigot().getLocale().split("_")[0])
+                                    .setMessageSender((sender, mode, message) -> sender.sendMessage(message));
+                            config.specify(CommandSender.class)
+                                    .setLinguist(commandSender -> "en")
+                                    .setMessageSender((sender, mode, message) -> sender.sendMessage(message));
+                            config.addInterceptor(s -> ChatColor.translateAlternateColorCodes('&', s));
+                            config.specify(ConsoleCommandSender.class)
+                                    .setLinguist(commandSender -> "en")
+                                    .setMessageSender((sender, mode, message) -> sender.sendMessage(message));
+                            config.addInterceptor(s -> ChatColor.translateAlternateColorCodes('&', s));
+                        }
+                );
+
+        messageHandler = MessageHandler.of(messageProvider);
     }
 
     private void loadBanner() {

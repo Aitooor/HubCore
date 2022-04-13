@@ -34,11 +34,4 @@ public interface Utils {
         return  "[" + hubCore.getName() + "] ";
     }
 
-    static void loadFiles(HubCore hubCore, String... files){
-        for(String name : files) {
-            if (hubCore.getResource(name) != null) {
-                hubCore.saveResource(name, false);
-            }
-        }
-    }
 }
