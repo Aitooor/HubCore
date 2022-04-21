@@ -45,15 +45,10 @@ public class SelectorsCMD implements CommandExecutor {
             ItemStack survival = new ItemStack(Material.GRASS);
             ItemMeta survivalMeta = survival.getItemMeta();
             survivalMeta.setDisplayName(messageHandler.replacing(player, "MENUS.SERVERS.SURVIVAL.NAME"));
-            //TODO Change player count system from Placeholder to Bungee or Redis
-            String survival1 = "%bungee_Survival-1%";
-            survival1 = PlaceholderAPI.setPlaceholders(player, survival1);
-            int survival1Int = Integer.parseInt(survival1);
-            String survival2 = "%bungee_Survival-2%";
-            survival2 = PlaceholderAPI.setPlaceholders(player, survival2);
-            int survival2Int = Integer.parseInt(survival2);
 
-            int survivalCountInt = survival1Int + survival2Int;
+            String survivalCount = "%pb_pc_Survivals%";
+            survivalCount = PlaceholderAPI.setPlaceholders(player.getPlayer(), survivalCount);
+            int survivalCountInt = Integer.parseInt(survivalCount);
 
             survivalMeta.setLore(messageHandler.replacingMany(player, "MENUS.SERVERS.SURVIVAL.LORE",
                 "%online%", survivalCountInt
@@ -66,87 +61,12 @@ public class SelectorsCMD implements CommandExecutor {
             ItemStack bedwars = new ItemStack(Material.BED);
             ItemMeta bedwarsMeta = bedwars.getItemMeta();
             bedwarsMeta.setDisplayName(messageHandler.replacing(player, "MENUS.SERVERS.BEDWARS.NAME"));
-            //TODO Change player count system from Placeholder to Bungee or Redis
-            String bwHub = "%bungee_BW-Hub%";
-            bwHub = PlaceholderAPI.setPlaceholders(player, bwHub);
-            int bwHubCount = Integer.parseInt(bwHub);
 
-            // SOLO COUNT
-            String bw1 = "%bungee_BW-1%";
-            bw1 = PlaceholderAPI.setPlaceholders(player, bw1);
-            int bw1Count = Integer.parseInt(bw1);
-            String bw2 = "%bungee_BW-2%";
-            bw2 = PlaceholderAPI.setPlaceholders(player, bw2);
-            int bw2Count = Integer.parseInt(bw2);
-            String bw3 = "%bungee_BW-3%";
-            bw3 = PlaceholderAPI.setPlaceholders(player, bw3);
-            int bw3Count = Integer.parseInt(bw3);
-            String bw4 = "%bungee_BW-4%";
-            bw4 = PlaceholderAPI.setPlaceholders(player, bw4);
-            int bw4Count = Integer.parseInt(bw4);
-            String bw5 = "%bungee_BW-5%";
-            bw5 = PlaceholderAPI.setPlaceholders(player, bw5);
-            int bw5Count = Integer.parseInt(bw5);
+            String bwCount = "%pb_pc_BW-All%";
+            bwCount = PlaceholderAPI.setPlaceholders(player.getPlayer(), bwCount);
+            int bwCountInt = Integer.parseInt(bwCount);
 
-            // DOUBLES COUNT
-            String bwDoubles1 = "%bungee_BW2-1%";
-            bwDoubles1 = PlaceholderAPI.setPlaceholders(player, bwDoubles1);
-            int bwDoubles1Count = Integer.parseInt(bwDoubles1);
-            String bwDoubles2 = "%bungee_BW2-2%";
-            bwDoubles2 = PlaceholderAPI.setPlaceholders(player, bwDoubles2);
-            int bwDoubles2Count = Integer.parseInt(bwDoubles2);
-            String bwDoubles3 = "%bungee_BW2-3%";
-            bwDoubles3 = PlaceholderAPI.setPlaceholders(player, bwDoubles3);
-            int bwDoubles3Count = Integer.parseInt(bwDoubles3);
-            String bwDoubles4 = "%bungee_BW2-4%";
-            bwDoubles4 = PlaceholderAPI.setPlaceholders(player, bwDoubles4);
-            int bwDoubles4Count = Integer.parseInt(bwDoubles4);
-            String bwDoubles5 = "%bungee_BW2-5%";
-            bwDoubles5 = PlaceholderAPI.setPlaceholders(player, bwDoubles5);
-            int bwDoubles5Count = Integer.parseInt(bwDoubles5);
-
-            // TRIPLE COUNT
-            String bwTriple1 = "%bungee_BW2-1%";
-            bwTriple1 = PlaceholderAPI.setPlaceholders(player, bwTriple1);
-            int bwTriple1Count = Integer.parseInt(bwTriple1);
-            String bwTriple2 = "%bungee_BW2-2%";
-            bwTriple2 = PlaceholderAPI.setPlaceholders(player, bwTriple2);
-            int bwTriple2Count = Integer.parseInt(bwTriple2);
-            String bwTriple3 = "%bungee_BW2-3%";
-            bwTriple3 = PlaceholderAPI.setPlaceholders(player, bwTriple3);
-            int bwTriple3Count = Integer.parseInt(bwTriple3);
-            String bwTriple4 = "%bungee_BW2-4%";
-            bwTriple4 = PlaceholderAPI.setPlaceholders(player, bwTriple4);
-            int bwTriple4Count = Integer.parseInt(bwTriple4);
-            String bwTriple5 = "%bungee_BW2-5%";
-            bwTriple5 = PlaceholderAPI.setPlaceholders(player, bwTriple5);
-            int bwTriple5Count = Integer.parseInt(bwTriple5);
-
-            // SQUAD COUNT
-            String bwSquad1 = "%bungee_BW2-1%";
-            bwSquad1 = PlaceholderAPI.setPlaceholders(player, bwSquad1);
-            int bwSquad1Count = Integer.parseInt(bwSquad1);
-            String bwSquad2 = "%bungee_BW2-2%";
-            bwSquad2 = PlaceholderAPI.setPlaceholders(player, bwSquad2);
-            int bwSquad2Count = Integer.parseInt(bwSquad2);
-            String bwSquad3 = "%bungee_BW2-3%";
-            bwSquad3 = PlaceholderAPI.setPlaceholders(player, bwSquad3);
-            int bwSquad3Count = Integer.parseInt(bwSquad3);
-            String bwSquad4 = "%bungee_BW2-4%";
-            bwSquad4 = PlaceholderAPI.setPlaceholders(player, bwSquad4);
-            int bwSquad4Count = Integer.parseInt(bwSquad4);
-            String bwSquad5 = "%bungee_BW2-5%";
-            bwSquad5 = PlaceholderAPI.setPlaceholders(player, bwSquad5);
-            int bwSquad5Count = Integer.parseInt(bwSquad5);
-
-            int bwSolo = bw1Count + bw2Count + bw3Count + bw4Count + bw5Count;
-            int bwDoubles = bwDoubles1Count + bwDoubles2Count + bwDoubles3Count + bwDoubles4Count + bwDoubles5Count;
-            int bwTriple = bwTriple1Count + bwTriple2Count + bwTriple3Count + bwTriple4Count + bwTriple5Count;
-            int bwSquad = bwSquad1Count + bwSquad2Count + bwSquad3Count + bwSquad4Count + bwSquad5Count;
-
-            int bedwarsCountInt = bwHubCount + bwSolo + bwDoubles + bwTriple + bwSquad;
-
-            bedwarsMeta.setLore(messageHandler.replacingMany(player, "MENUS.SERVERS.BEDWARS.LORE", "%online%", bedwarsCountInt));
+            bedwarsMeta.setLore(messageHandler.replacingMany(player, "MENUS.SERVERS.BEDWARS.LORE", "%online%", bwCountInt));
             bedwars.setItemMeta(bedwarsMeta);
 
             inv.setItem(23, bedwars);
