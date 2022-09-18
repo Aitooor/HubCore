@@ -1,4 +1,4 @@
-package online.nasgar.hubcore.hubcore.utils.scoreboard;
+package online.nasgar.hubcore.hubcore.managers.scoreboard;
 
 import lombok.Getter;
 

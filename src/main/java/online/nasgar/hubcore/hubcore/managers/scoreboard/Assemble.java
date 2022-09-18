@@ -1,8 +1,8 @@
-package online.nasgar.hubcore.hubcore.utils.scoreboard;
+package online.nasgar.hubcore.hubcore.managers.scoreboard;
 
 import lombok.Getter;
 import lombok.Setter;
-import online.nasgar.hubcore.hubcore.utils.scoreboard.events.AssembleBoardCreateEvent;
+import online.nasgar.hubcore.hubcore.managers.scoreboard.events.AssembleBoardCreateEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

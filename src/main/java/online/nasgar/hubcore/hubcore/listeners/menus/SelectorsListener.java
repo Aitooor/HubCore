@@ -37,10 +37,10 @@ public class SelectorsListener implements Listener {
 
                     player.sendPluginMessage(plugin, "BungeeCord", survival.toByteArray());
                     break;
-                case 23: // BEDWARS
+                case 23: // WOOL WARS
                     ByteArrayDataOutput bedwars = ByteStreams.newDataOutput();
                     bedwars.writeUTF("Connect");
-                    bedwars.writeUTF("BW-HUB");
+                    bedwars.writeUTF("WW-HUB");
                     
                     player.sendPluginMessage(plugin, "BungeeCord", bedwars.toByteArray());
                     break;

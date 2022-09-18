@@ -2,9 +2,9 @@ package online.nasgar.hubcore.hubcore.adapter;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import online.nasgar.hubcore.hubcore.HubCore;
-import online.nasgar.hubcore.hubcore.utils.Message;
-import online.nasgar.hubcore.hubcore.utils.scoreboard.AssembleAdapter;
-import online.nasgar.hubcore.hubcore.utils.scoreboard.AssembleStyle;
+import online.nasgar.hubcore.hubcore.utils.Utils;
+import online.nasgar.hubcore.hubcore.managers.scoreboard.AssembleAdapter;
+import online.nasgar.hubcore.hubcore.managers.scoreboard.AssembleStyle;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
@@ -16,7 +16,7 @@ public class ScoreboardAdapter implements AssembleAdapter {
 
     @Override
     public String getTitle(Player player) {
-        return Message.translate(config.getString("SCOREBOARD.TITLE"));
+        return Utils.ct(config.getString("SCOREBOARD.TITLE"));
     }
 
     @Override
@@ -30,7 +30,7 @@ public class ScoreboardAdapter implements AssembleAdapter {
         String vaultPrefix = "%vault_prefix%";
         vaultPrefix = PlaceholderAPI.setPlaceholders(player.getPlayer(), vaultPrefix);
 
-        return Message.translate(HubCore.getInstance().getMessageHandler().replacingMany(player, "SCOREBOARD.LINES", "%online%", online, "%bungee_online%", bungee_online, "%player%", playerName, "%rank%", vaultPrefix));
+        return Utils.translate(HubCore.getInstance().getMessageHandler().replacingMany(player, "SCOREBOARD.LINES", "%online%", online, "%bungee_online%", bungee_online, "%player%", playerName, "%rank%", vaultPrefix));
     }
 
     @Override

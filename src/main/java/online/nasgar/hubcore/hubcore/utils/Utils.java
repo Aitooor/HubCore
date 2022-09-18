@@ -6,6 +6,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
+
 public interface Utils {
 
     static void log(String... args){
@@ -21,6 +23,11 @@ public interface Utils {
 
     static @NotNull String ct(String source){
         return ChatColor.translateAlternateColorCodes('&', source);
+    }
+
+    static List<String> translate(final List<String> coll) {
+        coll.replaceAll(Utils::ct);
+        return coll;
     }
 
     static void send(CommandSender sender, String prefix, String... args) {

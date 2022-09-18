@@ -60,13 +60,13 @@ public class SelectorsCMD implements CommandExecutor {
             // BEDWARS
             ItemStack bedwars = new ItemStack(Material.BED);
             ItemMeta bedwarsMeta = bedwars.getItemMeta();
-            bedwarsMeta.setDisplayName(messageHandler.replacing(player, "MENUS.SERVERS.BEDWARS.NAME"));
+            bedwarsMeta.setDisplayName(messageHandler.replacing(player, "MENUS.SERVERS.WOOL_WARS.NAME"));
 
             String bwCount = "%pb_pc_BW-All%";
             bwCount = PlaceholderAPI.setPlaceholders(player.getPlayer(), bwCount);
             int bwCountInt = Integer.parseInt(bwCount);
 
-            bedwarsMeta.setLore(messageHandler.replacingMany(player, "MENUS.SERVERS.BEDWARS.LORE", "%online%", bwCountInt));
+            bedwarsMeta.setLore(messageHandler.replacingMany(player, "MENUS.SERVERS.WOOL_WARS.LORE", "%online%", bwCountInt));
             bedwars.setItemMeta(bedwarsMeta);
 
             inv.setItem(23, bedwars);

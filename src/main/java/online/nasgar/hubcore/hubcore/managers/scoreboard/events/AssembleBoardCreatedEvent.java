@@ -1,8 +1,8 @@
-package online.nasgar.hubcore.hubcore.utils.scoreboard.events;
+package online.nasgar.hubcore.hubcore.managers.scoreboard.events;
 
 import lombok.Getter;
 import lombok.Setter;
-import online.nasgar.hubcore.hubcore.utils.scoreboard.AssembleBoard;
+import online.nasgar.hubcore.hubcore.managers.scoreboard.AssembleBoard;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 

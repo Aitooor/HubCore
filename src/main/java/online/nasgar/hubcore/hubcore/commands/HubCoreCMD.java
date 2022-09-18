@@ -23,6 +23,8 @@ public class HubCoreCMD implements CommandExecutor {
             if (args.length == 0) return false;
             if (args[0].equalsIgnoreCase("reload")) {
                 plugin.reloadConfig();
+                plugin.getMessageHandler().getSource().load("en");
+                plugin.getMessageHandler().getSource().load("es");
                 Utils.log("&aReloaded completed");
                 return true;
             }
@@ -44,6 +46,8 @@ public class HubCoreCMD implements CommandExecutor {
 
         if (args[0].equalsIgnoreCase("reload")) {
             plugin.reloadConfig();
+            plugin.getMessageHandler().getSource().load("en");
+            plugin.getMessageHandler().getSource().load("es");
             plugin.getMessageHandler().sendReplacing(sender, "CONFIGRELOAD.MESSAGE", "%player%", sender.getName());
             return true;
         }

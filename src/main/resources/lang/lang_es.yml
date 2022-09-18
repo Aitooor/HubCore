@@ -73,8 +73,8 @@ MENUS:
         - "   &7➥ &fEventos"
         - "   &7➥ &fMochilas"
         - "   &7➥ &fY mucho mas"
-    BEDWARS:
-      NAME: "&b&lBEDWARS"
+    WOOL_WARS:
+      NAME: "&b&lWOOL WARS"
       LORE:
         - ""
         - " &fVersion recomendada &a1.7-1.8"

@@ -7,14 +7,12 @@ import me.yushust.message.bukkit.BukkitMessageAdapt;
 import me.yushust.message.source.MessageSourceDecorator;
 import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.HubCoreCMD;
-import online.nasgar.hubcore.hubcore.commands.menus.PremiumSelectorCMD;
 import online.nasgar.hubcore.hubcore.commands.menus.SelectorsCMD;
 import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
 import online.nasgar.hubcore.hubcore.listeners.menus.SelectorsListener;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
-import online.nasgar.hubcore.hubcore.utils.Message;
 import online.nasgar.hubcore.hubcore.utils.Utils;
-import online.nasgar.hubcore.hubcore.utils.scoreboard.Assemble;
+import online.nasgar.hubcore.hubcore.managers.scoreboard.Assemble;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -67,11 +65,11 @@ public final class HubCore extends JavaPlugin {
         }
 
 
-        Utils.log(Message.translate("&aENABLED CORRECTLY"));
+        Utils.log("ENABLED CORRECTLY");
     }
 
     @Override
-    public void onDisable() { Utils.log(Message.translate("&cDISABLED CORRECTLY")); }
+    public void onDisable() { Utils.log("DISABLED CORRECTLY"); }
 
     private void registerScoreboard() {
         Assemble scoreboard = new Assemble(this, new ScoreboardAdapter());
@@ -79,15 +77,10 @@ public final class HubCore extends JavaPlugin {
     }
 
     public void loadCMD() {
-
         this.getCommand("hubcore").setExecutor(new HubCoreCMD(this));
-
         this.getCommand("menus").setExecutor(new SelectorsCMD(this));
 
-        this.getCommand("premium").setExecutor(new PremiumSelectorCMD(this));
-
         saveDefaultConfig();
-
     }
 
     public void setupNMessages() {

@@ -5,7 +5,7 @@ import online.nasgar.hubcore.hubcore.HubCore;
 import online.nasgar.hubcore.hubcore.managers.TabManager;
 import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
-import online.nasgar.hubcore.hubcore.utils.Message;
+import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.World;
@@ -46,7 +46,7 @@ public class PlayerListeners implements Listener {
         rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
         
         
-        event.setFormat(Message.translate(rank + player.getDisplayName() + "&7: &r" + event.getMessage()));
+        event.setFormat(Utils.ct(rank + player.getDisplayName() + "&7: &r" + event.getMessage()));
     }
     
     @EventHandler
