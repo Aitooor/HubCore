@@ -30,12 +30,6 @@ public interface Utils {
         return coll;
     }
 
-    static void send(CommandSender sender, String prefix, String... args) {
-        for (String arg : args) {
-            sender.sendMessage(ct(prefix + arg));
-        }
-    }
-
     static String getPrefix(){
         HubCore hubCore = HubCore.getPlugin(HubCore.class);
         return  "[" + hubCore.getName() + "] ";

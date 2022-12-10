@@ -45,13 +45,12 @@ public final class HubCore extends JavaPlugin {
         Utils.log("&8Languages setup");
         this.setupNMessages();
 
-        Utils.log("&8Scoreboard enabled");
-        this.registerScoreboard();
-
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            this.getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
+            Utils.log("&8Scoreboard enabled");
+            this.registerScoreboard();
+            this.getServer().getPluginManager().registerEvents(new PlayerListeners(this, this.getConfig()), this);
             this.getServer().getPluginManager().registerEvents(new ItemJoinListeners(this), this);
             this.getServer().getPluginManager().registerEvents(new SelectorsListener(this), this);
             Utils.log("&aHooked to PlaceholderAPI");

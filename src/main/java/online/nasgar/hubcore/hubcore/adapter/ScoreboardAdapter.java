@@ -22,15 +22,19 @@ public class ScoreboardAdapter implements AssembleAdapter {
     @Override
     public List<String> getLines(Player player) {
         String playerName = "%player_name%";
-        playerName = PlaceholderAPI.setPlaceholders(player.getPlayer(), playerName);
         String online = "%server_online%";
-        online = PlaceholderAPI.setPlaceholders(player.getPlayer(), online);
         String bungee_online = "%bungee_total%";
-        bungee_online = PlaceholderAPI.setPlaceholders(player.getPlayer(), bungee_online);
-        String vaultPrefix = PlaceholderAPI.setPlaceholders(player, "%vault_prefix%");
-        vaultPrefix = PlaceholderAPI.setPlaceholders(player.getPlayer(), vaultPrefix);
+        String vaultPrefix = "%vault_prefix%";
+        String localTime = "%localtime_time_yyyy/MM/dd%";
 
-        return Utils.translate(HubCore.getInstance().getMessageHandler().replacingMany(player, "SCOREBOARD.LINES", "%online%", online, "%bungee_online%", bungee_online, "%player%", playerName, "%rank%", vaultPrefix));
+        return Utils.translate(PlaceholderAPI.setPlaceholders(
+                player.getPlayer(),
+                HubCore.getInstance().getMessageHandler().replacingMany(
+                        player, "SCOREBOARD.LINES",
+                        "%online%", online,
+                        "%bungee_online%", bungee_online,
+                        "%player%", playerName,
+                        "%rank%",PlaceholderAPI.setPlaceholders(player, vaultPrefix))));
     }
 
     @Override

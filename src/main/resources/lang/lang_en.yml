@@ -11,17 +11,18 @@ TAB:
 ##SCOREBOARD##
 SCOREBOARD:
   LINES:
+    - " &8⌚ &7%localtime_time_yyyy/MM/dd%"
     - ""
-    - "&fName"
-    - "&a%player%"
+    - " &fName"
+    - "  &a%player%"
     - ""
-    - "&fRank"
-    - "&a%rank%"
+    - " &fRank"
+    - "  &a%rank%"
     - ""
-    - "&fHere &a%online%"
-    - "&fGlobal &a%bungee_online%"
+    - " &fHere &a%online%"
+    - " &fGlobal &a%bungee_online%"
     - ""
-    - "&bnasgar.online"
+    - "   &bnasgar.online"
 #####################################################
 ##ON JOIN MESSAGE##
 ONJOIN:
@@ -141,12 +142,6 @@ FLY:
 NOPERMISSIONS:
   PREFIX: "&b&lNASGAR &cYou don't have permissions"
 CONFIGRELOAD:
-  MESSAGE: "&b&lNASGAR &aConfig reloaded"
+  MESSAGE: "&b&lHUBCORE &aConfig reloaded"
 RELOAD:
   COMMAND: "&a/hc reload &7- &fHubCore reload command"
-NOPLAYERFOUND:
-  PREFIX: "&b&lNASGAR &cNot player found"
-SYNTAXERROR:
-  PREFIX: "&b&lNASGAR &cSyntax error, type correctly"
-NO_PLAYER_ONLINE:
-  PREFIX: "&b&lNASGAR &cPlayer isn't online"

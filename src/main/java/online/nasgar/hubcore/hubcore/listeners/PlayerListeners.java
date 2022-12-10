@@ -25,26 +25,25 @@ import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-
 public class PlayerListeners implements Listener {
     
     private final HubCore plugin;
+    private FileConfiguration config;
     
-    public PlayerListeners(HubCore instance) {
+    public PlayerListeners(HubCore instance, FileConfiguration config) {
+        this.config = config;
         plugin = instance;
     }
-    
-    FileConfiguration config = HubCore.getInstance().getConfig();
-    
+
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
-        String rank = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% ");
+        String rank = "%vault_prefix% ";
         rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
-        
-        event.setFormat(Utils.ct(rank + player.getDisplayName() + "&7: &r" + event.getMessage()));
+
+        event.setFormat(Utils.ct(PlaceholderAPI.setPlaceholders(player,rank) + player.getDisplayName() + "&7: &r" + event.getMessage()));
     }
-    
+
     @EventHandler
     public void onLogin(PlayerLoginEvent event) {
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
@@ -54,7 +53,7 @@ public class PlayerListeners implements Listener {
             }
             String name = "&f%player_name% ";
             name = PlaceholderAPI.setPlaceholders(player, name);
-            String rank = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% ");
+            String rank = "%vault_prefix% ";
             rank = PlaceholderAPI.setPlaceholders(player, rank);
             
             CenteredMessage.Chat.sendCenteredMessage(player, "");
@@ -69,7 +68,7 @@ public class PlayerListeners implements Listener {
             CenteredMessage.Chat.sendCenteredMessage(player, plugin.getMessageHandler()
                                                                    .replacing(player, "ONJOIN.ONE"));
             CenteredMessage.Chat.sendCenteredMessage(player, "");
-            CenteredMessage.Chat.sendCenteredMessage(player, rank + name + plugin.getMessageHandler()
+            CenteredMessage.Chat.sendCenteredMessage(player, PlaceholderAPI.setPlaceholders(player,rank) + name + plugin.getMessageHandler()
                                                                                  .replacing(player,
                                                                                             "ONJOIN.TWO"));
             
