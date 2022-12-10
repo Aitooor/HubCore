@@ -27,7 +27,7 @@ public class ScoreboardAdapter implements AssembleAdapter {
         online = PlaceholderAPI.setPlaceholders(player.getPlayer(), online);
         String bungee_online = "%bungee_total%";
         bungee_online = PlaceholderAPI.setPlaceholders(player.getPlayer(), bungee_online);
-        String vaultPrefix = "%vault_prefix%";
+        String vaultPrefix = PlaceholderAPI.setPlaceholders(player, "%vault_prefix%");
         vaultPrefix = PlaceholderAPI.setPlaceholders(player.getPlayer(), vaultPrefix);
 
         return Utils.translate(HubCore.getInstance().getMessageHandler().replacingMany(player, "SCOREBOARD.LINES", "%online%", online, "%bungee_online%", bungee_online, "%player%", playerName, "%rank%", vaultPrefix));

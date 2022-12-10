@@ -59,7 +59,8 @@ public class ItemJoinListeners implements Listener {
             if(currentItem != null && currentItem.getType() != Material.AIR) {
                 if(currentItem.getType() == Material.COMPASS) {
                     player.performCommand("hubcore:menus servers");
-                } else if(currentItem.getType() == Material.BED) {
+                }
+                else if(currentItem.getType() == Material.BED) {
                     player.performCommand("hubcore:menus hubs");
                 }
             }

@@ -24,9 +24,7 @@ public class SelectorsListener implements Listener {
     public void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         // SERVER SELECTOR
-        if(event.getView().getTitle().equals(messageHandler.replacing(player, "MENUS.SERVERS.TITLE")) &&
-           event.getCurrentItem() != null)
-        {
+        if(event.getView().getTitle().equals(messageHandler.replacing(player, "MENUS.SERVERS.TITLE")) && event.getCurrentItem() != null) {
             switch(event.getRawSlot()) {
                 case 40: // Close Inv
                     break;
@@ -48,11 +46,9 @@ public class SelectorsListener implements Listener {
                     return;
             }
             player.closeInventory();
-
+        }
         // HUBS SELECTOR
-        } else if(event.getView().getTitle().equals(messageHandler.replacing(player, "MENUS.HUBS.TITLE")) &&
-                  event.getCurrentItem() != null)
-        {
+        else if(event.getView().getTitle().equals(messageHandler.replacing(player, "MENUS.HUBS.TITLE")) && event.getCurrentItem() != null) {
             switch(event.getRawSlot()) {
                 case 40: // Close Inv
                     break;
@@ -74,7 +70,6 @@ public class SelectorsListener implements Listener {
                     return;
             }
             player.closeInventory();
-            
         }
     }
     

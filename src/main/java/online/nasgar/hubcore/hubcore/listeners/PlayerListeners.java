@@ -38,13 +38,9 @@ public class PlayerListeners implements Listener {
     
     @EventHandler
     public void onChat(AsyncPlayerChatEvent event) {
-        event.getFormat();
-        
         Player player = event.getPlayer();
-        
-        String rank = "%vault_prefix% ";
+        String rank = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% ");
         rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
-        
         
         event.setFormat(Utils.ct(rank + player.getDisplayName() + "&7: &r" + event.getMessage()));
     }
@@ -57,9 +53,9 @@ public class PlayerListeners implements Listener {
                 return;
             }
             String name = "&f%player_name% ";
-            name = PlaceholderAPI.setPlaceholders(event.getPlayer(), name);
-            String rank = "%vault_prefix% ";
-            rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
+            name = PlaceholderAPI.setPlaceholders(player, name);
+            String rank = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% ");
+            rank = PlaceholderAPI.setPlaceholders(player, rank);
             
             CenteredMessage.Chat.sendCenteredMessage(player, "");
             CenteredMessage.Chat.sendCenteredMessage(player, config.getString("ONJOIN.TITLE"));
@@ -81,8 +77,8 @@ public class PlayerListeners implements Listener {
             manager.setHeaders(plugin.getMessageHandler()
                                      .replacingMany(player, "TAB.HEADER", "%bonline%", "%bungee_total%"));
             
-            String playerListNames = "%vault_prefix% %player_name%";
-            playerListNames = PlaceholderAPI.setPlaceholders(event.getPlayer(), playerListNames);
+            String playerListNames = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% %player_name%");
+            playerListNames = PlaceholderAPI.setPlaceholders(player, playerListNames);
             player.setPlayerListName(playerListNames);
             
             manager.setFooters(plugin.getMessageHandler()
@@ -192,11 +188,7 @@ public class PlayerListeners implements Listener {
     @EventHandler
     public void onPluginLoad(PluginEnableEvent event) {
         
-        if(config.getString(
-                "LOCATION.SPAWN") == null)
-        {
-            return;
-        }
+        if(config.getString("LOCATION.SPAWN") == null) return;
         
         World lobbyWorld = Bukkit.getServer().getWorld(config.getString("LOCATION.SPAWN").split(", ")[5]);
         
@@ -211,9 +203,7 @@ public class PlayerListeners implements Listener {
     }
     
     private void tpSpawn(Player player) {
-        if(config.getString("LOCATION.SPAWN") == null) {
-            return;
-        }
+        if(config.getString("LOCATION.SPAWN") == null) return;
 
         player.teleport(LocationUtil.parseToLocation(config.getString("LOCATION.SPAWN")));
     }

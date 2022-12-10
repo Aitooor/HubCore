@@ -33,22 +33,19 @@ public final class HubCore extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
-        loadBanner();
+        Utils.log("&aEnabling everything");
 
         this.saveDefaultConfig();
 
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
 
-        Utils.log("&aCMDs Enabled.");
-        Utils.log("");
+        Utils.log("&8CMDs enabled");
         loadCMD();
 
-        Utils.log("&aLanguages Enabled.");
-        Utils.log("");
+        Utils.log("&8Languages setup");
         this.setupNMessages();
 
-        Utils.log("&aScoreboard Enabled.");
-        Utils.log("");
+        Utils.log("&8Scoreboard enabled");
         this.registerScoreboard();
 
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
@@ -57,19 +54,18 @@ public final class HubCore extends JavaPlugin {
             this.getServer().getPluginManager().registerEvents(new PlayerListeners(this), this);
             this.getServer().getPluginManager().registerEvents(new ItemJoinListeners(this), this);
             this.getServer().getPluginManager().registerEvents(new SelectorsListener(this), this);
-            Utils.log("&aHooked to PlaceholderAPI.");
+            Utils.log("&aHooked to PlaceholderAPI");
             Utils.log("");
         } else {
-            Utils.logError("Could not find PlaceholderAPI! This plugin is required.");
+            Utils.logError("&cCould not find PlaceholderAPI! This plugin is required.");
             Bukkit.getPluginManager().disablePlugin(this);
         }
-
-
-        Utils.log("ENABLED CORRECTLY");
+        
+        Utils.log("&aEnabled Correctly!");
     }
 
     @Override
-    public void onDisable() { Utils.log("DISABLED CORRECTLY"); }
+    public void onDisable() { Utils.log("&cDisabled Correctly"); }
 
     private void registerScoreboard() {
         Assemble scoreboard = new Assemble(this, new ScoreboardAdapter());
@@ -111,17 +107,5 @@ public final class HubCore extends JavaPlugin {
                 );
 
         messageHandler = MessageHandler.of(messageProvider);
-    }
-
-    private void loadBanner() {
-        Utils.log("&8---------------------------------------------------");
-        Utils.log("&fSimple HubCore plugin coded by &a" + getDescription().getAuthors());
-        Utils.log("&ffor Nasgar Network");
-        Utils.log("");
-        Utils.log("&fPlugin Version &a" + getDescription().getVersion());
-        Utils.log("&8---------------------------------------------------");
-        Utils.log("");
-        Utils.log("&aENABLING EVERYTHING...");
-        Utils.log("");
     }
 }
