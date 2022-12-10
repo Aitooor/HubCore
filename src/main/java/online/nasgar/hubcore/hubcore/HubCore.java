@@ -60,7 +60,7 @@ public final class HubCore extends JavaPlugin {
             Utils.logError("&cCould not find PlaceholderAPI! This plugin is required.");
             Bukkit.getPluginManager().disablePlugin(this);
         }
-        
+
         Utils.log("&aEnabled Correctly!");
     }
 
