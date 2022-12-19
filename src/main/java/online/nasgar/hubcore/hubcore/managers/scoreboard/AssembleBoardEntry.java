@@ -1,6 +1,5 @@
 package online.nasgar.hubcore.hubcore.managers.scoreboard;
 
-import lombok.Setter;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 
@@ -9,7 +8,6 @@ public final class AssembleBoardEntry {
     private final AssembleBoard board;
 
     private Team team;
-    @Setter
     private String text, identifier;
 
     public AssembleBoardEntry(AssembleBoard board, String text, int position) {
@@ -64,4 +62,11 @@ public final class AssembleBoardEntry {
         this.board.getScoreboard().resetScores(this.identifier);
     }
 
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
 }

@@ -3,8 +3,6 @@ package online.nasgar.hubcore.hubcore.utils;
 import online.nasgar.hubcore.hubcore.HubCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.command.CommandSender;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -21,7 +19,7 @@ public interface Utils {
         }
     }
 
-    static @NotNull String ct(String source){
+    static String ct(String source){
         return ChatColor.translateAlternateColorCodes('&', source);
     }
 

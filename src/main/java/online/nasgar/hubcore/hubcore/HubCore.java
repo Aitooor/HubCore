@@ -1,6 +1,5 @@
 package online.nasgar.hubcore.hubcore;
 
-import lombok.Getter;
 import me.yushust.message.MessageHandler;
 import me.yushust.message.MessageProvider;
 import me.yushust.message.bukkit.BukkitMessageAdapt;
@@ -22,12 +21,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 
-@Getter
 public final class HubCore extends JavaPlugin {
 
-    @Getter private static HubCore instance;
-
-    @Getter private MessageHandler messageHandler;
+    private static HubCore instance;
+    private MessageHandler messageHandler;
 
     @Override
     public void onEnable() {
@@ -106,5 +103,13 @@ public final class HubCore extends JavaPlugin {
                 );
 
         messageHandler = MessageHandler.of(messageProvider);
+    }
+
+    public static HubCore getInstance() {
+        return instance;
+    }
+
+    public MessageHandler getMessageHandler() {
+        return messageHandler;
     }
 }

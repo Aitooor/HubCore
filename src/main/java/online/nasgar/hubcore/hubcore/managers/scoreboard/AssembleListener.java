@@ -1,6 +1,5 @@
 package online.nasgar.hubcore.hubcore.managers.scoreboard;
 
-import lombok.Getter;
 import online.nasgar.hubcore.hubcore.managers.scoreboard.events.AssembleBoardCreateEvent;
 import online.nasgar.hubcore.hubcore.managers.scoreboard.events.AssembleBoardDestroyEvent;
 import org.bukkit.Bukkit;
@@ -9,7 +8,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-@Getter
 public class AssembleListener implements Listener {
 
     private final Assemble assemble;
@@ -49,4 +47,7 @@ public class AssembleListener implements Listener {
         event.getPlayer().setScoreboard(Bukkit.getScoreboardManager().getMainScoreboard());
     }
 
+    public Assemble getAssemble() {
+        return assemble;
+    }
 }

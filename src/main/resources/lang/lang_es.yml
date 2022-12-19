@@ -3,9 +3,9 @@
 TAB:
   HEADER:
     - "&b&lNASGAR &8| &fHub &7#1"
-    - "&7Jugando en Nasgar &e%bonline% &7usuarios"
+    - "&7Servidor &aHub-1 &e%online%"
   FOOTER:
-    - "&7&oJugando en este Hub &e%online%"
+    - "&7&oJugando en Nasgar &e%bungeeonline%"
     - "&b&onasgar.online"
 #####################################################
 ##SCOREBOARD##

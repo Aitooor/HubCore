@@ -5,7 +5,7 @@ LOCATION:
 # SCOREBOARD Settings and title
 SCOREBOARD:
   TICKS: 20
-  TITLE: "&b&lHUB &8| &7#1"
+  TITLE: "&b&lHUB &8(&71&8)"
 
 # On join message title
 ONJOIN:

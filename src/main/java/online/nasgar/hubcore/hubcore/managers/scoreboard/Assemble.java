@@ -1,7 +1,5 @@
 package online.nasgar.hubcore.hubcore.managers.scoreboard;
 
-import lombok.Getter;
-import lombok.Setter;
 import online.nasgar.hubcore.hubcore.managers.scoreboard.events.AssembleBoardCreateEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -13,8 +11,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Getter
-@Setter
 public class Assemble {
 
     private final JavaPlugin plugin;
@@ -95,4 +91,83 @@ public class Assemble {
         }
     }
 
+    public JavaPlugin getPlugin() {
+        return plugin;
+    }
+
+    public AssembleAdapter getAdapter() {
+        return adapter;
+    }
+
+    public void setAdapter(AssembleAdapter adapter) {
+        this.adapter = adapter;
+    }
+
+    public AssembleThread getThread() {
+        return thread;
+    }
+
+    public void setThread(AssembleThread thread) {
+        this.thread = thread;
+    }
+
+    public AssembleListener getListeners() {
+        return listeners;
+    }
+
+    public void setListeners(AssembleListener listeners) {
+        this.listeners = listeners;
+    }
+
+    public AssembleStyle getAssembleStyle() {
+        return assembleStyle;
+    }
+
+    public void setAssembleStyle(AssembleStyle assembleStyle) {
+        this.assembleStyle = assembleStyle;
+    }
+
+    public Map<UUID, AssembleBoard> getBoards() {
+        return boards;
+    }
+
+    public void setBoards(Map<UUID, AssembleBoard> boards) {
+        this.boards = boards;
+    }
+
+    public long getTicks() {
+        return ticks;
+    }
+
+    public void setTicks(long ticks) {
+        this.ticks = ticks;
+    }
+
+    public boolean isHook() {
+        return hook;
+    }
+
+    public void setHook(boolean hook) {
+        this.hook = hook;
+    }
+
+    public boolean isDebugMode() {
+        return debugMode;
+    }
+
+    public void setDebugMode(boolean debugMode) {
+        this.debugMode = debugMode;
+    }
+
+    public boolean isCallEvents() {
+        return callEvents;
+    }
+
+    public void setCallEvents(boolean callEvents) {
+        this.callEvents = callEvents;
+    }
+
+    public ChatColor[] getChatColorCache() {
+        return chatColorCache;
+    }
 }

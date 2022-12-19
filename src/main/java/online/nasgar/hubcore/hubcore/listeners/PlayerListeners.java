@@ -74,14 +74,14 @@ public class PlayerListeners implements Listener {
             
             TabManager manager = new TabManager(plugin, player);
             manager.setHeaders(plugin.getMessageHandler()
-                                     .replacingMany(player, "TAB.HEADER", "%bonline%", "%bungee_total%"));
+                                     .replacingMany(player, "TAB.HEADER", "%online%", "%server_online%"));
             
             String playerListNames = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% %player_name%");
             playerListNames = PlaceholderAPI.setPlaceholders(player, playerListNames);
             player.setPlayerListName(playerListNames);
             
             manager.setFooters(plugin.getMessageHandler()
-                                     .replacingMany(player, "TAB.FOOTER", "%online%", "%server_online%"));
+                                     .replacingMany(player, "TAB.FOOTER", "%bungeeonline%", "%bungee_total%"));
             manager.showTab();
             
             

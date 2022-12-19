@@ -1,6 +1,5 @@
 package online.nasgar.hubcore.hubcore.managers.scoreboard;
 
-import lombok.Getter;
 import online.nasgar.hubcore.hubcore.managers.scoreboard.events.AssembleBoardCreatedEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -13,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@Getter
 public class AssembleBoard {
 
     private final Assemble assemble;
@@ -86,4 +84,19 @@ public class AssembleBoard {
         return assemble.getChatColorCache()[position].toString();
     }
 
+    public Assemble getAssemble() {
+        return assemble;
+    }
+
+    public List<AssembleBoardEntry> getEntries() {
+        return entries;
+    }
+
+    public List<String> getIdentifiers() {
+        return identifiers;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
 }
