@@ -19,8 +19,8 @@ SCOREBOARD:
     - " &fRango"
     - "  &a%rank%"
     - ""
-    - " &fAquí &a%online%"
-    - " &fGlobal &a%bungee_online%"
+    - " &fAquí &a%server_online%"
+    - " &fGlobal &a%bungee_total%"
     - ""
     - "   &bnasgar.online"
 #####################################################
