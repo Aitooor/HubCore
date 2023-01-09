@@ -8,7 +8,7 @@ import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.HubCoreCMD;
 import online.nasgar.hubcore.hubcore.commands.menus.SelectorsCMD;
 import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
-import online.nasgar.hubcore.hubcore.listeners.menus.SelectorsListener;
+import online.nasgar.hubcore.hubcore.listeners.menus.SelectorsServersListener;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import online.nasgar.hubcore.hubcore.managers.scoreboard.Assemble;
@@ -49,7 +49,7 @@ public final class HubCore extends JavaPlugin {
             this.registerScoreboard();
             this.getServer().getPluginManager().registerEvents(new PlayerListeners(this, this.getConfig()), this);
             this.getServer().getPluginManager().registerEvents(new ItemJoinListeners(this), this);
-            this.getServer().getPluginManager().registerEvents(new SelectorsListener(this), this);
+            this.getServer().getPluginManager().registerEvents(new SelectorsServersListener(this), this);
             Utils.log("&aHooked to PlaceholderAPI");
             Utils.log("");
         } else {

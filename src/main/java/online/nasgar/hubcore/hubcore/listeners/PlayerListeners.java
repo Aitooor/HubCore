@@ -73,15 +73,15 @@ public class PlayerListeners implements Listener {
                                                                                             "ONJOIN.TWO"));
             
             TabManager manager = new TabManager(plugin, player);
-            manager.setHeaders(plugin.getMessageHandler()
-                                     .replacingMany(player, "TAB.HEADER", "%online%", "%server_online%"));
+            manager.setHeaders(PlaceholderAPI.setPlaceholders(player, plugin.getMessageHandler()
+                                     .replacingMany(player, "TAB.HEADER")));
             
             String playerListNames = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% %player_name%");
             playerListNames = PlaceholderAPI.setPlaceholders(player, playerListNames);
             player.setPlayerListName(playerListNames);
             
-            manager.setFooters(plugin.getMessageHandler()
-                                     .replacingMany(player, "TAB.FOOTER", "%bungeeonline%", "%bungee_total%"));
+            manager.setFooters(PlaceholderAPI.setPlaceholders(player, plugin.getMessageHandler()
+                                     .replacingMany(player, "TAB.FOOTER")));
             manager.showTab();
             
             

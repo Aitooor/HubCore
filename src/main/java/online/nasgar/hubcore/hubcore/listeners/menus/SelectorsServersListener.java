@@ -10,11 +10,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 
-public class SelectorsListener implements Listener {
+public class SelectorsServersListener implements Listener {
     
     private final HubCore plugin;
     
-    public SelectorsListener(HubCore instance) {
+    public SelectorsServersListener(HubCore instance) {
         plugin = instance;
     }
     
@@ -39,30 +39,6 @@ public class SelectorsListener implements Listener {
                     ByteArrayDataOutput bedwars = ByteStreams.newDataOutput();
                     bedwars.writeUTF("Connect");
                     bedwars.writeUTF("WW-HUB");
-                    
-                    player.sendPluginMessage(plugin, "BungeeCord", bedwars.toByteArray());
-                    break;
-                default:
-                    return;
-            }
-            player.closeInventory();
-        }
-        // HUBS SELECTOR
-        else if(event.getView().getTitle().equals(messageHandler.replacing(player, "MENUS.HUBS.TITLE")) && event.getCurrentItem() != null) {
-            switch(event.getRawSlot()) {
-                case 40: // Close Inv
-                    break;
-                case 21: // HUB-1
-                    ByteArrayDataOutput survival = ByteStreams.newDataOutput();
-                    survival.writeUTF("Connect");
-                    survival.writeUTF("Hub-1");
-                    
-                    player.sendPluginMessage(plugin, "BungeeCord", survival.toByteArray());
-                    break;
-                case 23: // HUB-2
-                    ByteArrayDataOutput bedwars = ByteStreams.newDataOutput();
-                    bedwars.writeUTF("Connect");
-                    bedwars.writeUTF("Hub-2");
                     
                     player.sendPluginMessage(plugin, "BungeeCord", bedwars.toByteArray());
                     break;
