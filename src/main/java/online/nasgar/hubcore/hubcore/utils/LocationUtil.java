@@ -24,9 +24,7 @@ public class LocationUtil {
             float yaw = Float.valueOf(data[3]);
             org.bukkit.World world = Bukkit.getWorld(data[5]);
 
-            Location location = new Location(world, x, y, z, yaw, pitch);
-
-            return location;
+            return new Location(world, x, y, z, yaw, pitch);
         } catch (NumberFormatException ex) {
             ex.printStackTrace();
             return null;
