@@ -41,7 +41,7 @@ public class HubCoreCMD implements CommandExecutor {
         Player player = (Player) sender;
 
         if (!player.hasPermission("hubcore.reload")) {
-            messageManager.getMessageHandler().sendReplacing(sender, "NOPERMISSIONS.PREFIX", "%player%", sender.getName());
+            messageManager.getMessageHandler().sendReplacing(sender, "no-permissions", "%player%", sender.getName());
             return true;
         }
 
@@ -51,17 +51,17 @@ public class HubCoreCMD implements CommandExecutor {
             plugin.reloadConfig();
             messageManager.getMessageHandler().getSource().load("en");
             messageManager.getMessageHandler().getSource().load("es");
-            messageManager.getMessageHandler().sendReplacing(sender, "CONFIGRELOAD.MESSAGE", "%player%", sender.getName());
+            messageManager.getMessageHandler().sendReplacing(sender, "reload-config", "%player%", sender.getName());
             return true;
         }
 
         if (!player.hasPermission("hubcore.setspawn")) {
-            messageManager.getMessageHandler().sendReplacing(sender, "NOPERMISSIONS.PREFIX", "%player%", sender.getName());
+            messageManager.getMessageHandler().sendReplacing(sender, "no-permissions", "%player%", sender.getName());
             return true;
         }
 
         if(args[0].equalsIgnoreCase("setspawn")) {
-            HubCore.getInstance().getConfig().set("LOCATION.SPAWN", LocationUtil.parseToString(player.getLocation()));
+            HubCore.getInstance().getConfig().set("locations.spawn", LocationUtil.parseToString(player.getLocation()));
             HubCore.getInstance().saveConfig();
             HubCore.getInstance().reloadConfig();
 
