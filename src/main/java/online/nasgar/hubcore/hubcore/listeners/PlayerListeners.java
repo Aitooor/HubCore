@@ -1,10 +1,11 @@
 package online.nasgar.hubcore.hubcore.listeners;
 
 import me.clip.placeholderapi.PlaceholderAPI;
+import me.yushust.message.MessageHandler;
 import online.nasgar.hubcore.hubcore.HubCore;
 import online.nasgar.hubcore.hubcore.managers.MessageManager;
 import online.nasgar.hubcore.hubcore.managers.TabManager;
-import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
+import online.nasgar.hubcore.hubcore.utils.centermsg.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -29,6 +30,7 @@ public class PlayerListeners implements Listener {
     
     private final HubCore plugin;
     private final FileConfiguration config;
+    private MessageHandler messageManager = MessageManager.getMessageHandler();
 
     public PlayerListeners(HubCore instance, FileConfiguration config) {
         this.config = config;
@@ -37,42 +39,30 @@ public class PlayerListeners implements Listener {
 
     @EventHandler
     public void onLogin(PlayerLoginEvent event) {
+        Player player = event.getPlayer();
+        String messages = messageManager.replacing(player,"join_message");
+
         Bukkit.getScheduler().runTaskLater(plugin, () -> {
-            Player player = event.getPlayer();
             if(player == null) {
                 return;
             }
-            String name = "&f%player_name% ";
-            name = PlaceholderAPI.setPlaceholders(player, name);
             String rank = "%vault_prefix% ";
             rank = PlaceholderAPI.setPlaceholders(player, rank);
-            
-            CenteredMessage.Chat.sendCenteredMessage(player, "");
-            CenteredMessage.Chat.sendCenteredMessage(player, config.getString("ONJOIN.TITLE"));
-            CenteredMessage.Chat.sendCenteredMessage(player, "");
-            CenteredMessage.Chat.sendCenteredMessage(player, "&a&lIP &7&onasgar.online");
-            CenteredMessage.Chat.sendCenteredMessage(player, "&a&lWEB &7&ohttps://nasgar.online");
-            CenteredMessage.Chat.sendCenteredMessage(player, MessageManager.getMessageHandler()
-                                                                   .replacing(player, "ONJOIN.SHOP"));
-            CenteredMessage.Chat.sendCenteredMessage(player, "&a&lDISCORD &7&ohttps://ds.nasgar.online");
-            CenteredMessage.Chat.sendCenteredMessage(player, "");
-            CenteredMessage.Chat.sendCenteredMessage(player, MessageManager.getMessageHandler()
-                                                                   .replacing(player, "ONJOIN.ONE"));
-            CenteredMessage.Chat.sendCenteredMessage(player, "");
-            CenteredMessage.Chat.sendCenteredMessage(player, PlaceholderAPI.setPlaceholders(player,rank) + name + MessageManager.getMessageHandler()
-                                                                                 .replacing(player,
-                                                                                            "ONJOIN.TWO"));
-            
+
+            for(String message : messages.split("\n")) {
+                CenteredMessage.sendCenteredMessage(player, message.replace("%rank%", rank));
+            }
+
             TabManager manager = new TabManager(plugin, player);
             manager.setHeaders(PlaceholderAPI.setPlaceholders(player, MessageManager.getMessageHandler()
-                                     .replacingMany(player, "TAB.HEADER")));
+                                     .replacingMany(player, "tab.header")));
             
             String playerListNames = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% %player_name%");
             playerListNames = PlaceholderAPI.setPlaceholders(player, playerListNames);
             player.setPlayerListName(playerListNames);
             
             manager.setFooters(PlaceholderAPI.setPlaceholders(player, MessageManager.getMessageHandler()
-                                     .replacingMany(player, "TAB.FOOTER")));
+                                     .replacingMany(player, "tab.footer")));
             manager.showTab();
             
             
@@ -178,9 +168,9 @@ public class PlayerListeners implements Listener {
     @EventHandler
     public void onPluginLoad(PluginEnableEvent event) {
         
-        if(config.getString("LOCATION.SPAWN") == null) return;
+        if(config.getString("locations.spawn") == null) return;
         
-        World lobbyWorld = Bukkit.getServer().getWorld(config.getString("LOCATION.SPAWN").split(", ")[5]);
+        World lobbyWorld = Bukkit.getServer().getWorld(config.getString("locations.spawn").split(", ")[5]);
         
         lobbyWorld.setGameRuleValue("doDaylightCycle", "false");
         lobbyWorld.setTime(3600);
@@ -193,9 +183,9 @@ public class PlayerListeners implements Listener {
     }
     
     private void tpSpawn(Player player) {
-        if(config.getString("LOCATION.SPAWN") == null) return;
+        if(config.getString("locations.spawn") == null) return;
 
-        player.teleport(LocationUtil.parseToLocation(config.getString("LOCATION.SPAWN")));
+        player.teleport(LocationUtil.parseToLocation(config.getString("locations.spawn")));
     }
 
 }
