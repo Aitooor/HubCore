@@ -42,7 +42,7 @@ public class RegisterManager {
 
     public void registerListeners() {
         Utils.log("  &8Listeners &a✓");
-        plugin.getServer().getPluginManager().registerEvents(new ChatListeners(plugin), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new ChatListeners(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new PlayerListeners(plugin, plugin.getConfig()), plugin);
         plugin.getServer().getPluginManager().registerEvents(new ItemJoinListeners(plugin), plugin);
         plugin.getServer().getPluginManager().registerEvents(new SelectorsServersListener(plugin), plugin);
