@@ -1,15 +1,10 @@
 # DON'T MODIFY Spawn Location
-LOCATION:
-  SPAWN:
+locations:
+  spawn:
 
 # SCOREBOARD Settings and title
-SCOREBOARD:
-  TICKS: 20
-  TITLE: "&b&lHUB &8(&71&8)"
-
-# On join message title
-ONJOIN:
-  TITLE: "&b&lNASGAR &7| &fHUB &7#1"
+scoreboard:
+  ticks: 20
 
 # Menus Hubs Selector
 MENU:
