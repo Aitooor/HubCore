@@ -19,7 +19,7 @@ public class ScoreboardAdapter implements AssembleAdapter {
 
     @Override
     public String getTitle(Player player) {
-        return Utils.ct(config.getString("SCOREBOARD.TITLE"));
+        return Utils.ct(messageHandler.replacing(player,"scoreboard.title"));
     }
 
     @Override
@@ -30,7 +30,7 @@ public class ScoreboardAdapter implements AssembleAdapter {
         return Utils.translate(PlaceholderAPI.setPlaceholders(
                 player.getPlayer(),
                 messageHandler.replacingMany(
-                        player, "SCOREBOARD.LINES",
+                        player, "scoreboard.lines",
                         "%player%", playerName,
                         "%rank%",PlaceholderAPI.setPlaceholders(player, vaultPrefix))));
     }

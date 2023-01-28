@@ -31,7 +31,7 @@ public class RegisterManager {
     public void registerScoreboard() {
         Utils.log("  &8Scoreboard &a✓");
         Assemble scoreboard = new Assemble(plugin, new ScoreboardAdapter());
-        scoreboard.setTicks(config.getLong("SCOREBOARD.TICKS"));
+        scoreboard.setTicks(config.getLong("scoreboard.ticks"));
     }
 
     public void registerCMD() {
