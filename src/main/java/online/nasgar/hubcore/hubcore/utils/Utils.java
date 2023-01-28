@@ -6,29 +6,29 @@ import org.bukkit.ChatColor;
 
 import java.util.List;
 
-public interface Utils {
+public class Utils {
 
-    static void log(String... args){
+    public static void log(String... args){
         for(String str : args)
             Bukkit.getServer().getConsoleSender().sendMessage(ct(getPrefix() + str));
     }
 
-    static void logError(String... args){
+    public static void logError(String... args){
         for(String str : args){
             Bukkit.getServer().getConsoleSender().sendMessage(ct(getPrefix() + "[ERROR] &c" + str));
         }
     }
 
-    static String ct(String source){
+    public static String ct(String source){
         return ChatColor.translateAlternateColorCodes('&', source);
     }
 
-    static List<String> translate(final List<String> coll) {
+    public static List<String> translate(final List<String> coll) {
         coll.replaceAll(Utils::ct);
         return coll;
     }
 
-    static String getPrefix(){
+    public static String getPrefix(){
         HubCore hubCore = HubCore.getPlugin(HubCore.class);
         return  "[" + hubCore.getName() + "] ";
     }
