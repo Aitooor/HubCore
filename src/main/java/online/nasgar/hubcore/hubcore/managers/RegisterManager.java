@@ -14,13 +14,11 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 public class RegisterManager {
 
-    private HubCore plugin = HubCore.getInstance();
-    private FileConfiguration config;
-    private MessageManager messageManager;
+    private final HubCore plugin = HubCore.getInstance();
+    private final FileConfiguration config;
 
-    public RegisterManager(FileConfiguration config, MessageManager messageManager) {
+    public RegisterManager(FileConfiguration config) {
         this.config = config;
-        this.messageManager = messageManager;
     }
 
     public void registerLang() {
@@ -36,8 +34,8 @@ public class RegisterManager {
 
     public void registerCMD() {
         Utils.log("  &8CMDs &a✓");
-        plugin.getCommand("hubcore").setExecutor(new HubCoreCMD(plugin, messageManager));
-        plugin.getCommand("menus").setExecutor(new SelectorsCMD(plugin, messageManager));
+        plugin.getCommand("hubcore").setExecutor(new HubCoreCMD(plugin));
+        plugin.getCommand("menus").setExecutor(new SelectorsCMD());
     }
 
     public void registerListeners() {

@@ -19,12 +19,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class SelectorsCMD implements CommandExecutor {
 
-    private final HubCore plugin;
-    private MessageManager messageManager;
-
-    public SelectorsCMD(HubCore instance, MessageManager messageManager) {
-        plugin = instance;
-        this.messageManager = messageManager;
+    public SelectorsCMD() {
     }
 
     @Override
@@ -38,7 +33,7 @@ public class SelectorsCMD implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        MessageHandler messageHandler = messageManager.getMessageHandler();
+        MessageHandler messageHandler = MessageManager.getMessageHandler();
 
         FileConfiguration config = HubCore.getInstance().getConfig();
 

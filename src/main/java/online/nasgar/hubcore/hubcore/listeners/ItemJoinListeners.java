@@ -13,7 +13,6 @@ import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-
 public class ItemJoinListeners implements Listener {
     
     private final HubCore plugin;

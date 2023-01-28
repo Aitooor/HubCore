@@ -14,7 +14,7 @@ import java.io.File;
 
 public class MessageManager {
 
-    private HubCore plugin;
+    private final HubCore plugin;
     private static MessageHandler messageHandler;
 
     public MessageManager(HubCore plugin) {

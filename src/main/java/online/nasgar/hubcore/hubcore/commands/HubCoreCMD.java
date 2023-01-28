@@ -13,11 +13,9 @@ import org.bukkit.entity.Player;
 public class HubCoreCMD implements CommandExecutor {
 
     private final HubCore plugin;
-    private final MessageManager messageManager;
 
-    public HubCoreCMD(HubCore instance, MessageManager messageManager) {
+    public HubCoreCMD(HubCore instance) {
         plugin = instance;
-        this.messageManager = messageManager;
     }
 
     @Override
@@ -26,8 +24,8 @@ public class HubCoreCMD implements CommandExecutor {
             if (args.length == 0) return false;
             if (args[0].equalsIgnoreCase("reload")) {
                 plugin.reloadConfig();
-                messageManager.getMessageHandler().getSource().load("en");
-                messageManager.getMessageHandler().getSource().load("es");
+                MessageManager.getMessageHandler().getSource().load("en");
+                MessageManager.getMessageHandler().getSource().load("es");
                 Utils.log("&aReloaded completed");
                 return true;
             }
@@ -35,13 +33,13 @@ public class HubCoreCMD implements CommandExecutor {
                 Utils.log("You must be a player to perform this command.");
                 return true;
             }
-            return false;
+            return true;
         }
 
         Player player = (Player) sender;
 
         if (!player.hasPermission("hubcore.reload")) {
-            messageManager.getMessageHandler().sendReplacing(sender, "no-permissions", "%player%", sender.getName());
+            MessageManager.getMessageHandler().sendReplacing(sender, "no-permissions", "%player%", sender.getName());
             return true;
         }
 
@@ -49,18 +47,18 @@ public class HubCoreCMD implements CommandExecutor {
 
         if (args[0].equalsIgnoreCase("reload")) {
             plugin.reloadConfig();
-            messageManager.getMessageHandler().getSource().load("en");
-            messageManager.getMessageHandler().getSource().load("es");
-            messageManager.getMessageHandler().sendReplacing(sender, "reload-config", "%player%", sender.getName());
-            return true;
-        }
-
-        if (!player.hasPermission("hubcore.setspawn")) {
-            messageManager.getMessageHandler().sendReplacing(sender, "no-permissions", "%player%", sender.getName());
+            MessageManager.getMessageHandler().getSource().load("en");
+            MessageManager.getMessageHandler().getSource().load("es");
+            MessageManager.getMessageHandler().sendReplacing(sender, "reload-config", "%player%", sender.getName());
             return true;
         }
 
         if(args[0].equalsIgnoreCase("setspawn")) {
+            if (!player.hasPermission("hubcore.setspawn")) {
+                MessageManager.getMessageHandler().sendReplacing(sender, "no-permissions", "%player%", sender.getName());
+                return true;
+            }
+
             HubCore.getInstance().getConfig().set("locations.spawn", LocationUtil.parseToString(player.getLocation()));
             HubCore.getInstance().saveConfig();
             HubCore.getInstance().reloadConfig();

@@ -28,7 +28,7 @@ public class PluginManager {
 
         Utils.log("&eRegistering everything..");
         Utils.log("");
-        new RegisterManager(plugin.getConfig(), messageManager).registerAll();
+        new RegisterManager(plugin.getConfig()).registerAll();
 
         Utils.log("");
         Utils.log("&aEnabled Correctly!");

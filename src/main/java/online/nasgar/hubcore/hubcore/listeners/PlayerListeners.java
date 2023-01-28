@@ -30,7 +30,7 @@ public class PlayerListeners implements Listener {
     
     private final HubCore plugin;
     private final FileConfiguration config;
-    private MessageHandler messageManager = MessageManager.getMessageHandler();
+    private final MessageHandler messageManager = MessageManager.getMessageHandler();
 
     public PlayerListeners(HubCore instance, FileConfiguration config) {
         this.config = config;
@@ -54,15 +54,17 @@ public class PlayerListeners implements Listener {
             }
 
             TabManager manager = new TabManager(plugin, player);
-            manager.setHeaders(PlaceholderAPI.setPlaceholders(player, MessageManager.getMessageHandler()
-                                     .replacingMany(player, "tab.header")));
+            manager.setHeaders(PlaceholderAPI.setPlaceholders(
+                    player, MessageManager.getMessageHandler().replacingMany(player, "tab.header")
+            ));
             
             String playerListNames = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% %player_name%");
             playerListNames = PlaceholderAPI.setPlaceholders(player, playerListNames);
             player.setPlayerListName(playerListNames);
             
-            manager.setFooters(PlaceholderAPI.setPlaceholders(player, MessageManager.getMessageHandler()
-                                     .replacingMany(player, "tab.footer")));
+            manager.setFooters(PlaceholderAPI.setPlaceholders(
+                    player, MessageManager.getMessageHandler().replacingMany(player, "tab.footer")
+            ));
             manager.showTab();
             
             
@@ -86,9 +88,7 @@ public class PlayerListeners implements Listener {
     }
     
     @EventHandler
-    public void onQuit(PlayerQuitEvent event) {
-        event.setQuitMessage(null);
-    }
+    public void onQuit(PlayerQuitEvent event) { event.setQuitMessage(null); }
     
     @EventHandler
     public void onMove(PlayerMoveEvent event) {
@@ -142,9 +142,7 @@ public class PlayerListeners implements Listener {
     }
     
     @EventHandler
-    public void onWeather(WeatherChangeEvent event) {
-        event.setCancelled(true);
-    }
+    public void onWeather(WeatherChangeEvent event) { event.setCancelled(true); }
     
     @EventHandler
     public void onDamage(EntityDamageEvent event) {
