@@ -3,6 +3,7 @@ package online.nasgar.hubcore.hubcore.adapter;
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.yushust.message.MessageHandler;
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.managers.MessageManager;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import online.nasgar.hubcore.hubcore.managers.scoreboard.AssembleAdapter;
 import online.nasgar.hubcore.hubcore.managers.scoreboard.AssembleStyle;
@@ -14,7 +15,7 @@ import java.util.List;
 public class ScoreboardAdapter implements AssembleAdapter {
 
     private FileConfiguration config = HubCore.getInstance().getConfig();
-    private MessageHandler messageHandler = HubCore.getInstance().getMessageHandler();
+    private MessageHandler messageHandler = MessageManager.getMessageHandler();
 
     @Override
     public String getTitle(Player player) {

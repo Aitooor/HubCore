@@ -1,6 +1,7 @@
 package online.nasgar.hubcore.hubcore.listeners;
 
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.managers.MessageManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -16,7 +17,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class ItemJoinListeners implements Listener {
     
     private final HubCore plugin;
-    
+
     public ItemJoinListeners(HubCore instance) {
         plugin = instance;
     }
@@ -32,16 +33,16 @@ public class ItemJoinListeners implements Listener {
             // SERVER LIST
             ItemStack servers = new ItemStack(Material.COMPASS);
             ItemMeta serversMeta = servers.getItemMeta();
-            serversMeta.setDisplayName(plugin.getMessageHandler().replacing(player, "SERVER_LIST.NAME"));
-            serversMeta.setLore(plugin.getMessageHandler().replacingMany(player, "SERVER_LIST.LORE"));
+            serversMeta.setDisplayName(MessageManager.getMessageHandler().replacing(player, "SERVER_LIST.NAME"));
+            serversMeta.setLore(MessageManager.getMessageHandler().replacingMany(player, "SERVER_LIST.LORE"));
             servers.setItemMeta(serversMeta);
             event.getPlayer().getInventory().setItem(0, servers);
             
             // HUB LIST
             ItemStack hubs = new ItemStack(Material.BED);
             ItemMeta hubsMeta = hubs.getItemMeta();
-            hubsMeta.setDisplayName(plugin.getMessageHandler().replacing(player, "HUBS_LIST.NAME"));
-            hubsMeta.setLore(plugin.getMessageHandler().replacingMany(player, "HUBS_LIST.LORE"));
+            hubsMeta.setDisplayName(MessageManager.getMessageHandler().replacing(player, "HUBS_LIST.NAME"));
+            hubsMeta.setLore(MessageManager.getMessageHandler().replacingMany(player, "HUBS_LIST.LORE"));
             hubs.setItemMeta(hubsMeta);
             event.getPlayer().getInventory().setItem(8, hubs);
             

@@ -2,10 +2,10 @@ package online.nasgar.hubcore.hubcore.listeners;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.managers.MessageManager;
 import online.nasgar.hubcore.hubcore.managers.TabManager;
 import online.nasgar.hubcore.hubcore.utils.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
-import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.World;
@@ -28,20 +28,11 @@ import org.bukkit.potion.PotionEffectType;
 public class PlayerListeners implements Listener {
     
     private final HubCore plugin;
-    private FileConfiguration config;
-    
+    private final FileConfiguration config;
+
     public PlayerListeners(HubCore instance, FileConfiguration config) {
         this.config = config;
         plugin = instance;
-    }
-
-    @EventHandler
-    public void onChat(AsyncPlayerChatEvent event) {
-        Player player = event.getPlayer();
-        String rank = "%vault_prefix% ";
-        rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
-
-        event.setFormat(Utils.ct(PlaceholderAPI.setPlaceholders(player,rank) + player.getDisplayName() + "&7: &r" + event.getMessage()));
     }
 
     @EventHandler
@@ -61,26 +52,26 @@ public class PlayerListeners implements Listener {
             CenteredMessage.Chat.sendCenteredMessage(player, "");
             CenteredMessage.Chat.sendCenteredMessage(player, "&a&lIP &7&onasgar.online");
             CenteredMessage.Chat.sendCenteredMessage(player, "&a&lWEB &7&ohttps://nasgar.online");
-            CenteredMessage.Chat.sendCenteredMessage(player, plugin.getMessageHandler()
+            CenteredMessage.Chat.sendCenteredMessage(player, MessageManager.getMessageHandler()
                                                                    .replacing(player, "ONJOIN.SHOP"));
             CenteredMessage.Chat.sendCenteredMessage(player, "&a&lDISCORD &7&ohttps://ds.nasgar.online");
             CenteredMessage.Chat.sendCenteredMessage(player, "");
-            CenteredMessage.Chat.sendCenteredMessage(player, plugin.getMessageHandler()
+            CenteredMessage.Chat.sendCenteredMessage(player, MessageManager.getMessageHandler()
                                                                    .replacing(player, "ONJOIN.ONE"));
             CenteredMessage.Chat.sendCenteredMessage(player, "");
-            CenteredMessage.Chat.sendCenteredMessage(player, PlaceholderAPI.setPlaceholders(player,rank) + name + plugin.getMessageHandler()
+            CenteredMessage.Chat.sendCenteredMessage(player, PlaceholderAPI.setPlaceholders(player,rank) + name + MessageManager.getMessageHandler()
                                                                                  .replacing(player,
                                                                                             "ONJOIN.TWO"));
             
             TabManager manager = new TabManager(plugin, player);
-            manager.setHeaders(PlaceholderAPI.setPlaceholders(player, plugin.getMessageHandler()
+            manager.setHeaders(PlaceholderAPI.setPlaceholders(player, MessageManager.getMessageHandler()
                                      .replacingMany(player, "TAB.HEADER")));
             
             String playerListNames = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% %player_name%");
             playerListNames = PlaceholderAPI.setPlaceholders(player, playerListNames);
             player.setPlayerListName(playerListNames);
             
-            manager.setFooters(PlaceholderAPI.setPlaceholders(player, plugin.getMessageHandler()
+            manager.setFooters(PlaceholderAPI.setPlaceholders(player, MessageManager.getMessageHandler()
                                      .replacingMany(player, "TAB.FOOTER")));
             manager.showTab();
             

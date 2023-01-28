@@ -4,6 +4,7 @@ package online.nasgar.hubcore.hubcore.commands.menus;
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.yushust.message.MessageHandler;
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.managers.MessageManager;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -19,9 +20,11 @@ import org.bukkit.inventory.meta.ItemMeta;
 public class SelectorsCMD implements CommandExecutor {
 
     private final HubCore plugin;
+    private MessageManager messageManager;
 
-    public SelectorsCMD(HubCore instance) {
+    public SelectorsCMD(HubCore instance, MessageManager messageManager) {
         plugin = instance;
+        this.messageManager = messageManager;
     }
 
     @Override
@@ -35,7 +38,7 @@ public class SelectorsCMD implements CommandExecutor {
 
         Player player = (Player) sender;
 
-        MessageHandler messageHandler = plugin.getMessageHandler();
+        MessageHandler messageHandler = messageManager.getMessageHandler();
 
         FileConfiguration config = HubCore.getInstance().getConfig();
 

@@ -1,6 +1,7 @@
 package online.nasgar.hubcore.hubcore.commands;
 
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.managers.MessageManager;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.Sound;
@@ -12,9 +13,11 @@ import org.bukkit.entity.Player;
 public class HubCoreCMD implements CommandExecutor {
 
     private final HubCore plugin;
+    private final MessageManager messageManager;
 
-    public HubCoreCMD(HubCore instance) {
+    public HubCoreCMD(HubCore instance, MessageManager messageManager) {
         plugin = instance;
+        this.messageManager = messageManager;
     }
 
     @Override
@@ -23,8 +26,8 @@ public class HubCoreCMD implements CommandExecutor {
             if (args.length == 0) return false;
             if (args[0].equalsIgnoreCase("reload")) {
                 plugin.reloadConfig();
-                plugin.getMessageHandler().getSource().load("en");
-                plugin.getMessageHandler().getSource().load("es");
+                messageManager.getMessageHandler().getSource().load("en");
+                messageManager.getMessageHandler().getSource().load("es");
                 Utils.log("&aReloaded completed");
                 return true;
             }
@@ -38,7 +41,7 @@ public class HubCoreCMD implements CommandExecutor {
         Player player = (Player) sender;
 
         if (!player.hasPermission("hubcore.reload")) {
-            plugin.getMessageHandler().sendReplacing(sender, "NOPERMISSIONS.PREFIX", "%player%", sender.getName());
+            messageManager.getMessageHandler().sendReplacing(sender, "NOPERMISSIONS.PREFIX", "%player%", sender.getName());
             return true;
         }
 
@@ -46,14 +49,14 @@ public class HubCoreCMD implements CommandExecutor {
 
         if (args[0].equalsIgnoreCase("reload")) {
             plugin.reloadConfig();
-            plugin.getMessageHandler().getSource().load("en");
-            plugin.getMessageHandler().getSource().load("es");
-            plugin.getMessageHandler().sendReplacing(sender, "CONFIGRELOAD.MESSAGE", "%player%", sender.getName());
+            messageManager.getMessageHandler().getSource().load("en");
+            messageManager.getMessageHandler().getSource().load("es");
+            messageManager.getMessageHandler().sendReplacing(sender, "CONFIGRELOAD.MESSAGE", "%player%", sender.getName());
             return true;
         }
 
         if (!player.hasPermission("hubcore.setspawn")) {
-            plugin.getMessageHandler().sendReplacing(sender, "NOPERMISSIONS.PREFIX", "%player%", sender.getName());
+            messageManager.getMessageHandler().sendReplacing(sender, "NOPERMISSIONS.PREFIX", "%player%", sender.getName());
             return true;
         }
 
