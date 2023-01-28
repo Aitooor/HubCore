@@ -1,16 +1,14 @@
-#####################################################
-##TAB##
-TAB:
-  HEADER:
+tab:
+  header:
     - "&b&lNASGAR &8| &fHub &7#1"
     - "&7Server &aHub-1 &e%server_online%"
-  FOOTER:
+  footer:
     - "&7&oPlayin in Nasgar &e%bungee_total%"
     - "&b&onasgar.online"
-#####################################################
-##SCOREBOARD##
-SCOREBOARD:
-  LINES:
+
+scoreboard:
+  title: "&b&lHUB &8(&71&8)"
+  lines:
     - " &8⌚ &7%localtime_time_yyyy/MM/dd%"
     - ""
     - " &fName"
@@ -23,31 +21,30 @@ SCOREBOARD:
     - " &fGlobal &a%bungee_total%"
     - ""
     - "   &bnasgar.online"
-#####################################################
-##ON JOIN MESSAGE##
-ONJOIN:
-  ONE: "&e&oFrom Nasgar we hope you enjoy"
-  TWO: "&e&oLet's play!"
-  SHOP: "&a&lSHOP &7&ohttps://nasgar.online/shop"
-#####################################################
-##ITEM JOIN##
+
+join_message:
+  - " "
+  - "&b&lNASGAR &7| &fHUB &7#1 "
+  - " "
+  - "&a&lIP &8&l┃ &a&lWEB &7&onasgar.online"
+  - "&a&lSHOP &7&ohttps://nasgar.online/shop"
+  - "&a&lDISCORD &7&ohttps://ds.nasgar.online"
+  - " "
+  - "&aFrom Nasgar we hope you enjoy"
+  - "&eLet's start the adventure"
+
+#ITEM JOIN
 SERVER_LIST:
   NAME: "&aServer List"
   LORE:
       - "&7&oChoose a server"
       - "&7&oto play on"
-FLY_ITEM:
-  NAME: "&aFly Toggle"
-  LORE:
-      - "&7&oToggle fly mode"
-      - "&7&oto on or off"
 HUBS_LIST:
   NAME: "&aHubs List"
   LORE:
       - "&7&oChoose a hub"
       - "&7&oto go on"
-#####################################################
-##MENUS##
+#MENUS
 MENUS:
   CLOSE: "&c&oClose"
   GLASSES: "&7&oNasgar"
@@ -113,35 +110,6 @@ MENUS:
         - " &fMax online &a500"
         - " &fStatus &aOnline"
 
-PREMIUM:
-  TITLE: "&0Premium Selection"
-  ENABLE:
-    NAME: "&a&lENABLE PREMIUM"
-    LORE:
-      - "&r"
-      - "&fThis is use to enable premium"
-      - "&cOnly use it if you are premium user"
-      - "&r"
-      - "&7This means that you have bought the game"
-  CANCEL:
-    NAME: "&c&lCANCEL PREMIUM"
-    LORE:
-      - "&r"
-      - "&fIf you are not a premium user cancel"
-      - "&aThis means you haven't bought the game"
-      - "&r"
-      - "&7Click this to close this message"
-
-#####################################################
-##FLY##
-FLY:
-  TOGGLE_OFF: "&b&lNASGAR &fYour fly mode was toggled &coff"
-  TOGGLE_ON: "&b&lNASGAR &fYour fly mode was toggled &aon"
-#####################################################
-##ERROR/WARN/INFO MESSAGES##
-NOPERMISSIONS:
-  PREFIX: "&b&lNASGAR &cYou don't have permissions"
-CONFIGRELOAD:
-  MESSAGE: "&b&lHUBCORE &aConfig reloaded"
-RELOAD:
-  COMMAND: "&a/hc reload &7- &fHubCore reload command"
+#ERROR/WARN/INFO MESSAGES
+no-permissions: "&b&lNASGAR &cYou don't have permissions"
+reload-config: "&b&lHUBCORE &aConfig reloaded"
