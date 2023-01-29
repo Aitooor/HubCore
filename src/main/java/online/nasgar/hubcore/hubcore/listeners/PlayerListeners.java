@@ -50,9 +50,9 @@ public class PlayerListeners implements Listener {
 
             for(String message : messages.split("\n")) {
                 CenteredMessage.sendCenteredMessage(player,
-                        PlaceholderAPI.setPlaceholders(
-                                player, message.replace("%rank%", PlaceholderAPI.setPlaceholders(player, "%vault_prefix%"))
-                        )
+                    PlaceholderAPI.setPlaceholders(
+                            player, message.replace("%rank%", PlaceholderAPI.setPlaceholders(player, "%vault_prefix%"))
+                    )
                 );
             }
 
