@@ -7,11 +7,9 @@ import org.bukkit.Bukkit;
 public class PluginManager {
 
     private final HubCore plugin;
-    private final MessageManager messageManager;
 
-    public PluginManager(HubCore plugin, MessageManager messageManager) {
+    public PluginManager(HubCore plugin) {
         this.plugin = plugin;
-        this.messageManager = messageManager;
     }
 
     public void setupPlugin() {

@@ -13,7 +13,7 @@ public final class HubCore extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        new PluginManager(this, messageManager).setupPlugin();
+        new PluginManager(this).setupPlugin();
     }
 
     @Override
