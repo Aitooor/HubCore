@@ -23,9 +23,7 @@ public class MessageManager {
 
     public void setupMessages() {
         File langFile = new File(plugin.getDataFolder(), "lang");
-        if (!langFile.exists()) {
-            langFile.mkdir();
-        }
+        if (!langFile.exists()) langFile.mkdir();
 
         MessageProvider messageProvider = MessageProvider
                 .create(
