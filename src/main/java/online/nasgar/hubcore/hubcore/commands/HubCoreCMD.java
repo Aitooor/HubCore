@@ -45,6 +45,11 @@ public class HubCoreCMD implements CommandExecutor {
 
         if (args.length == 0) return false;
 
+        if (!player.hasPermission("hubcore.admin")) {
+            MessageManager.getMessageHandler().sendReplacing(sender, "basis.no_permissions", "%player%", sender.getName());
+            return true;
+        }
+
         if (args[0].equalsIgnoreCase("reload")) {
             plugin.reloadConfig();
             MessageManager.getMessageHandler().getSource().load("en");
@@ -54,16 +59,11 @@ public class HubCoreCMD implements CommandExecutor {
         }
 
         if(args[0].equalsIgnoreCase("setspawn")) {
-            if (!player.hasPermission("hubcore.setspawn")) {
-                MessageManager.getMessageHandler().sendReplacing(sender, "basis.no_permissions", "%player%", sender.getName());
-                return true;
-            }
-
             HubCore.getInstance().getConfig().set("locations.spawn", LocationUtil.parseToString(player.getLocation()));
             HubCore.getInstance().saveConfig();
             HubCore.getInstance().reloadConfig();
 
-            player.sendMessage(Utils.translate("&aThe spawn has been set."));
+            MessageManager.getMessageHandler().send(player, "basis.set_spawn");
             player.playSound(player.getLocation(), Sound.LEVEL_UP, 1.0f, 1.0f);
             return true;
         }

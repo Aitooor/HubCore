@@ -1,6 +1,7 @@
 basis:
   no_permissions: "&b&lNASGAR &cYou don't have permissions"
   reload_config: "&b&lHUBCORE &aConfig reloaded"
+  set_spawn: "&b&lHUBCORE &aThe spawn has been set"
 
 tab:
   header:
