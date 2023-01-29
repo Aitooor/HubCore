@@ -1,12 +1,8 @@
 # DON'T MODIFY Spawn Location
 locations:
   spawn:
-
-# SCOREBOARD Settings and title
 scoreboard:
   ticks: 20
-
-# Menus Hubs Selector
 MENU:
   HUBS:
     HUB-1:
