@@ -7,7 +7,7 @@ import online.nasgar.hubcore.hubcore.commands.menus.SelectorsCMD;
 import online.nasgar.hubcore.hubcore.listeners.ChatListeners;
 import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
-import online.nasgar.hubcore.hubcore.listeners.menus.SelectorsServersListener;
+import online.nasgar.hubcore.hubcore.listeners.menus.ServersSelectorListener;
 import online.nasgar.hubcore.hubcore.managers.scoreboard.Assemble;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -43,7 +43,7 @@ public class RegisterManager {
         plugin.getServer().getPluginManager().registerEvents(new ChatListeners(), plugin);
         plugin.getServer().getPluginManager().registerEvents(new PlayerListeners(plugin, plugin.getConfig()), plugin);
         plugin.getServer().getPluginManager().registerEvents(new ItemJoinListeners(plugin), plugin);
-        plugin.getServer().getPluginManager().registerEvents(new SelectorsServersListener(plugin), plugin);
+        plugin.getServer().getPluginManager().registerEvents(new ServersSelectorListener(plugin), plugin);
     }
 
     public void registerAll() {

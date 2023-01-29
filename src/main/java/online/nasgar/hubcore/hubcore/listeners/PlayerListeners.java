@@ -3,6 +3,7 @@ package online.nasgar.hubcore.hubcore.listeners;
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.yushust.message.MessageHandler;
 import online.nasgar.hubcore.hubcore.HubCore;
+import online.nasgar.hubcore.hubcore.adapter.TablistAdapter;
 import online.nasgar.hubcore.hubcore.managers.MessageManager;
 import online.nasgar.hubcore.hubcore.managers.TabManager;
 import online.nasgar.hubcore.hubcore.utils.centermsg.CenteredMessage;
@@ -46,27 +47,16 @@ public class PlayerListeners implements Listener {
             if(player == null) {
                 return;
             }
-            String rank = "%vault_prefix%";
-            rank = PlaceholderAPI.setPlaceholders(player, rank);
 
             for(String message : messages.split("\n")) {
-                CenteredMessage.sendCenteredMessage(player, PlaceholderAPI.setPlaceholders(player, message.replace("%rank%", rank)));
+                CenteredMessage.sendCenteredMessage(player,
+                        PlaceholderAPI.setPlaceholders(
+                                player, message.replace("%rank%", PlaceholderAPI.setPlaceholders(player, "%vault_prefix%"))
+                        )
+                );
             }
 
-            TabManager manager = new TabManager(plugin, player);
-            manager.setHeaders(PlaceholderAPI.setPlaceholders(
-                    player, MessageManager.getMessageHandler().replacingMany(player, "tab.header")
-            ));
-            
-            String playerListNames = PlaceholderAPI.setPlaceholders(player, "%vault_prefix% %player_name%");
-            playerListNames = PlaceholderAPI.setPlaceholders(player, playerListNames);
-            player.setPlayerListName(playerListNames);
-            
-            manager.setFooters(PlaceholderAPI.setPlaceholders(
-                    player, MessageManager.getMessageHandler().replacingMany(player, "tab.footer")
-            ));
-            manager.showTab();
-            
+            new TablistAdapter(plugin).loadTablist(player);
             
             player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
         }, 2);
@@ -101,28 +91,28 @@ public class PlayerListeners implements Listener {
     
     @EventHandler
     public void onPlace(BlockPlaceEvent event) {
-        if(!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
+        if(!event.getPlayer().hasPermission("hubcore.admin")) {
             event.setCancelled(true);
         }
     }
     
     @EventHandler
     public void onBreak(BlockBreakEvent event) {
-        if(!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
+        if(!event.getPlayer().hasPermission("hubcore.admin")) {
             event.setCancelled(true);
         }
     }
     
     @EventHandler
     public void onPlayerDropItem(PlayerDropItemEvent event) {
-        if(!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
+        if(!event.getPlayer().hasPermission("hubcore.admin")) {
             event.setCancelled(true);
         }
     }
     
     @EventHandler
     public void onPlayerPickItem(PlayerPickupItemEvent event) {
-        if(!event.getPlayer().getGameMode().equals(GameMode.CREATIVE)) {
+        if(!event.getPlayer().hasPermission("hubcore.admin")) {
             event.setCancelled(true);
             event.getItem().remove();
         }
@@ -130,7 +120,7 @@ public class PlayerListeners implements Listener {
     
     @EventHandler
     public void onClick(InventoryClickEvent event) {
-        if(!event.getWhoClicked().getGameMode().equals(GameMode.CREATIVE)) {
+        if(!event.getWhoClicked().hasPermission("hubcore.admin")) {
             event.setCancelled(true);
         }
     }
@@ -159,6 +149,7 @@ public class PlayerListeners implements Listener {
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event) {
         if(event.getPlayer() != null) {
+            if(config.getString("locations.spawn") == null) return;
             tpSpawn(event.getPlayer());
         }
     }
