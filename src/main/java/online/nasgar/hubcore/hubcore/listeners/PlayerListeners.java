@@ -46,11 +46,11 @@ public class PlayerListeners implements Listener {
             if(player == null) {
                 return;
             }
-            String rank = "%vault_prefix% ";
+            String rank = "%vault_prefix%";
             rank = PlaceholderAPI.setPlaceholders(player, rank);
 
             for(String message : messages.split("\n")) {
-                CenteredMessage.sendCenteredMessage(player, message.replace("%rank%", rank));
+                CenteredMessage.sendCenteredMessage(player, PlaceholderAPI.setPlaceholders(player, message.replace("%rank%", rank)));
             }
 
             TabManager manager = new TabManager(plugin, player);
