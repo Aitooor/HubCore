@@ -11,11 +11,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 
-public class SelectorsServersListener implements Listener {
+public class ServersSelectorListener implements Listener {
     
     private final HubCore plugin;
     
-    public SelectorsServersListener(HubCore instance) {
+    public ServersSelectorListener(HubCore instance) {
         plugin = instance;
     }
     
