@@ -49,7 +49,7 @@ public class HubCoreCMD implements CommandExecutor {
             plugin.reloadConfig();
             MessageManager.getMessageHandler().getSource().load("en");
             MessageManager.getMessageHandler().getSource().load("es");
-            MessageManager.getMessageHandler().sendReplacing(sender, "basis.reload-config", "%player%", sender.getName());
+            MessageManager.getMessageHandler().sendReplacing(sender, "basis.reload_config", "%player%", sender.getName());
             return true;
         }
 
