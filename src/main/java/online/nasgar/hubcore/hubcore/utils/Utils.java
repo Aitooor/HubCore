@@ -8,16 +8,7 @@ import java.util.List;
 
 public class Utils {
 
-    public static void log(String... args){
-        for(String str : args)
-            Bukkit.getServer().getConsoleSender().sendMessage(translate(getPrefix() + str));
-    }
-
-    public static void logError(String... args){
-        for(String str : args){
-            Bukkit.getServer().getConsoleSender().sendMessage(translate(getPrefix() + "[ERROR] &c" + str));
-        }
-    }
+    public static String getPrefix(){ return  "[" + HubCore.getPlugin(HubCore.class).getName() + "] "; }
 
     public static String translate(String source){
         return ChatColor.translateAlternateColorCodes('&', source);
@@ -28,9 +19,15 @@ public class Utils {
         return coll;
     }
 
-    public static String getPrefix(){
-        HubCore hubCore = HubCore.getPlugin(HubCore.class);
-        return  "[" + hubCore.getName() + "] ";
+    public static void log(String... args){
+        for(String str : args)
+            Bukkit.getServer().getConsoleSender().sendMessage(translate(getPrefix() + str));
+    }
+
+    public static void logError(String... args){
+        for(String str : args){
+            Bukkit.getServer().getConsoleSender().sendMessage(translate(getPrefix() + "[ERROR] &c" + str));
+        }
     }
 
 }
