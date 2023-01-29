@@ -37,15 +37,15 @@ join_message:
 SERVER_LIST:
   NAME: "&aServer List"
   LORE:
-      - ""
-      - "&7&oClick to choose a"
-      - "&7&oserver to play on"
+    - ""
+    - "&7&oClick to choose a"
+    - "&7&oserver to play on"
 HUBS_LIST:
   NAME: "&aHubs List"
   LORE:
     - ""
-      - "&7&oClick to choose a"
-      - "&7&ohub to go on"
+    - "&7&oClick to choose a"
+    - "&7&ohub to go on"
 #MENUS
 MENUS:
   CLOSE: "&c&oClose"
