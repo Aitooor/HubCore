@@ -25,7 +25,7 @@ public class SelectorsHubsListener implements Listener {
     public void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         // HUBS SELECTOR
-        if(event.getView().getTitle().equals(messageHandler.replacing(player, "MENUS.HUBS.TITLE")) && event.getCurrentItem() != null) {
+        if(event.getView().getTitle().equals(messageHandler.replacing(player, "menus.hubs.titke")) && event.getCurrentItem() != null) {
             switch(event.getRawSlot()) {
                 case 40: // Close Inv
                     break;

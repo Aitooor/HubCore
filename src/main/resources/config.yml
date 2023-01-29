@@ -3,9 +3,9 @@ locations:
   spawn:
 scoreboard:
   ticks: 20
-MENU:
-  HUBS:
-    HUB-1:
-      MATERIAL: "EYE_OF_ENDER"
-    HUB-2:
-      MATERIAL: "ENDER_PEARL"
+menus:
+  hubs:
+    Hub-1:
+      material: "EYE_OF_ENDER"
+    Hub-2:
+      material: "ENDER_PEARL"

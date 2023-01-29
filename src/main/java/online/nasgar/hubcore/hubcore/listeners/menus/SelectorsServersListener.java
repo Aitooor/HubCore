@@ -25,7 +25,7 @@ public class SelectorsServersListener implements Listener {
     public void onClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         // SERVER SELECTOR
-        if(event.getView().getTitle().equals(messageHandler.replacing(player, "MENUS.SERVERS.TITLE")) && event.getCurrentItem() != null) {
+        if(event.getView().getTitle().equals(messageHandler.replacing(player, "menus.servers.title")) && event.getCurrentItem() != null) {
             switch(event.getRawSlot()) {
                 case 40: // Close Inv
                     break;
