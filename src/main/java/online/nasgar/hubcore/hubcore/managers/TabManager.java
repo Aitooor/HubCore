@@ -40,8 +40,8 @@ public class TabManager {
                         cancel();
                         return;
                     }
-                    String header = Utils.ct(PlaceholderAPI.setPlaceholders(player, headers));
-                    String footer = Utils.ct(PlaceholderAPI.setPlaceholders(player, footers));
+                    String header = Utils.translate(PlaceholderAPI.setPlaceholders(player, headers));
+                    String footer = Utils.translate(PlaceholderAPI.setPlaceholders(player, footers));
                     PacketPlayOutPlayerListHeaderFooter headerFooter = new PacketPlayOutPlayerListHeaderFooter(
                             IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + header + "\"}"));
                     Field b = headerFooter.getClass().getDeclaredField("b");

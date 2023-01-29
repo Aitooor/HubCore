@@ -63,7 +63,7 @@ public class HubCoreCMD implements CommandExecutor {
             HubCore.getInstance().saveConfig();
             HubCore.getInstance().reloadConfig();
 
-            player.sendMessage(Utils.ct("&aThe spawn has been set."));
+            player.sendMessage(Utils.translate("&aThe spawn has been set."));
             player.playSound(player.getLocation(), Sound.LEVEL_UP, 1.0f, 1.0f);
             return true;
         }

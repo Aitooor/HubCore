@@ -10,21 +10,21 @@ public class Utils {
 
     public static void log(String... args){
         for(String str : args)
-            Bukkit.getServer().getConsoleSender().sendMessage(ct(getPrefix() + str));
+            Bukkit.getServer().getConsoleSender().sendMessage(translate(getPrefix() + str));
     }
 
     public static void logError(String... args){
         for(String str : args){
-            Bukkit.getServer().getConsoleSender().sendMessage(ct(getPrefix() + "[ERROR] &c" + str));
+            Bukkit.getServer().getConsoleSender().sendMessage(translate(getPrefix() + "[ERROR] &c" + str));
         }
     }
 
-    public static String ct(String source){
+    public static String translate(String source){
         return ChatColor.translateAlternateColorCodes('&', source);
     }
 
     public static List<String> translate(final List<String> coll) {
-        coll.replaceAll(Utils::ct);
+        coll.replaceAll(Utils::translate);
         return coll;
     }
 

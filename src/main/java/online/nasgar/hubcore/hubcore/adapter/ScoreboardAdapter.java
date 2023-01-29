@@ -16,7 +16,7 @@ public class ScoreboardAdapter implements AssembleAdapter {
 
     @Override
     public String getTitle(Player player) {
-        return Utils.ct(messageHandler.replacing(player,"scoreboard.title"));
+        return Utils.translate(messageHandler.replacing(player,"scoreboard.title"));
     }
 
     @Override

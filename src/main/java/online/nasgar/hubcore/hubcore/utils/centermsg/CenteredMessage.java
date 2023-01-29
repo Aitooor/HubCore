@@ -8,7 +8,7 @@ public class CenteredMessage {
 
     public static void sendCenteredMessage(Player player, String message){
         if(message == null || message.equals("")) player.sendMessage("");
-        message = Utils.ct(message);
+        message = Utils.translate(message);
 
         int messagePxSize = 0;
         boolean previousCode = false;

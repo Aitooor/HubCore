@@ -18,6 +18,6 @@ public class ChatListeners implements Listener {
         String rank = "%vault_prefix% ";
         rank = PlaceholderAPI.setPlaceholders(event.getPlayer(), rank);
 
-        event.setFormat(Utils.ct(PlaceholderAPI.setPlaceholders(player,rank) + player.getDisplayName() + "&7: &r" + event.getMessage()));
+        event.setFormat(Utils.translate(PlaceholderAPI.setPlaceholders(player,rank) + player.getDisplayName() + "&7: &r" + event.getMessage()));
     }
 }
