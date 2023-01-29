@@ -13,12 +13,14 @@ public final class HubCore extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-
         new PluginManager(this, messageManager).setupPlugin();
     }
 
     @Override
-    public void onDisable() { Utils.log("&cDisabled Correctly"); }
+    public void onDisable() {
+        instance = null;
+        Utils.log("&cDisabled Correctly");
+    }
 
     public static HubCore getInstance() {
         return instance;
