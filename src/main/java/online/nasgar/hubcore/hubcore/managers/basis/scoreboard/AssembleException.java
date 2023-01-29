@@ -1,4 +1,4 @@
-package online.nasgar.hubcore.hubcore.managers.scoreboard;
+package online.nasgar.hubcore.hubcore.managers.basis.scoreboard;
 
 public class AssembleException extends RuntimeException {
 

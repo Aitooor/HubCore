@@ -1,7 +1,7 @@
 package online.nasgar.hubcore.hubcore.commands;
 
 import online.nasgar.hubcore.hubcore.HubCore;
-import online.nasgar.hubcore.hubcore.managers.MessageManager;
+import online.nasgar.hubcore.hubcore.managers.basis.MessageManager;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.Sound;

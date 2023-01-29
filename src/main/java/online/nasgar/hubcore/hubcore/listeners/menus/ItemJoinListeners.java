@@ -1,7 +1,7 @@
-package online.nasgar.hubcore.hubcore.listeners;
+package online.nasgar.hubcore.hubcore.listeners.menus;
 
 import online.nasgar.hubcore.hubcore.HubCore;
-import online.nasgar.hubcore.hubcore.managers.MessageManager;
+import online.nasgar.hubcore.hubcore.managers.basis.MessageManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

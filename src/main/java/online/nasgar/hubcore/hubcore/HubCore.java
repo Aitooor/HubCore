@@ -1,6 +1,6 @@
 package online.nasgar.hubcore.hubcore;
 
-import online.nasgar.hubcore.hubcore.managers.MessageManager;
+import online.nasgar.hubcore.hubcore.managers.basis.MessageManager;
 import online.nasgar.hubcore.hubcore.managers.PluginManager;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.plugin.java.JavaPlugin;

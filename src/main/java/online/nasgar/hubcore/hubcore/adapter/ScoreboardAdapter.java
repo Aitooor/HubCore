@@ -2,10 +2,10 @@ package online.nasgar.hubcore.hubcore.adapter;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import me.yushust.message.MessageHandler;
-import online.nasgar.hubcore.hubcore.managers.MessageManager;
+import online.nasgar.hubcore.hubcore.managers.basis.MessageManager;
 import online.nasgar.hubcore.hubcore.utils.Utils;
-import online.nasgar.hubcore.hubcore.managers.scoreboard.AssembleAdapter;
-import online.nasgar.hubcore.hubcore.managers.scoreboard.AssembleStyle;
+import online.nasgar.hubcore.hubcore.managers.basis.scoreboard.AssembleAdapter;
+import online.nasgar.hubcore.hubcore.managers.basis.scoreboard.AssembleStyle;
 import org.bukkit.entity.Player;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package online.nasgar.hubcore.hubcore.managers.tablist;
+package online.nasgar.hubcore.hubcore.managers.basis;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
@@ -14,7 +14,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 
-public class TabManager {
+public class TablistManager {
     
     private String headers;
     private String footers;
@@ -23,7 +23,7 @@ public class TabManager {
     
     private final Player player;
     
-    public TabManager(HubCore plugin, Player player) {
+    public TablistManager(HubCore plugin, Player player) {
         this.plugin = plugin;
         this.player = player;
     }

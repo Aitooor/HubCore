@@ -1,6 +1,6 @@
-package online.nasgar.hubcore.hubcore.managers.scoreboard;
+package online.nasgar.hubcore.hubcore.managers.basis.scoreboard;
 
-import online.nasgar.hubcore.hubcore.managers.scoreboard.events.AssembleBoardCreateEvent;
+import online.nasgar.hubcore.hubcore.managers.basis.scoreboard.events.AssembleBoardCreateEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

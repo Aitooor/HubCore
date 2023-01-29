@@ -1,4 +1,4 @@
-package online.nasgar.hubcore.hubcore.managers.tablist;
+package online.nasgar.hubcore.hubcore.managers.basis;
 
 import java.util.ArrayList;
 import java.util.Collections;

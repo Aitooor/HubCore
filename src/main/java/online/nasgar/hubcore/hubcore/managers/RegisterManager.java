@@ -5,11 +5,12 @@ import online.nasgar.hubcore.hubcore.adapter.ScoreboardAdapter;
 import online.nasgar.hubcore.hubcore.commands.HubCoreCMD;
 import online.nasgar.hubcore.hubcore.commands.menus.SelectorsCMD;
 import online.nasgar.hubcore.hubcore.listeners.ChatListeners;
-import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
+import online.nasgar.hubcore.hubcore.listeners.menus.ItemJoinListeners;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.listeners.menus.ServersSelectorListener;
-import online.nasgar.hubcore.hubcore.managers.scoreboard.Assemble;
-import online.nasgar.hubcore.hubcore.managers.tablist.TabCompleterManager;
+import online.nasgar.hubcore.hubcore.managers.basis.MessageManager;
+import online.nasgar.hubcore.hubcore.managers.basis.TabCompleterManager;
+import online.nasgar.hubcore.hubcore.managers.basis.scoreboard.Assemble;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.configuration.file.FileConfiguration;
 

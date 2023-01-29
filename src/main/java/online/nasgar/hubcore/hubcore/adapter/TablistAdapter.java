@@ -2,8 +2,8 @@ package online.nasgar.hubcore.hubcore.adapter;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import online.nasgar.hubcore.hubcore.HubCore;
-import online.nasgar.hubcore.hubcore.managers.MessageManager;
-import online.nasgar.hubcore.hubcore.managers.tablist.TabManager;
+import online.nasgar.hubcore.hubcore.managers.basis.MessageManager;
+import online.nasgar.hubcore.hubcore.managers.basis.TablistManager;
 import org.bukkit.entity.Player;
 
 public class TablistAdapter {
@@ -15,7 +15,7 @@ public class TablistAdapter {
     }
 
     public void loadTablist(Player player) {
-        TabManager manager = new TabManager(plugin, player);
+        TablistManager manager = new TablistManager(plugin, player);
         manager.setHeaders(PlaceholderAPI.setPlaceholders(
                 player, MessageManager.getMessageHandler().replacingMany(player, "tab.header")
         ));

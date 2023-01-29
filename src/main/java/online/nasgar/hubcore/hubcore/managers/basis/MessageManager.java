@@ -1,4 +1,4 @@
-package online.nasgar.hubcore.hubcore.managers;
+package online.nasgar.hubcore.hubcore.managers.basis;
 
 import me.yushust.message.MessageHandler;
 import me.yushust.message.MessageProvider;

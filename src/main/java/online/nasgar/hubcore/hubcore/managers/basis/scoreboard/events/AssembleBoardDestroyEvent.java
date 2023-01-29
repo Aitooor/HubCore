@@ -1,18 +1,18 @@
-package online.nasgar.hubcore.hubcore.managers.scoreboard.events;
+package online.nasgar.hubcore.hubcore.managers.basis.scoreboard.events;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class AssembleBoardCreateEvent extends Event implements Cancellable {
+public class AssembleBoardDestroyEvent extends Event implements Cancellable {
 
     public static HandlerList handlerList = new HandlerList();
 
     private Player player;
     private boolean cancelled = false;
-    
-    public AssembleBoardCreateEvent(Player player) {
+
+    public AssembleBoardDestroyEvent(Player player) {
         this.player = player;
     }
 
@@ -26,7 +26,7 @@ public class AssembleBoardCreateEvent extends Event implements Cancellable {
     }
 
     public static void setHandlerList(HandlerList handlerList) {
-        AssembleBoardCreateEvent.handlerList = handlerList;
+        AssembleBoardDestroyEvent.handlerList = handlerList;
     }
 
     public Player getPlayer() {

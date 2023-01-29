@@ -4,7 +4,7 @@ import me.clip.placeholderapi.PlaceholderAPI;
 import me.yushust.message.MessageHandler;
 import online.nasgar.hubcore.hubcore.HubCore;
 import online.nasgar.hubcore.hubcore.adapter.TablistAdapter;
-import online.nasgar.hubcore.hubcore.managers.MessageManager;
+import online.nasgar.hubcore.hubcore.managers.basis.MessageManager;
 import online.nasgar.hubcore.hubcore.utils.centermsg.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import org.bukkit.Bukkit;
