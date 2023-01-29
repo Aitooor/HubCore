@@ -9,6 +9,7 @@ import online.nasgar.hubcore.hubcore.listeners.ItemJoinListeners;
 import online.nasgar.hubcore.hubcore.listeners.PlayerListeners;
 import online.nasgar.hubcore.hubcore.listeners.menus.ServersSelectorListener;
 import online.nasgar.hubcore.hubcore.managers.scoreboard.Assemble;
+import online.nasgar.hubcore.hubcore.managers.tablist.TabCompleterManager;
 import online.nasgar.hubcore.hubcore.utils.Utils;
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -46,10 +47,17 @@ public class RegisterManager {
         plugin.getServer().getPluginManager().registerEvents(new ServersSelectorListener(plugin), plugin);
     }
 
+    public void registerTabCompleter() {
+        TabCompleterManager tc = new TabCompleterManager();
+        plugin.getCommand("hubcore").setTabCompleter(tc);
+        plugin.getCommand("menus").setTabCompleter(tc);
+    }
+
     public void registerAll() {
         this.registerLang();
         this.registerCMD();
         this.registerListeners();
         this.registerScoreboard();
+        this.registerTabCompleter();
     }
 }

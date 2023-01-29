@@ -5,7 +5,6 @@ import me.yushust.message.MessageHandler;
 import online.nasgar.hubcore.hubcore.HubCore;
 import online.nasgar.hubcore.hubcore.adapter.TablistAdapter;
 import online.nasgar.hubcore.hubcore.managers.MessageManager;
-import online.nasgar.hubcore.hubcore.managers.TabManager;
 import online.nasgar.hubcore.hubcore.utils.centermsg.CenteredMessage;
 import online.nasgar.hubcore.hubcore.utils.LocationUtil;
 import org.bukkit.Bukkit;

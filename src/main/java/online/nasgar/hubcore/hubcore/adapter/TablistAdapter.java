@@ -3,7 +3,7 @@ package online.nasgar.hubcore.hubcore.adapter;
 import me.clip.placeholderapi.PlaceholderAPI;
 import online.nasgar.hubcore.hubcore.HubCore;
 import online.nasgar.hubcore.hubcore.managers.MessageManager;
-import online.nasgar.hubcore.hubcore.managers.TabManager;
+import online.nasgar.hubcore.hubcore.managers.tablist.TabManager;
 import org.bukkit.entity.Player;
 
 public class TablistAdapter {

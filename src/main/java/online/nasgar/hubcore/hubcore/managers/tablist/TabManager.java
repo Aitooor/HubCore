@@ -1,4 +1,4 @@
-package online.nasgar.hubcore.hubcore.managers;
+package online.nasgar.hubcore.hubcore.managers.tablist;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.minecraft.server.v1_8_R3.IChatBaseComponent;
