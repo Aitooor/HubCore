@@ -1,3 +1,7 @@
+basis:
+  no_permissions: "&b&lNASGAR &cYou don't have permissions"
+  reload_config: "&b&lHUBCORE &aConfig reloaded"
+
 tab:
   header:
     - "&b&lNASGAR &8| &fHub &7#1"
@@ -33,20 +37,20 @@ join_message:
   - "&eFrom Nasgar we hope you enjoy"
   - "%rank% %player_name% &bLet's play!"
 
-#ITEM JOIN
-server_list:
-  name: "&aServer List"
-  lore:
-    - ""
-    - "&7&oClick to choose a"
-    - "&7&oserver to play on"
-hubs_list:
-  name: "&aHubs List"
-  lore:
-    - ""
-    - "&7&oClick to choose a"
-    - "&7&ohub to go on"
-#MENUS
+items_join:
+  server_list:
+    name: "&aServer List"
+    lore:
+      - ""
+      - "&7&oClick to choose a"
+      - "&7&oserver to play on"
+  hubs_list:
+    name: "&aHubs List"
+    lore:
+      - ""
+      - "&7&oClick to choose a"
+      - "&7&ohub to go on"
+
 menus:
   close: "&c&oClose"
   glasses: "&7&oNasgar"
@@ -111,7 +115,3 @@ menus:
         - " &fOnline &a%online%"
         - " &fMax online &a500"
         - " &fStatus &aOnline"
-
-#ERROR/WARN/INFO MESSAGES
-no-permissions: "&b&lNASGAR &cYou don't have permissions"
-reload-config: "&b&lHUBCORE &aConfig reloaded"

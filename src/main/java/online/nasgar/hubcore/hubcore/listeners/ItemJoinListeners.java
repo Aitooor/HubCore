@@ -32,16 +32,16 @@ public class ItemJoinListeners implements Listener {
             // SERVER LIST
             ItemStack servers = new ItemStack(Material.COMPASS);
             ItemMeta serversMeta = servers.getItemMeta();
-            serversMeta.setDisplayName(MessageManager.getMessageHandler().replacing(player, "server_list.name"));
-            serversMeta.setLore(MessageManager.getMessageHandler().replacingMany(player, "server_list.lore"));
+            serversMeta.setDisplayName(MessageManager.getMessageHandler().replacing(player, "items_join.server_list.name"));
+            serversMeta.setLore(MessageManager.getMessageHandler().replacingMany(player, "items_join.server_list.lore"));
             servers.setItemMeta(serversMeta);
             event.getPlayer().getInventory().setItem(0, servers);
             
             // HUB LIST
             ItemStack hubs = new ItemStack(Material.BED);
             ItemMeta hubsMeta = hubs.getItemMeta();
-            hubsMeta.setDisplayName(MessageManager.getMessageHandler().replacing(player, "hubs_list.name"));
-            hubsMeta.setLore(MessageManager.getMessageHandler().replacingMany(player, "hubs_list.lore"));
+            hubsMeta.setDisplayName(MessageManager.getMessageHandler().replacing(player, "items_join.hubs_list.name"));
+            hubsMeta.setLore(MessageManager.getMessageHandler().replacingMany(player, "items_join.hubs_list.lore"));
             hubs.setItemMeta(hubsMeta);
             event.getPlayer().getInventory().setItem(8, hubs);
             

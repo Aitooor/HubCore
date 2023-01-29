@@ -39,7 +39,7 @@ public class HubCoreCMD implements CommandExecutor {
         Player player = (Player) sender;
 
         if (!player.hasPermission("hubcore.reload")) {
-            MessageManager.getMessageHandler().sendReplacing(sender, "no-permissions", "%player%", sender.getName());
+            MessageManager.getMessageHandler().sendReplacing(sender, "basis.no_permissions", "%player%", sender.getName());
             return true;
         }
 
@@ -49,13 +49,13 @@ public class HubCoreCMD implements CommandExecutor {
             plugin.reloadConfig();
             MessageManager.getMessageHandler().getSource().load("en");
             MessageManager.getMessageHandler().getSource().load("es");
-            MessageManager.getMessageHandler().sendReplacing(sender, "reload-config", "%player%", sender.getName());
+            MessageManager.getMessageHandler().sendReplacing(sender, "basis.reload-config", "%player%", sender.getName());
             return true;
         }
 
         if(args[0].equalsIgnoreCase("setspawn")) {
             if (!player.hasPermission("hubcore.setspawn")) {
-                MessageManager.getMessageHandler().sendReplacing(sender, "no-permissions", "%player%", sender.getName());
+                MessageManager.getMessageHandler().sendReplacing(sender, "basis.no_permissions", "%player%", sender.getName());
                 return true;
             }
 
